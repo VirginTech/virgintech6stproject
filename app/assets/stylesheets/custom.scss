@@ -1,3 +1,97 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*==========================================
+ 共通のスタイル
+===========================================*/
+header {
+  background:#FF6347;
+  height:70px;
+  .logo{
+    color:#fff;
+    font-size:20px;
+    line-height: 2.0em;
+    font-weight: bold;
+    font-family: 'Georgia';
+    font-style: italic;
+    text-shadow: 5px 5px 0 rgba(0,0,0,.2);
+    margin-left:10px;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  .login-btn{
+    float: right;
+    margin: 0.5px 2.0px;
+    .signup {
+      line-height: 1.5em;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+footer{
+  background:#000;
+  height:100px;
+  text-align:center;
+  .copyright{
+    color:#fff;
+    font-size: 10px;
+    line-height: 2.0em;
+  }
+}
+/*=============================================
+タブレット向けレイアウトの指定
+===============================================*/
+@media only screen and (min-width: 668px) {
+  header {
+    height:100px;
+    .logo{
+      font-size:30px;
+      line-height: 3.0em;
+      margin-left:20px;
+    }
+    .login-btn{
+      float: right;
+      margin: 10px 20px;
+      .signup {
+        line-height: 2.0em;
+      }
+    }
+  }
+  footer{
+    height:200px;
+    .copyright{
+      font-size: 15px;
+      line-height: 2.0em;
+    }
+  }
+}
+/*=============================================
+PC向けレイアウトの指定：769px以上では固定レイアウト 
+===============================================*/
+@media only screen and (min-width: 769px) {
+  header {
+    height:100px;
+    .logo{
+      font-size:30px;
+      line-height: 3.0em;
+      margin-left:20px;
+    }
+    .login-btn{
+      float: right;
+      margin: 10px 20px;
+       .signup {
+        line-height: 3.0em;
+      }
+    }
+  }
+  footer{
+    height:200px;
+    .copyright{
+      font-size: 15px;
+      line-height: 2.0em;
+    }
+  }
+}
