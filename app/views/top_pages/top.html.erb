@@ -1,53 +1,18 @@
-<header>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12" style="padding:0px;" ><!--定義されているPaddingを打ち消し-->
-        <span class="logo">
-          <%= link_to "VirginTech", '#' %>
-        </span>
-        <div class="login-btn">
-          
-          <table>
-            <tr>
-              <td>
-                <%= link_to '#', class:"btn btn-primary btn-sm" do %>
-                  <span class="glyphicon glyphicon-log-in"></span>
-                  　ユーザー　<br />ログイン
-                <% end %>
-              </td>
-              <td>
-                <%= link_to "#", class:"btn btn-success btn-sm" do %>
-                  <span class="glyphicon glyphicon-log-in"></span>
-                  デベロッパー<br />ログイン
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <td align=center>
-                <%= link_to "#", class:"signup" do %>
-                  <span class="glyphicon glyphicon-log-in"></span>
-                  新規登録
-                <% end %>
-              </td>
-              <td align=center>
-                <%= link_to "#", class:"signup" do %>
-                  <span class="glyphicon glyphicon-log-in"></span>
-                  新規登録
-                <% end %>
-              </td>
-            </tr>
-          </table>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<!--========================
+ヘッダー表示
+==========================-->
+<%= render 'layouts/header' %>
 
+<!--========================
+フロート・バー表示
+==========================-->
+<%= render 'layouts/float_bar' %>
 
-
+<!--========================
+ボディ
+==========================-->
 <content>
-  <div class="container-fluid">
+  <div class="container-fluid" style="margin-top:50px;">
     <div class="row">
       <div class="col-xs-12 col-sm-12" style="height:1000px" style="padding:0px;" ><!--定義されているPaddingを打ち消し-->
   
@@ -59,17 +24,7 @@
   </div>
 </content>
 
-
-<footer>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12" style="padding:0px;" ><!--定義されているPaddingを打ち消し-->
-      
-        <span class="copyright">
-          Copyright © 2015 VirginTech LLC. All Rights Reserved.
-        </span>
-      
-      </div>
-    </div>
-  </div>
-</footer>
+<!--========================
+フッダー表示
+==========================-->
+<%= render 'layouts/footer' %>
