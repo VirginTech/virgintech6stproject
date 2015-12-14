@@ -3,8 +3,9 @@ $(function(){
   var duration=300;
 
   var $aside=$('aside');
-  var $asideButton=$('.side-button').on('click',function(){
-    
+  var $asideButton=$('.side-button').on('click',function(event){
+      
+      event.preventDefault();
       $aside.toggleClass('open');
 
       if($aside.hasClass('open')){
