@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151215032726) do
     t.datetime "updated_at",                  null: false
   end
 
-  add_index "users", ["email", "nickname"], name: "index_users_on_email_and_nickname", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["nickname"], name: "index_users_on_nickname", unique: true, using: :btree
 
 end

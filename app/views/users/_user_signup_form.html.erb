@@ -5,7 +5,9 @@
   <div class="panel-body">
 
     <%= form_for(@user) do |f| %>
-      <%#= render 'shared/error_messages', object: f.object %> <!-- ここを追加 -->
+    
+      <!-- エラーメッセージ -->
+      <%= render 'shared/error_messages', object: f.object %>
     
       <%= f.label :name, "ニックネーム" %>
       <%= f.text_field :nickname, class: 'form-control' %>
