@@ -1,0 +1,34 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h2 class="panel-title glyphicon glyphicon-envelope">メールアドレスで登録</h2>
+  </div>
+  <div class="panel-body">
+
+    <%= form_for(@user) do |f| %>
+      <%#= render 'shared/error_messages', object: f.object %> <!-- ここを追加 -->
+    
+      <%= f.label :name, "ニックネーム" %>
+      <%= f.text_field :nickname, class: 'form-control' %>
+      <p></p>
+      <%= f.label :email,"電子メール" %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <p></p>
+      <%= f.label :password,"パスワード" %>
+      <%= f.password_field :password, class: 'form-control' %>
+      <p></p>
+      <%= f.label :password_confirmation, "パスワード（確認用）" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <p></p>
+      利用規約、プライバシーポリシーをご確認の上、「同意して新規登録」を押してください。
+      <p></p>
+      <%= f.submit "同意して新規登録", class: "btn btn-primary" %>
+    
+    <% end %>
+    
+  </div>
+  <div class="panel-footer">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
+    ユーザーアカウントはお一人様につき一つまでとさせていただいております。<br class="hidden-xs">
+    複数アカウントの所持を発見した場合にはアカウント停止などの措置を取らせていただく場合がございます。
+  </div>
+</div>

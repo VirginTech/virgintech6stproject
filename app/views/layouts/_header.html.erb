@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12" style="padding:0px;" ><!--定義されているPaddingを打ち消し-->
         <span class="logo">
-          <%= link_to "VirginTech", "#" %>
+          <%= link_to "VirginTech", root_path %>
         </span>
         <div class="login-btn">
           
@@ -22,7 +22,7 @@
             </tr>
             <tr>
               <td align=center>
-                <%= link_to "#", class:"signup" do %>
+                <%= link_to new_user_path, class:"signup" do %>
                   <span class="glyphicon glyphicon-log-in"></span>
                   新規登録
                 <% end %>

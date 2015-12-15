@@ -1,0 +1,40 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h2 class="panel-title glyphicon glyphicon-user">SNSでログイン</h2>
+  </div>
+  
+  <div class="panel-body">
+    
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="sns_btn">
+          <%= link_to '#', class:"btn btn-block btn-lg btn-social btn-twitter" do %>
+            <span class="fa fa-twitter"></span>Twitter でログイン
+          <% end %>
+          <p></p>
+        </div>
+        <div class="sns_btn">
+          <%= link_to '#', class:"btn btn-block btn-lg btn-social btn-facebook" do %>
+            <span class="fa fa-facebook"></span>Facebookでログイン
+          <% end %>
+          <p></p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="sns_btn">
+          <%= link_to '#', class:"btn btn-block btn-lg btn-social btn-google" do %>
+            <span class="fa fa-google-plus"></span>Google+でログイン
+          <% end %>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="panel-footer">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
+    ユーザーに許可なくソーシャルネットワークに投稿する事はございません。<br class="hidden-xs">
+    なお、すでにアカウントをお持ちのユーザーが別のSNSでログインすると新規登録
+    となりますので、ご注意ください。
+  </div>
+</div>
