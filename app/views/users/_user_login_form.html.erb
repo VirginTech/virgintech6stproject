@@ -1,0 +1,26 @@
+<div class="panel panel-info">
+
+  <div class="panel-heading">
+    <h2 class="panel-title glyphicon glyphicon-envelope">メールアドレスでログイン</h2>
+  </div>
+
+  <div class="panel-body">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email,"電子メール" %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <p></p>
+      <%= f.label :password,"パスワード" %>
+      <%= f.password_field :password, class: 'form-control' %>
+      <p></p>
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  
+  <div class="panel-footer">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
+    ログインするとアプリにコメントしたりお気に入りのアプリをフォローできます。
+    ログインするには<%= link_to "サインアップ",new_user_path %>する必要があります。
+  </div>
+
+</div>

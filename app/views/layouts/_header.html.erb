@@ -5,39 +5,77 @@
         <span class="logo">
           <%= link_to "VirginTech", root_path %>
         </span>
-        <div class="login-btn">
+        
+        <!--======================
+        セッション中
+        ========================-->
+        <% if logged_in? %>
           
-          <table>
-            <tr>
-              <td>
-                <%= link_to "#", class:"btn btn-primary btn-sm" do %>
-                  <span class="glyphicon glyphicon-user"></span>　ユーザー　<br />ログイン
-                <% end %>
-              </td>
-              <td>
-                <%= link_to "#", class:"btn btn-success btn-sm" do %>
-                  <span class="glyphicon glyphicon-knight"></span>デベロッパー<br />ログイン
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <td align=center>
-                <%= link_to new_user_path, class:"signup" do %>
-                  <span class="glyphicon glyphicon-log-in"></span>
-                  新規登録
-                <% end %>
-              </td>
-              <td align=center>
-                <%= link_to "#", class:"signup" do %>
-                  <span class="glyphicon glyphicon-log-in"></span>
-                  新規登録
-                <% end %>
-              </td>
-            </tr>
-          </table>
+          <div class="session-user">
+            <ul class="user-menu">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"><%= current_user.nickname %><span class="caret"></span></a>
+                <ul class="sub-menu dropdown-menu dropdown-menu-right">
+                  <li><%= link_to "マイページ","#",class:"glyphicon glyphicon-user" %></li>
+                  <li><%= link_to "アカウント情報","#", class:"glyphicon glyphicon-user" %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "ログアウト",session_path(current_user), method: "delete", class:"glyphicon glyphicon-user" %></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          
+        <!--======================
+        セッションなし
+        ========================-->
+        <% else %>
+
+          <div class="login-btn">
+            <table>
+              <tr>
+                <td>
+                  <%= link_to "#login", class: "btn btn-primary btn-sm", data: {toggle: "modal"} do %>
+                    <span class="glyphicon glyphicon-user"></span>　ユーザー　<br />ログイン
+                  <% end %>
+                  <!--こちらでも別に良いよ
+                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#login">
+                    <span class="glyphicon glyphicon-user"></span>　ユーザー　<br />ログイン
+                  </button>-->
+                </td>
+                <td>
+                  <%= link_to "#", class:"btn btn-success btn-sm" do %>
+                    <span class="glyphicon glyphicon-knight"></span>デベロッパー<br />ログイン
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td align=center>
+                  <%= link_to new_user_path, class:"signup" do %>
+                    <span class="glyphicon glyphicon-log-in"></span>
+                    新規登録
+                  <% end %>
+                </td>
+                <td align=center>
+                  <%= link_to "#", class:"signup" do %>
+                    <span class="glyphicon glyphicon-log-in"></span>
+                    新規登録
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+          
+          <% end %>
           
         </div>
       </div>
     </div>
   </div>
 </header>
+
+<!--=========================
+ユーザーログインダイアログ
+============================-->
+<div class="modal fade" id="login">
+  <%= render 'users/user_login_dialog' %>
+</div>
+

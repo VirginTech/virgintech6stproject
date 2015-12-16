@@ -30,6 +30,25 @@ header {
       text-decoration: none;
     }
   }
+  .session-user{
+    margin: 20px 30px;
+    float: right;
+    ul.user-menu{
+      list-style: none;
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 15px;
+      }
+    }
+    ul.sub-menu{
+      a{
+        color: #000;
+        text-decoration: none;
+        font-size: 20px;
+      }
+    }
+  }
 }
 footer{
   background:#000;
@@ -58,6 +77,19 @@ footer{
         line-height: 2.0em;
       }
     }
+    .session-user{
+      margin: 25px 30px;
+      ul.user-menu{
+        a {
+          font-size: 15px;
+        }
+      }
+      ul.sub-menu{
+        a{
+          font-size: 20px;
+        }
+      }
+    }
   }
   footer{
     height:200px;
@@ -84,6 +116,19 @@ footer{
         line-height: 2.0em;
       }
     }
+    .session-user{
+      margin: 35px 40px;
+      ul.user-menu{
+        a {
+          font-size: 20px;
+        }
+      }
+      ul.sub-menu{
+        a{
+          font-size: 20px;
+        }
+      }
+    }
   }
   footer{
     height:200px;
@@ -108,6 +153,19 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
       margin: 10px 20px;
        .signup {
         line-height: 3.0em;
+      }
+    }
+    .session-user{
+      margin: 35px 50px;
+      ul.user-menu{
+        a {
+          font-size: 20px;
+        }
+      }
+      ul.sub-menu{
+        a{
+          font-size: 15px;
+        }
       }
     }
   }

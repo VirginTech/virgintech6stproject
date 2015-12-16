@@ -1,0 +1,25 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    
+    <div class="modal-header">
+      <button class="close" data-dismiss="modal">
+        <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+      </button>
+      <h4 class="modal-title">ユーザーログイン</h4>
+    </div>
+    
+    <div class="modal-body">
+      <!--メールアドレスでログイン-->
+      <%= render 'users/user_login_form' %>
+
+      <!--SNSでログイン-->
+      <%= render 'users/user_sns_login' %>
+      
+    </div>
+    
+    <div class="modal-footer">
+      <button class="btn btn-primary btn-sm" data-dismiss="modal">閉じる</button>
+    </div>
+  
+  </div>
+</div>
