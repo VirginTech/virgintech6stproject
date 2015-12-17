@@ -1,5 +1,18 @@
 class SessionsController < ApplicationController
   
+  def create_sns_login
+    #binding.pry
+    @user=User.find_or_create_from_auth(request.env['omniauth.auth'])
+    if $sns_create_flg
+      session[:user_id]=@user.id
+      flash[:info] = "ようこそ #{@user.nickname} さん！"
+    else
+      flash[:danger] = 'すでに同名のネックネームが使用されています。
+                                  別のSNSを利用するか、メールアドレスでサインアップして下さい'
+    end
+    redirect_to root_path
+  end
+  
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user && @user.authenticate(params[:session][:password])
@@ -15,6 +28,13 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_path
+  end
+  
+  #=======================
+  #SNSログインキャンセル
+  #=======================
+  def failure
+    redirect_to root_url
   end
   
 end

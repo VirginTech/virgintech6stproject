@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 20151215032726) do
     t.string   "nickname",        limit: 255
     t.string   "email",           limit: 255
     t.string   "password_digest", limit: 255
+    t.string   "uid",             limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["nickname"], name: "index_users_on_nickname", unique: true, using: :btree
 
 end

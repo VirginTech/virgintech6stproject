@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   
   root to: 'top_pages#top'
   
+  get '/auth/:provider/callback' => 'sessions#create_sns_login'
+  get "/auth/failure" => "sessions#failure"
+  
   resources :users,only: [:new,:create]
   resources :sessions, only: [:create, :destroy]
   
