@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
       session[:user_id]=@user.id
       flash[:info] = "ようこそ #{@user.nickname} さん！"
     else
-      flash[:danger] = 'すでに同名のネックネームが使用されています。
-                                  別のSNSを利用するか、メールアドレスでサインアップして下さい'
+      flash[:danger] = 'すでに同名のニックネームが使用されています。
+                        別のSNSを利用するか、メールアドレスでサインアップして下さい'
     end
     redirect_to root_path
   end
@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
   #SNSログインキャンセル
   #=======================
   def failure
+    flash[:danger] = "認証に失敗しました。"
     redirect_to root_url
   end
   
