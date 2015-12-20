@@ -1,0 +1,23 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="close" data-dismiss="modal">
+        <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+      </button>
+      <h4 class="modal-title">退会に関しまして</h4>
+    </div>
+    <div class="modal-body">
+      <span class="user-delete">
+        退会するとアカウントに関わる全てのデータが削除されます。<br class="hidden-xs">
+        削除されたデータは元に戻す事はできません。<br class="hidden-xs">
+      </span>
+        退会後に新たにサービスを開始するには新規登録が必要になります。
+    </div>
+    <div class="modal-footer">
+      <p>本当によろしいですか？</p>
+      <button class="btn btn-default btn-sm" data-dismiss="modal">閉じる</button>
+      <%= link_to "退会する",developer_path(current_developer), method: "delete", class:"btn btn-primary btn-sm" %>
+    </div>
+  </div>
+</div>
+

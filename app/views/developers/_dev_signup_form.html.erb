@@ -4,13 +4,13 @@
   </div>
   <div class="panel-body">
 
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@developer) do |f| %>
     
       <!-- エラーメッセージ -->
       <%= render 'shared/error_messages', object: f.object %>
     
-      <%= f.label :nickname, "ニックネーム" %>
-      <%= f.text_field :nickname, class: 'form-control' %>
+      <%= f.label :name, "お名前" %> (企業・団体名、個人開発者様は個人名)
+      <%= f.text_field :name, class: 'form-control' %>
       <p></p>
       <%= f.label :email,"電子メール" %>
       <%= f.email_field :email, class: 'form-control' %>
@@ -30,7 +30,7 @@
   </div>
   <div class="panel-footer">
     <span class="glyphicon glyphicon-exclamation-sign"></span>
-    ユーザーアカウントはお一人様につき一つまでとさせていただいております。<br class="hidden-xs">
+    デベロッパーアカウントは一企業(団体、個人)様につき一つまでとさせていただいております。<br class="hidden-xs">
     複数アカウントの所持を発見した場合にはアカウント停止などの措置を取らせていただく場合がございます。
   </div>
 </div>

@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   
   root to: 'top_pages#top'
   
-  get '/auth/:provider/callback' => 'sessions#create_sns_login'
-  get "/auth/failure" => "sessions#failure"
+  get '/auth/:provider/callback' => 'user_sessions#create_sns_login'
+  get "/auth/failure" => "user_sessions#failure"
   
   resources :users,only: [:new, :create, :destroy]
-  resources :sessions, only: [:create, :destroy]
+  resources :user_sessions, only: [:create, :destroy]
+  
+  resources :developers,only: [:new, :create, :destroy]
+  resources :dev_sessions, only: [:create, :destroy]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

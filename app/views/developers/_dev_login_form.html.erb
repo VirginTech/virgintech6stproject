@@ -5,7 +5,7 @@
   </div>
 
   <div class="panel-body">
-    <%= form_for(:user_session, url: user_sessions_path) do |f| %>
+    <%= form_for(:dev_session, url: dev_sessions_path) do |f| %>
 
       <%= f.label :email,"電子メール" %>
       <%= f.email_field :email, class: 'form-control' %>
@@ -19,8 +19,8 @@
   
   <div class="panel-footer">
     <span class="glyphicon glyphicon-exclamation-sign"></span>
-    ログインするとアプリにコメントしたりお気に入りのアプリをフォローできます。
-    ログインするには<%= link_to "サインアップ",new_user_path %>する必要があります。
+    ログインするとアプリを登録して皆んなに見てもらう事ができます。
+    ログインするには<%= link_to "サインアップ",new_developer_path %>する必要があります。
   </div>
 
 </div>

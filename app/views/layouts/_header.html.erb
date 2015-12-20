@@ -7,21 +7,42 @@
         </span>
         
         <!--======================
-        セッション中
+        ユーザーログイン中
         ========================-->
-        <% if logged_in? %>
+        <% if user_logged_in? %>
           
           <div class="session-user">
             <ul class="user-menu">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"><%= current_user.nickname %><span class="caret"></span></a>
                 <ul class="sub-menu dropdown-menu dropdown-menu-right">
-                  <li><%= link_to "ログアウト",session_path(current_user), method: "delete", class:"glyphicon glyphicon-log-out" %></li>
+                  <li><%= link_to "ログアウト",user_session_path(current_user), method: "delete", class:"glyphicon glyphicon-log-out" %></li>
                   <li class="divider"></li>
                   <li><%= link_to "マイページ","#",class:"glyphicon glyphicon-user" %></li>
                   <li><%= link_to "アカウント情報","#", class:"glyphicon glyphicon-list-alt" %></li>
                   <li class="divider"></li>
                   <li><%= link_to "退会","#user_delete",data: {toggle: "modal"}, class:"glyphicon glyphicon-off" %></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        <!--======================
+        デベロッパーログイン中
+        ========================-->
+        <% elsif dev_logged_in? %>
+          
+          <div class="session-user">
+            <ul class="user-menu">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"><%= current_developer.name %><span class="caret"></span></a>
+                <ul class="sub-menu dropdown-menu dropdown-menu-right">
+                  <li><%= link_to "ログアウト",dev_session_path(current_developer), method: "delete", class:"glyphicon glyphicon-log-out" %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "マイページ","#",class:"glyphicon glyphicon-user" %></li>
+                  <li><%= link_to "アカウント情報","#", class:"glyphicon glyphicon-list-alt" %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "退会","#developer_delete",data: {toggle: "modal"}, class:"glyphicon glyphicon-off" %></li>
                 </ul>
               </li>
             </ul>
@@ -36,7 +57,7 @@
             <table>
               <tr>
                 <td>
-                  <%= link_to "#login", class: "btn btn-primary btn-sm", data: {toggle: "modal"} do %>
+                  <%= link_to "#user_login", class: "btn btn-primary btn-sm", data: {toggle: "modal"} do %>
                     <span class="glyphicon glyphicon-user"></span>　ユーザー　<br />ログイン
                   <% end %>
                   <!--こちらでも別に良いよ
@@ -45,7 +66,7 @@
                   </button>-->
                 </td>
                 <td>
-                  <%= link_to "#", class:"btn btn-success btn-sm" do %>
+                  <%= link_to "#dev_login", class:"btn btn-success btn-sm", data: {toggle: "modal"} do %>
                     <span class="glyphicon glyphicon-knight"></span>デベロッパー<br />ログイン
                   <% end %>
                 </td>
@@ -58,7 +79,7 @@
                   <% end %>
                 </td>
                 <td align=center>
-                  <%= link_to "#", class:"signup" do %>
+                  <%= link_to new_developer_path, class:"signup" do %>
                     <span class="glyphicon glyphicon-log-in"></span>
                     新規登録
                   <% end %>
@@ -77,15 +98,31 @@
 <!--=========================
 ユーザーログインダイアログ
 ============================-->
-<div class="modal fade" id="login">
+<div class="modal fade" id="user_login">
   <%= render 'users/user_login_dialog' %>
 </div>
 
 <!--=========================
-退会申請ダイアログ
+ユーザー退会申請ダイアログ
 ============================-->
-<% if logged_in? %>
+<% if user_logged_in? %>
   <div class="modal fade" id="user_delete">
     <%= render 'users/user_delete_dialog' %>
+  </div>
+<% end %>
+
+<!--=========================
+デベロッパーログインダイアログ
+============================-->
+<div class="modal fade" id="dev_login">
+  <%= render 'developers/dev_login_dialog' %>
+</div>
+
+<!--=========================
+デベロッパー退会申請ダイアログ
+============================-->
+<% if dev_logged_in? %>
+  <div class="modal fade" id="developer_delete">
+    <%= render 'developers/dev_delete_dialog' %>
   </div>
 <% end %>

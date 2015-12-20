@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class UserSessionsController < ApplicationController
   
   def create_sns_login
     #binding.pry
@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
   end
   
   def create
-    @user = User.find_by(email: params[:session][:email].downcase)
-    if @user && @user.authenticate(params[:session][:password])
+    @user = User.find_by(email: params[:user_session][:email].downcase)
+    if @user && @user.authenticate(params[:user_session][:password])
       session[:user_id] = @user.id
       flash[:info] = "ようこそ #{@user.nickname} さん！"
       redirect_to root_path

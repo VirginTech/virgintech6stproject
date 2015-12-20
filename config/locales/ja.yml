@@ -75,6 +75,7 @@ ja:
   #モデル属性
   #===========================
   attributes:
+    name: "お名前"
     nickname: "ニックネーム"
     email: "電子メール"
     password: "パスワード"
