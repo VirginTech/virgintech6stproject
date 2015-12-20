@@ -15,6 +15,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    current_user.destroy
+    reset_session
+    flash[:danger] = "退会処理に成功しました。またのご利用お待ちしております。"
+    redirect_to root_path
+  end
+
   private
 
   def user_params

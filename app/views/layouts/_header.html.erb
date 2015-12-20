@@ -16,10 +16,12 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"><%= current_user.nickname %><span class="caret"></span></a>
                 <ul class="sub-menu dropdown-menu dropdown-menu-right">
-                  <li><%= link_to "マイページ","#",class:"glyphicon glyphicon-user" %></li>
-                  <li><%= link_to "アカウント情報","#", class:"glyphicon glyphicon-user" %></li>
+                  <li><%= link_to "ログアウト",session_path(current_user), method: "delete", class:"glyphicon glyphicon-log-out" %></li>
                   <li class="divider"></li>
-                  <li><%= link_to "ログアウト",session_path(current_user), method: "delete", class:"glyphicon glyphicon-user" %></li>
+                  <li><%= link_to "マイページ","#",class:"glyphicon glyphicon-user" %></li>
+                  <li><%= link_to "アカウント情報","#", class:"glyphicon glyphicon-list-alt" %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "退会","#user_delete",data: {toggle: "modal"}, class:"glyphicon glyphicon-off" %></li>
                 </ul>
               </li>
             </ul>
@@ -79,3 +81,11 @@
   <%= render 'users/user_login_dialog' %>
 </div>
 
+<!--=========================
+退会申請ダイアログ
+============================-->
+<% if logged_in? %>
+  <div class="modal fade" id="user_delete">
+    <%= render 'users/user_delete_dialog' %>
+  </div>
+<% end %>

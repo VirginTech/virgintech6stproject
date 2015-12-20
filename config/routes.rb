@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#create_sns_login'
   get "/auth/failure" => "sessions#failure"
   
-  resources :users,only: [:new,:create]
+  resources :users,only: [:new, :create, :destroy]
   resources :sessions, only: [:create, :destroy]
   
   # The priority is based upon order of creation: first created -> highest priority.

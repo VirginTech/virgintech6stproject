@@ -1,0 +1,24 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.sns-btn {
+  .login-btn{
+    font-size:15px;
+  }
+  a:link { 
+    color:#fff; text-decoration:none 
+  }
+  a:visited { 
+    color:#fff; text-decoration:none 
+  }
+  a:hover { 
+    color:#fff; text-decoration:none 
+  }
+  a:active { 
+    color:#fff; text-decoration:none 
+  }
+}
+
+.user-delete{
+  color:#f00;
+}
