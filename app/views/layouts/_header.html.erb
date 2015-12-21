@@ -18,8 +18,8 @@
                 <ul class="sub-menu dropdown-menu dropdown-menu-right">
                   <li><%= link_to "ログアウト",user_session_path(current_user), method: "delete", class:"glyphicon glyphicon-log-out" %></li>
                   <li class="divider"></li>
-                  <li><%= link_to "マイページ","#",class:"glyphicon glyphicon-user" %></li>
-                  <li><%= link_to "アカウント情報","#", class:"glyphicon glyphicon-list-alt" %></li>
+                  <li><%= link_to "マイページ",user_path(current_user),class:"glyphicon glyphicon-user" %></li>
+                  <li><%= link_to "アカウント情報",edit_user_path(current_user), class:"glyphicon glyphicon-list-alt" %></li>
                   <li class="divider"></li>
                   <li><%= link_to "退会","#user_delete",data: {toggle: "modal"}, class:"glyphicon glyphicon-off" %></li>
                 </ul>
@@ -39,8 +39,8 @@
                 <ul class="sub-menu dropdown-menu dropdown-menu-right">
                   <li><%= link_to "ログアウト",dev_session_path(current_developer), method: "delete", class:"glyphicon glyphicon-log-out" %></li>
                   <li class="divider"></li>
-                  <li><%= link_to "マイページ","#",class:"glyphicon glyphicon-user" %></li>
-                  <li><%= link_to "アカウント情報","#", class:"glyphicon glyphicon-list-alt" %></li>
+                  <li><%= link_to "マイページ",developer_path(current_developer) ,class:"glyphicon glyphicon-user" %></li>
+                  <li><%= link_to "アカウント情報",edit_developer_path(current_developer), class:"glyphicon glyphicon-list-alt" %></li>
                   <li class="divider"></li>
                   <li><%= link_to "退会","#developer_delete",data: {toggle: "modal"}, class:"glyphicon glyphicon-off" %></li>
                 </ul>

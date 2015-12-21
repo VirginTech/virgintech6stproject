@@ -1,0 +1,54 @@
+<%= form_for(@developer) do |f| %>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">アカウント編集</h2>
+    </div>
+    <div class="panel-body">
+      <!-- エラーメッセージ -->
+      <%= render 'shared/error_messages', object: f.object %>
+    
+      <%= f.label :name, "お名前" %> (企業・団体名、個人開発者様は個人名)
+      <%= f.text_field :name, class: 'form-control', autofocus: true %>
+      <p></p>
+      <%= f.label :email,"電子メール" %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <p></p>
+      <%= f.label :password,"パスワード:" %> (パスワードを変更する場合のみ入力して下さい)
+      <%= f.password_field :password, class: 'form-control' %>
+      <p></p>
+      <%= f.label :password_confirmation, "パスワード（確認用）" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <p></p>
+      <%= f.submit "変更する", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-edit">オプション入力欄</h2>
+    </div>
+    <div class="panel-body">
+      <%= f.label :website,"公式ホームーページ" %> <span class="option">＊オプション</span>
+      <%= f.text_field :website, class: 'form-control' %>
+      <p></p>
+      <%= f.label :contact_email,"公開用電子メール" %> <span class="option">＊オプション</span>
+      <%= f.email_field :contact_email, class: 'form-control' %>
+      <p></p>
+      <%= f.label :twitter,"公式Twitter" %> <span class="option">＊オプション</span>
+      <%= f.text_field :twitter, class: 'form-control' %>
+      <p></p>
+      <%= f.label :facebook,"公式Facebook" %> <span class="option">＊オプション</span>
+      <%= f.text_field :facebook, class: 'form-control' %>
+      <p></p>
+      <%= f.label :google,"公式Google Plus" %> <span class="option">＊オプション</span>
+      <%= f.text_field :google, class: 'form-control' %>
+      <p></p>
+      <%= f.label :official_site,"その他公式ページ" %> (ゲーム攻略ページなど) <span class="option">＊オプション</span>
+      <%= f.text_field :official_site, class: 'form-control' %>
+      <p></p>
+      <%= f.submit "変更する", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+<% end %>

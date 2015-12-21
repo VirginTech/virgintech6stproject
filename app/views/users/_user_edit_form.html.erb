@@ -1,0 +1,49 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h2 class="panel-title glyphicon glyphicon-pencil">アカウント編集</h2>
+  </div>
+  <div class="panel-body">
+
+    <%= form_for(@user) do |f| %>
+      
+      <!--==========================
+      SNSアカウント
+      =============================-->
+      <% if @user.uid.present? %>
+      
+        <span>SNSアカウントではアカウント情報は変更できません。</span>
+        <p></p>
+        
+        <%= f.hidden_field :nickname, :value => @user.nickname %>
+        <%#= f.hidden_field :email, :value => @user.email %>
+        <%#= f.hidden_field :password, :value => @user.password %>
+
+      <!--==========================
+      通常メールアカウント
+      =============================-->
+      <% else %>
+
+        <!-- エラーメッセージ -->
+        <%= render 'shared/error_messages', object: f.object %>
+      
+        <%= f.label :nickname, "ニックネーム" %>
+        <%= f.text_field :nickname, class: 'form-control', autofocus: true %>
+        <p></p>
+        <%= f.label :email,"電子メール" %>
+        <%= f.email_field :email, class: 'form-control' %>
+        <p></p>
+        <%= f.label :password,"パスワード:" %> (パスワードを変更する場合のみ入力して下さい)
+        <%= f.password_field :password, class: 'form-control' %>
+        <p></p>
+        <%= f.label :password_confirmation, "パスワード（確認用）" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <p></p>
+        
+      <% end %>
+
+      <%= f.submit "変更する", class: "btn btn-primary" %>
+      
+    <% end %>
+    
+  </div>
+</div>

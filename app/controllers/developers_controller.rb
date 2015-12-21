@@ -4,6 +4,25 @@ class DevelopersController < ApplicationController
     @developer=Developer.new
   end
 
+  def show
+    @developer = Developer.find(params[:id])
+  end
+  
+  def edit
+    @developer = Developer.find(params[:id])
+  end
+  
+  def update
+    @developer = Developer.find(params[:id])
+    if @developer.update(dev_params)
+      flash[:success] = "アカウント情報を変更しました。"
+      redirect_to edit_developer_path(@developer)
+    else
+      #flash[:danger] = "アカウント変更に失敗しました。"
+      render 'edit'
+    end
+  end
+
   def create
     #binding.pry
     @developer = Developer.new(dev_params)
