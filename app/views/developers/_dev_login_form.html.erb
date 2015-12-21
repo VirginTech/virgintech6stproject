@@ -8,7 +8,7 @@
     <%= form_for(:dev_session, url: dev_sessions_path) do |f| %>
 
       <%= f.label :email,"電子メール" %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', autofocus: true %>
       <p></p>
       <%= f.label :password,"パスワード" %>
       <%= f.password_field :password, class: 'form-control' %>

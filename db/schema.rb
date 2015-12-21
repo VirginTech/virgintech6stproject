@@ -17,6 +17,12 @@ ActiveRecord::Schema.define(version: 20151220070154) do
     t.string   "name",            limit: 255
     t.string   "email",           limit: 255
     t.string   "password_digest", limit: 255
+    t.string   "website",         limit: 255
+    t.string   "twitter",         limit: 255
+    t.string   "facebook",        limit: 255
+    t.string   "google",          limit: 255
+    t.string   "official_site",   limit: 255
+    t.string   "contact_email",   limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

@@ -4,6 +4,13 @@ class CreateDevelopers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password_digest
+      
+      t.string :website
+      t.string :twitter
+      t.string :facebook
+      t.string :google
+      t.string :official_site
+      t.string :contact_email
 
       t.timestamps null: false
       
