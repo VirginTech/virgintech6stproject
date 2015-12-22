@@ -34,7 +34,9 @@ ActiveRecord::Schema.define(version: 20151220070154) do
     t.string   "nickname",        limit: 255
     t.string   "email",           limit: 255
     t.string   "password_digest", limit: 255
+    t.string   "provider",        limit: 255
     t.string   "uid",             limit: 255
+    t.string   "profile_img",     limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

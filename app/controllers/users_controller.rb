@@ -14,12 +14,31 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      flash[:success] = "アカウント情報を変更しました。"
-      redirect_to edit_user_path(@user)
+    @user.attributes = user_params
+    #if @user.update(user_params)#コンテキストでバリデーションを分ける
+    #========================
+    #SNSアカウント
+    #========================
+    #binding.pry
+    if params[:user][:provider].present?
+      if @user.save(context: :snslogin)
+        flash[:success] = "アカウント情報を変更しました。"
+        redirect_to edit_user_path(@user)
+      else
+        #flash[:danger] = "アカウント変更に失敗しました。"
+        render 'edit'
+      end
+    #========================
+    #通常アカウント
+    #========================
     else
-      #flash[:danger] = "アカウント変更に失敗しました。"
-      render 'edit'
+      if @user.save(context: :signup)
+        flash[:success] = "アカウント情報を変更しました。"
+        redirect_to edit_user_path(@user)
+      else
+        #flash[:danger] = "アカウント変更に失敗しました。"
+        render 'edit'
+      end
     end
   end
 
@@ -44,7 +63,14 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :uid)
+    params.require(:user).permit(:nickname, 
+                                  :email,
+                                  :password,
+                                  :password_confirmation,
+                                  :provider,
+                                  :uid,
+                                  :profile_img,
+                                  :remove_profile_img)
   end
   
 end

@@ -2,30 +2,29 @@
   <div class="panel-heading">
     <h2 class="panel-title glyphicon glyphicon-pencil">アカウント編集</h2>
   </div>
-  <div class="panel-body">
-
+  
+  <% if @user.provider.present? %>
+    <div class="panel-body" style="height:300px">
+  <% else %>
+    <div class="panel-body">
+  <% end %>
+  
     <%= form_for(@user) do |f| %>
-      
-      <!--==========================
-      SNSアカウント
-      =============================-->
-      <% if @user.uid.present? %>
-      
-        <span>SNSアカウントではアカウント情報は変更できません。</span>
-        <p></p>
-        
-        <%= f.hidden_field :nickname, :value => @user.nickname %>
-        <%#= f.hidden_field :email, :value => @user.email %>
-        <%#= f.hidden_field :password, :value => @user.password %>
 
-      <!--==========================
-      通常メールアカウント
-      =============================-->
-      <% else %>
-
-        <!-- エラーメッセージ -->
-        <%= render 'shared/error_messages', object: f.object %>
+      <!-- エラーメッセージ -->
+      <%= render 'shared/error_messages', object: f.object %>
       
+      <!--アカウント種別(通常・SNS)判別用-->
+      <%= f.hidden_field :provider, :value => @user.provider %>
+      
+      <%= f.label :profile_img, "プロフィール画像" %>
+      <%= f.file_field :profile_img %>
+      <%= image_tag @user.profile_img.url,:size => '100x100'  %>
+      <%= f.check_box :remove_profile_img %>削除する
+      <p></p>
+      
+      <% if !@user.provider.present? %>
+
         <%= f.label :nickname, "ニックネーム" %>
         <%= f.text_field :nickname, class: 'form-control', autofocus: true %>
         <p></p>
@@ -46,4 +45,12 @@
     <% end %>
     
   </div>
+  
+  <% if @user.provider.present? %>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      SNSアカウントではニックネーム、電子メール、パスワードは変更できません。
+    </div>
+  <% end %>
+  
 </div>

@@ -1,20 +1,23 @@
 class User < ActiveRecord::Base
   
-  has_secure_password
-  
+  #============================
+  #イメージアップローダー
+  #============================
+  mount_uploader :profile_img, ProfileUploader
+
   #============================
   #バリデーション
   #============================
+  has_secure_password
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-
-  before_save { self.email = email.downcase }
+  before_save { self.email = email.downcase if self.email.present? } #空(SNS)でなければ
   validates :nickname, presence: true, length: { maximum: 50 },
                                             uniqueness: { case_sensitive: false },
-                                            on: [:signup,:snslogin,:update]
+                                            on: [:signup,:snslogin]
   validates :email, presence: true, length: { maximum: 255 },
                                             format: { with: VALID_EMAIL_REGEX },
                                             uniqueness: { case_sensitive: false },
-                                            on: [:signup,:update]
+                                            on: [:signup]
 
   #=====================================================
   #OAuthの情報からユーザーを検索し、なければ新規レコード作成
@@ -29,16 +32,18 @@ class User < ActiveRecord::Base
       nickname=auth[:info][:name]
     end
 
-    sns_user = User.find_or_initialize_by(uid: auth[:uid], nickname: nickname) do |user|
-      #binding.pry
+    sns_user = User.find_or_initialize_by(provider: auth[:provider],
+                                          uid: auth[:uid],
+                                          nickname: nickname) do |user|
+      #バリデーション対処、ダミーを入れる
       if auth[:provider] == "twitter"
-        user.email = Rails.application.secrets.twitter_login_key
+        #user.email = Rails.application.secrets.twitter_login_key
         user.password = Rails.application.secrets.twitter_login_secret
       elsif auth[:provider] == "facebook"
-        user.email = Rails.application.secrets.facebook_login_key
+        #user.email = Rails.application.secrets.facebook_login_key
         user.password = Rails.application.secrets.facebook_login_secret
       elsif auth[:provider] == "google_oauth2"
-        user.email = Rails.application.secrets.google_login_key
+        #user.email = Rails.application.secrets.google_login_key
         user.password = Rails.application.secrets.google_login_secret
       end
     end
@@ -52,9 +57,8 @@ class User < ActiveRecord::Base
     else #既存SNSユーザー
       $sns_create_flg=true
     end
-
+    
     return sns_user
-
   end
   
 end
