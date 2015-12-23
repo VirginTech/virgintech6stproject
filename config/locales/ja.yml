@@ -85,6 +85,7 @@ ja:
     profile: "自己紹介"
     avatar: "アバター"
     content: "内容"
+    profile_img: "プロフィール画像"
   
   #===========================
   #汎用なもの(https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/ja.yml)から
@@ -212,6 +213,23 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
+    
+      #===========================
+      # CarrierWave
+      #===========================
+      carrierwave_processing_error: 処理できませんでした
+      carrierwave_integrity_error: は許可されていないファイルタイプです
+      carrierwave_download_error: はダウンロードできません
+      extension_white_list_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: %{allowed_types}"
+      extension_black_list_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできないファイルタイプ: %{prohibited_types}"
+      #rmagick_processing_error: "rmagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      rmagick_processing_error: "残念ながらファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      mime_types_processing_error: "MIME::Typesのファイルを処理できませんでした。Content-Typeを確認してください。エラーメッセージ: %{e}"
+      #mini_magick_processing_error: "MiniMagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      mini_magick_processing_error: "残念ながらファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      min_size_error: "ファイルを%{min_size}バイト以上のサイズにしてください"
+      max_size_error: "ファイルを%{max_size}バイト以下のサイズにしてください"
+      
     template:
       body: 次の項目を確認してください
       header:
@@ -303,4 +321,4 @@ ja:
       more_pages:
         display_entries: "全 <b>%{total}</b> 件中の %{entry_name} の <b>%{first}&nbsp;-&nbsp;%{last}</b> 件を表示"
         
-        
+

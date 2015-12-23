@@ -3,12 +3,8 @@
     <h2 class="panel-title glyphicon glyphicon-pencil">アカウント編集</h2>
   </div>
   
-  <% if @user.provider.present? %>
-    <div class="panel-body" style="height:300px">
-  <% else %>
-    <div class="panel-body">
-  <% end %>
-  
+  <div class="panel-body">
+
     <%= form_for(@user) do |f| %>
 
       <!-- エラーメッセージ -->
@@ -17,12 +13,29 @@
       <!--アカウント種別(通常・SNS)判別用-->
       <%= f.hidden_field :provider, :value => @user.provider %>
       
+      <!--======================
+      プロフィール画像
+      =========================-->
       <%= f.label :profile_img, "プロフィール画像" %>
-      <%= f.file_field :profile_img %>
-      <%= image_tag @user.profile_img.url,:size => '100x100'  %>
-      <%= f.check_box :remove_profile_img %>削除する
+      <p class="well well-sm">
+        アップロードできるファイルタイプは、jpg, jpeg, gif, png, bmp, tiff です。<br class="hidden-xs">
+        画像は概ね正方形でお願いします。大きさは自動的に100px 100pxにリサイズされます。
+      </p>
+      <%= f.file_field :profile_img, onchange:"fileChange(event,'disp')" %>
+      <% f.hidden_field :profile_img_cache %>
+      
+      <div id="disp">
+        <% if @user.profile_img? %>
+          <%= image_tag @user.profile_img.url,:size => '100x100' %>
+          <%= f.check_box :remove_profile_img %>削除する
+        <% end %>
+      </div>
+      
       <p></p>
       
+      <!--======================
+      通常アカウントのみ変更可能
+      =========================-->
       <% if !@user.provider.present? %>
 
         <%= f.label :nickname, "ニックネーム" %>
@@ -53,4 +66,11 @@
     </div>
   <% end %>
   
+</div>
+
+<!--===================
+ 画像読み込みアラート
+===================-->
+<div class="modal fade" id="alert_user_profile_img">
+  <%= render 'shared/alert_user_profile_img' %>
 </div>

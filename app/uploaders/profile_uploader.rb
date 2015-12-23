@@ -3,7 +3,7 @@
 class ProfileUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -15,7 +15,42 @@ class ProfileUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+  
+  #========================
+  # 画像をリサイズする（100px）
+  #========================
+  process :resize_to_fit => [120, 120]
 
+  #========================
+  # フォーマットをJPGにする
+  #========================
+  process :convert => 'jpg'
+  
+  #======================
+  #ファイルネーム変更
+  #======================
+  def filename
+    "#{secure_token}.jpg" if original_filename.present?
+    # "#{secure_token}.#{file.extension}" if original_filename.present?
+    
+    # 日付を使うなら
+    # time = Time.now
+    # name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+    # name.downcase
+  end
+  protected
+  def secure_token
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  end
+  
+  #======================
+  #アップロード可能拡張子
+  #======================
+  def extension_white_list
+    %w(jpg jpeg gif png bmp tiff)
+  end
+  
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:

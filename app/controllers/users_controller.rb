@@ -70,6 +70,7 @@ class UsersController < ApplicationController
                                   :provider,
                                   :uid,
                                   :profile_img,
+                                  :profile_img_cache,
                                   :remove_profile_img)
   end
   
