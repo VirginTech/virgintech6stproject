@@ -8,6 +8,26 @@
       <!-- エラーメッセージ -->
       <%= render 'shared/error_messages', object: f.object %>
     
+      <!--======================
+      プロフィール画像
+      =========================-->
+      <%= f.label :profile_img, "プロフィール画像" %>
+      <p class="well well-sm">
+        アップロードできるファイルタイプは、jpg, jpeg, gif, png, bmp, tiff です。<br class="hidden-xs">
+        画像は概ね正方形でお願いします。大きさは自動的に100px 100pxにリサイズされます。
+      </p>
+      <%= f.file_field :profile_img, onchange:"fileChange(event,'disp')" %>
+      <%= f.hidden_field :profile_img_cache %>
+      <p></p>
+      
+      <div id="disp">
+        <% if @developer.profile_img? %>
+          <%= image_tag @developer.profile_img.url %>
+          <%= f.check_box :remove_profile_img %>削除する
+        <% end %>
+      </div>
+      <p></p>
+
       <%= f.label :name, "お名前" %> (企業・団体名、個人開発者様は個人名)
       <%= f.text_field :name, class: 'form-control', autofocus: true %>
       <p></p>
@@ -52,3 +72,10 @@
   </div>
 
 <% end %>
+
+<!--===================
+ 画像読み込みアラート
+===================-->
+<div class="modal fade" id="alert_user_profile_img">
+  <%= render 'shared/alert_profile_img' %>
+</div>

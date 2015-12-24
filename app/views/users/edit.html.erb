@@ -23,17 +23,18 @@
   <div class="row">
     <div class="col-xs-12 col-sm-1"></div>
     <div class="col-xs-12 col-sm-10">
-      <h3><%= current_user.nickname %> のアカウント情報</h3>
-      <!--========================
-      メールアドレスで登録
-      ==========================-->
-      <%= render 'user_edit_form' %>
+
+      <% if same_user? params[:id] %>
+        <h3><%= current_user.nickname %> のアカウント情報</h3>
+        <%= render 'user_edit_form' %>
+      <% else %>
+        <%= render 'shared/session_error' %>
+      <% end %>
 
     </div>
     <div class="col-xs-12 col-sm-1"></div>
   </div>
 </div>        <!-- 全体を囲むコンテナ -->
-
 <!--=========================
 余白
 ==========================-->

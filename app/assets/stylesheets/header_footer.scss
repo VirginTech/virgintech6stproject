@@ -31,7 +31,7 @@ header {
     }
   }
   .session-user{
-    margin: 10px 10px;
+    margin: 0px 10px;
     float: right;
     ul.user-menu{
       list-style: none;
@@ -50,9 +50,11 @@ header {
     }
   }
   .profile_icon{
-    max-width: 40px;
+    width: 40px;
+    height: 40px;
     border: 2px solid #fff;
-    border-radius: 100%;  }
+    border-radius: 100%;
+  }
 }
 footer{
   background:#000;
@@ -82,7 +84,7 @@ footer{
       }
     }
     .session-user{
-      margin: 10px 10px;
+      margin: 0px 10px;
       ul.user-menu{
         a {
           font-size: 15px;
@@ -111,7 +113,7 @@ footer{
     height:100px;
     .logo{
       font-size:30px;
-      line-height: 3.0em;
+      line-height: 2.0em;
       margin-left:20px;
     }
     .login-btn{
@@ -121,7 +123,7 @@ footer{
       }
     }
     .session-user{
-      margin: 35px 40px;
+      margin: 15px 40px;
       ul.user-menu{
         a {
           font-size: 20px;

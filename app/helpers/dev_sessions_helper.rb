@@ -8,6 +8,15 @@ module DevSessionsHelper
     !!current_developer
   end
 
+  def same_developer?(dev_id)
+    flg=false
+    if dev_logged_in?
+      if current_developer.id == dev_id.to_i
+        flg=true
+      end
+    end
+  end
+
   def dev_store_location
     session[:forwarding_url] = request.url if request.get?
   end

@@ -9,7 +9,7 @@ class DevelopersController < ApplicationController
   end
   
   def edit
-    @developer = Developer.find(params[:id])
+    @developer = Developer.find_by_id(params[:id])
   end
   
   def update
@@ -45,8 +45,19 @@ class DevelopersController < ApplicationController
   private
 
   def dev_params
-    params.require(:developer).permit(:name, :email, :password, :password_confirmation,
-                        :website, :twitter, :facebook, :google, :official_site, :contact_email)
+    params.require(:developer).permit(:name,
+                                      :email,
+                                      :password,
+                                      :password_confirmation,
+                                      :profile_img,
+                                      :profile_img_cache,
+                                      :remove_profile_img,
+                                      :website,
+                                      :twitter,
+                                      :facebook,
+                                      :google,
+                                      :official_site,
+                                      :contact_email)
   end
   
 end

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20151220070154) do
     t.string   "name",            limit: 255
     t.string   "email",           limit: 255
     t.string   "password_digest", limit: 255
+    t.string   "profile_img",     limit: 255
     t.string   "website",         limit: 255
     t.string   "twitter",         limit: 255
     t.string   "facebook",        limit: 255

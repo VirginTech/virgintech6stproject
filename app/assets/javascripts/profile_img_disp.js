@@ -15,14 +15,14 @@ function fileChange(event,tag)
   {
     //alert("画像ファイル以外は表示できません。");
     disp.innerHTML = "<span style='color:#f00;'>読み取り時にエラーが発生しました。</span>";
-    $('#alert_user_profile_img').modal('show');
+    $('#alert_profile_img').modal('show');
   }
 
   //エラー発生時の処理
   reader.onerror = function (evt) 
   {
     disp.innerHTML = "<span style='color:#f00;'>読み取り時にエラーが発生しました。</span>";
-    $('#alert_user_profile_img').modal('show');
+    $('#alert_profile_img').modal('show');
   }
 
   //画像ファイルの場合の処理
