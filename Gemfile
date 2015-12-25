@@ -40,8 +40,10 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'unicorn'
-gem 'carrierwave'
+gem 'carrierwave',github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
+gem "mini_magick"
+gem 'fog'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

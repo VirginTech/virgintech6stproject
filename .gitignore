@@ -13,3 +13,4 @@
 /tmp
 /vendor/bundle
 /public
+config/secrets.yml
