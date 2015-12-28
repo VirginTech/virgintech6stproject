@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220070154) do
+ActiveRecord::Schema.define(version: 20151226025944) do
 
   create_table "developers", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -30,6 +30,29 @@ ActiveRecord::Schema.define(version: 20151220070154) do
 
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true, using: :btree
   add_index "developers", ["name"], name: "index_developers_on_name", unique: true, using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "developer_id",      limit: 4
+    t.string   "appname",           limit: 255
+    t.text     "summary",           limit: 65535
+    t.text     "description",       limit: 65535
+    t.integer  "category",          limit: 4
+    t.integer  "price",             limit: 4
+    t.boolean  "model_iphone"
+    t.boolean  "model_android"
+    t.boolean  "model_web"
+    t.string   "img_icon",          limit: 255
+    t.string   "img_screenshot_01", limit: 255
+    t.string   "img_screenshot_02", limit: 255
+    t.string   "img_screenshot_03", limit: 255
+    t.string   "img_screenshot_04", limit: 255
+    t.string   "img_screenshot_05", limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "products", ["developer_id", "created_at"], name: "index_products_on_developer_id_and_created_at", using: :btree
+  add_index "products", ["developer_id"], name: "index_products_on_developer_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname",        limit: 255

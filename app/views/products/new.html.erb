@@ -4,26 +4,27 @@
 <%= render 'layouts/header' %>
 
 <!--========================
-フラッシュメッセージ
-==========================-->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<!--========================
 ボディ
 ==========================-->
 <div class="container">        <!-- 全体を囲むコンテナ -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-1"></div>
+    <div class="col-xs-12 col-sm-10">
 
+      <%= render 'create_form' %>
 
-
+    </div>
+    <div class="col-xs-12 col-sm-1"></div>
+  </div>
 </div>        <!-- 全体を囲むコンテナ -->
+
+
+
+
+
+
+
+
 
 <!--=========================
 余白

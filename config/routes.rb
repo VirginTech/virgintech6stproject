@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :developers,only: [:new, :create, :destroy, :show, :edit, :update]
   resources :dev_sessions, only: [:create, :destroy]
   
+  resources :products,only: [:new, :create]
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

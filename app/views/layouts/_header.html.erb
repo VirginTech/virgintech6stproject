@@ -53,6 +53,7 @@
                   <li class="divider"></li>
                   <li><%= link_to "マイページ",developer_path(current_developer) ,class:"glyphicon glyphicon-user" %></li>
                   <li><%= link_to "アカウント情報",edit_developer_path(current_developer), class:"glyphicon glyphicon-list-alt" %></li>
+                  <li><%= link_to "新規アプリ登録",new_product_path, class:"glyphicon glyphicon-tower" %></li>
                   <li class="divider"></li>
                   <li><%= link_to "退会","#developer_delete",data: {toggle: "modal"}, class:"glyphicon glyphicon-off" %></li>
                 </ul>

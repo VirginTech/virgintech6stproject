@@ -1,0 +1,23 @@
+<%= form_for(@product) do |f| %>
+
+  <!-- エラーメッセージ -->
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">アプリネーム</h2>
+    </div>
+    <div class="panel-body">
+      <%= f.label :appname, "アプリネーム" %> <span class="require">＊必須</span>
+      <%= f.text_field :appname, class: 'form-control', autofocus: true %>
+      <p></p>
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アプリネームは必須入力です。50文字以内で入力して下さい。
+    </div>
+  </div>
+
+  <%= f.submit "登録する", class: "btn btn-primary" %>
+
+<% end %>

@@ -1,5 +1,7 @@
 class Developer < ActiveRecord::Base
   
+  has_many :products
+  
   #============================
   #イメージアップローダー
   #============================
