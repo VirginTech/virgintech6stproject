@@ -6,5 +6,6 @@ class Product < ActiveRecord::Base
   #バリデーション
   #============================
   validates :appname, presence: true, length: { maximum: 50 }
+  validates :summary, presence: true, length: { maximum: 250 }
 
 end

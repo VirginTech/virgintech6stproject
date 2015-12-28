@@ -91,6 +91,7 @@ ja:
   #モデル属性
   #===========================
     appname: "アプリネーム"
+    summary: "アプリ概要"
 
   #===========================
   #汎用なもの(https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/ja.yml)から

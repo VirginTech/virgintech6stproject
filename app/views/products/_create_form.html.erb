@@ -3,20 +3,44 @@
   <!-- エラーメッセージ -->
   <%= render 'shared/error_messages', object: f.object %>
 
+  <!--==================
+  アプリタイトル
+  ====================-->
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2 class="panel-title glyphicon glyphicon-pencil">アプリネーム</h2>
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">アプリネーム</span> <span class="require2">＊必須</span>
+      </h2>
     </div>
     <div class="panel-body">
-      <%= f.label :appname, "アプリネーム" %> <span class="require">＊必須</span>
       <%= f.text_field :appname, class: 'form-control', autofocus: true %>
       <p></p>
     </div>
     <div class="panel-footer">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
-      アプリネームは必須入力です。50文字以内で入力して下さい。
+      アプリネームを50文字以内で入力して下さい。
     </div>
   </div>
+  <!--==================
+  アプリ概要
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">アプリ概要</span> <span class="require2">＊必須</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <%= f.text_area :summary, :size=>"70x3", class: 'form-control' %>
+      <p></p>
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アプリ概要はアプリ一覧に表示されます。250文字以内で入力して下さい。
+    </div>
+  </div>
+
+
 
   <%= f.submit "登録する", class: "btn btn-primary" %>
 
