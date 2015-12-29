@@ -5,6 +5,7 @@ class CreateDevelopers < ActiveRecord::Migration
       t.string :email
       t.string :password_digest
       t.string :profile_img
+      t.boolean :status
       
       t.string :website
       t.string :twitter

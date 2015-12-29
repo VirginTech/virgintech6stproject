@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228125144) do
+ActiveRecord::Schema.define(version: 20151229083438) do
 
   create_table "developers", force: :cascade do |t|
     t.string   "name",            limit: 255
     t.string   "email",           limit: 255
     t.string   "password_digest", limit: 255
     t.string   "profile_img",     limit: 255
+    t.boolean  "status"
     t.string   "website",         limit: 255
     t.string   "twitter",         limit: 255
     t.string   "facebook",        limit: 255
@@ -54,7 +55,17 @@ ActiveRecord::Schema.define(version: 20151228125144) do
   add_index "products", ["developer_id", "created_at"], name: "index_products_on_developer_id_and_created_at", using: :btree
   add_index "products", ["developer_id"], name: "index_products_on_developer_id", using: :btree
 
-  create_table "regist_tokens", force: :cascade do |t|
+  create_table "regist_dev_tokens", force: :cascade do |t|
+    t.integer  "developer_id", limit: 4,   null: false
+    t.string   "uuid",         limit: 255, null: false
+    t.datetime "expired_at",               null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "regist_dev_tokens", ["developer_id"], name: "index_regist_dev_tokens_on_developer_id", using: :btree
+
+  create_table "regist_user_tokens", force: :cascade do |t|
     t.integer  "user_id",    limit: 4,   null: false
     t.string   "uuid",       limit: 255, null: false
     t.datetime "expired_at",             null: false
@@ -62,7 +73,7 @@ ActiveRecord::Schema.define(version: 20151228125144) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "regist_tokens", ["user_id"], name: "index_regist_tokens_on_user_id", using: :btree
+  add_index "regist_user_tokens", ["user_id"], name: "index_regist_user_tokens_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname",        limit: 255

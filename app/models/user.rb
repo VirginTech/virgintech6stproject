@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  has_many :regist_tokens
+  has_many :regist_user_tokens
   
   #============================
   #イメージアップローダー

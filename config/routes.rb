@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   resources :products,only: [:new, :create]
   
   resources :users do
-    get 'regist_token/:uuid', :to => 'users#regist_token' # ログイントークン
+    get 'regist_token_user/:uuid', :to => 'users#regist_token' # ログイントークン
+  end
+
+  resources :developers do
+    get 'regist_token_dev/:uuid', :to => 'developers#regist_token' # ログイントークン
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

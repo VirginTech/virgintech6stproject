@@ -1,5 +1,6 @@
 class Developer < ActiveRecord::Base
   
+  has_many :regist_dev_tokens
   has_many :products
   
   #============================

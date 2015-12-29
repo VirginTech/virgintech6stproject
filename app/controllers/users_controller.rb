@@ -58,16 +58,16 @@ class UsersController < ApplicationController
       # ユーザは既にあるが、本登録していない。一度ユーザーのトークンを全て使えなくする
       @user = tmp_user
       #Token.all.each do |token|
-      @user.regist_tokens.all.each do |token|
+      @user.regist_user_tokens.all.each do |token|
         # 有効期限を変更する
         token.update_attributes!(expired_at: Time.now)
       end
       # 新しいトークン生成
       @token = SecureRandom.uuid
       # 有効期限は２４時間
-      @user.regist_tokens.create!(uuid: @token, expired_at: 24.hours.since)
+      @user.regist_user_tokens.create!(uuid: @token, expired_at: 24.hours.since)
       # メール通知(ActionMailer)
-      @mail = RegistConfirmMailer.regist_confirm(@user,@token).deliver
+      @mail = RegistConfirmMailer.regist_confirm_user(@user,@token).deliver
       # 仮登録成功ページヘ
       flash[:success] = "ご登録ありがとうございます！入力されたメールアドレスあてに、本登録用URLを送りましたのでご確認ください。"
       redirect_to root_path
@@ -78,9 +78,9 @@ class UsersController < ApplicationController
       if @user.save(context: :signup)
         # トークン生成
         @token = SecureRandom.uuid
-        @user.regist_tokens.create!(uuid: @token, expired_at: 24.hours.since)
+        @user.regist_user_tokens.create!(uuid: @token, expired_at: 24.hours.since)
         # メール通知
-        @mail = RegistConfirmMailer.regist_confirm(@user,@token).deliver
+        @mail = RegistConfirmMailer.regist_confirm_user(@user,@token).deliver
         flash[:success] = "ご登録ありがとうございます！入力されたメールアドレスあてに、本登録用URLを送りましたのでご確認ください。"
         redirect_to root_path
       else
@@ -104,7 +104,7 @@ class UsersController < ApplicationController
   #========================
   def regist_token
     # 有効期限の確認
-    token = RegistToken.find_by_uuid!(params[:uuid])
+    token = RegistUserToken.find_by_uuid!(params[:uuid])
     # 有効期限を過ぎていないか確認
     if token && token.expired_at > Time.now
       # ２回目アクセスできないように更新
@@ -113,7 +113,7 @@ class UsersController < ApplicationController
       @user.update_attributes!(status: true)
       # 登録完了メール通知
       flash[:success] = "おめでとうございます！本登録が完了しました！"
-      @mail = RegistConfirmMailer.regist_complet(@user).deliver
+      @mail = RegistConfirmMailer.regist_complet_user(@user).deliver
       # ログイン画面へ
       redirect_to root_path
     else
