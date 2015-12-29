@@ -9,16 +9,16 @@
       <!-- エラーメッセージ -->
       <%= render 'shared/error_messages', object: f.object %>
     
-      <%= f.label :nickname, "ニックネーム" %> <span class="require">＊必須</span>
+      <span class="input_label">ニックネーム</span> <span class="require">＊必須</span>
       <%= f.text_field :nickname, class: 'form-control', autofocus: true %>
       <p></p>
-      <%= f.label :email,"電子メール" %> <span class="require">＊必須</span>
+      <span class="input_label">メールアドレス</span> <span class="require">＊必須</span>
       <%= f.email_field :email, class: 'form-control' %>
       <p></p>
-      <%= f.label :password,"パスワード" %> <span class="require">＊必須</span>
+      <span class="input_label">パスワード</span> <span class="require">＊必須</span>
       <%= f.password_field :password, class: 'form-control' %>
       <p></p>
-      <%= f.label :password_confirmation, "パスワード（確認用）" %> <span class="require">＊必須</span>
+      <span class="input_label">パスワード（確認用）</span> <span class="require">＊必須</span>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       <p></p>
       利用規約、プライバシーポリシーをご確認の上、「同意して新規登録」を押してください。

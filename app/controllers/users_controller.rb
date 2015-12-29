@@ -42,14 +42,89 @@ class UsersController < ApplicationController
     end
   end
 
+  #========================
+  # 仮登録
+  #========================
   def create
-    @user = User.new(user_params)
-    if @user.save(context: :signup)
-      session[:user_id] = @user.id
-      flash[:success] = "ようこそ" + @user.nickname + "さん！"
+    # 入力したメールアドレスのユーザが存在するか調べる
+    tmp_user = User.find_by_email(user_params[:email])
+   
+    if tmp_user && tmp_user.status
+      # ユーザ作成済み
+      flash[:warning] = "入力されたメールアドレスは登録済みです。"
+      redirect_to root_path
+   
+    elsif tmp_user
+      # ユーザは既にあるが、本登録していない。一度ユーザーのトークンを全て使えなくする
+      @user = tmp_user
+      #Token.all.each do |token|
+      @user.regist_tokens.all.each do |token|
+        # 有効期限を変更する
+        token.update_attributes!(expired_at: Time.now)
+      end
+      # 新しいトークン生成
+      @token = SecureRandom.uuid
+      # 有効期限は２４時間
+      @user.regist_tokens.create!(uuid: @token, expired_at: 24.hours.since)
+      # メール通知(ActionMailer)
+      @mail = RegistConfirmMailer.regist_confirm(@user,@token).deliver
+      # 仮登録成功ページヘ
+      flash[:success] = "ご登録ありがとうございます！入力されたメールアドレスあてに、本登録用URLを送りましたのでご確認ください。"
       redirect_to root_path
     else
-      render 'new'
+      @user = User.new(user_params)
+      @user.status = false
+   
+      if @user.save(context: :signup)
+        # トークン生成
+        @token = SecureRandom.uuid
+        @user.regist_tokens.create!(uuid: @token, expired_at: 24.hours.since)
+        # メール通知
+        @mail = RegistConfirmMailer.regist_confirm(@user,@token).deliver
+        flash[:success] = "ご登録ありがとうございます！入力されたメールアドレスあてに、本登録用URLを送りましたのでご確認ください。"
+        redirect_to root_path
+      else
+        render 'new'
+      end
+    end    
+    
+    #@user = User.new(user_params)
+    #if @user.save(context: :signup)
+    #  session[:user_id] = @user.id
+    #  flash[:success] = "ようこそ" + @user.nickname + "さん！"
+    #  redirect_to root_path
+    #else
+    #  render 'new'
+    #end
+    
+  end
+
+  #========================
+  # 本登録
+  #========================
+  def regist_token
+    # 有効期限の確認
+    token = RegistToken.find_by_uuid!(params[:uuid])
+    # 有効期限を過ぎていないか確認
+    if token && token.expired_at > Time.now
+      # ２回目アクセスできないように更新
+      token.update_attributes!(expired_at: Time.now)
+      @user = token.user
+      @user.update_attributes!(status: true)
+      # 登録完了メール通知
+      flash[:success] = "おめでとうございます！本登録が完了しました！"
+      @mail = RegistConfirmMailer.regist_complet(@user).deliver
+      # ログイン画面へ
+      redirect_to root_path
+    else
+      # トークンがない、もしくは２回目のアクセス -> 失敗を通知、ユーザ登録ページのリンクを貼る
+      if token && token.user.status
+        flash[:danger] ="入力されたメールアドレスは本登録が完了しています。"
+        redirect_to root_path
+      else
+        flash[:danger] ="仮登録の有効期限が切れている。もしくは、URLが適切ではありません。"
+        redirect_to root_path
+      end
     end
   end
 

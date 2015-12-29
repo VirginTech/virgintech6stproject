@@ -16,11 +16,16 @@ class UserSessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:user_session][:email].downcase)
     if @user && @user.authenticate(params[:user_session][:password])
-      session[:user_id] = @user.id
-      flash[:info] = "ようこそ #{@user.nickname} さん！"
-      redirect_to root_path
+      if @user.status
+        session[:user_id] = @user.id
+        flash[:info] = "ようこそ #{@user.nickname} さん！"
+        redirect_to root_path
+      else
+        flash[:danger] = '本登録が済んでいません。登録されたメールアドレスあてに確認用メールが届いていませんか？'
+        redirect_to root_path
+      end
     else
-      flash[:danger] = '電子メール又は、パスワードに誤りがあります。'
+      flash[:danger] = 'メールアドレス又は、パスワードに誤りがあります。'
       redirect_to root_path
     end
   end

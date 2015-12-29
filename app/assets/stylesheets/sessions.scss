@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+span.input_label{
+  color: #000;
+  font-weight: bold;
+  font-size: 13px;
+}
 span.require{
   color: #f00;
   font-style: italic;

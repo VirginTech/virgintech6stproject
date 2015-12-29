@@ -7,7 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :provider
       t.string :uid
       t.string :profile_img
-
+      t.boolean :status
+      
       t.timestamps null: false
       
       t.index :email, unique: true

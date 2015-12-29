@@ -33,3 +33,23 @@ module Virgintech6stproject
     
   end
 end
+
+#==========================
+# メーラー(SMTP)設定
+#==========================
+module GmailMailer
+  class Application < Rails::Application
+
+  config.action_mailer.delivery_method = :smtp
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address => 'smtp.gmail.com',
+      :port => '587',
+      :domain => 'smtp.gmail.com',
+      :authentication => 'plain',
+      :user_name => Rails.application.secrets.gmail_account_id ,
+      :password => Rails.application.secrets.gmail_account_secret
+    }
+  end
+end
