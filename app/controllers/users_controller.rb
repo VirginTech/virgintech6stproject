@@ -74,7 +74,7 @@ class UsersController < ApplicationController
     else
       @user = User.new(user_params)
       @user.status = false
-   
+      #binding.pry
       if @user.save(context: :signup)
         # トークン生成
         @token = SecureRandom.uuid
@@ -143,11 +143,71 @@ class UsersController < ApplicationController
   
   def token_create
     email=params[:email]
-    @mail = PassRemindMailer.pass_remind_user(email).deliver
-    flash[:success] = "#{email}あてにメールを送信しました。"
-    redirect_to root_path
+    # 入力したメールアドレスのユーザが存在するか調べる
+    @user = User.find_by_email(email)
+    if @user
+      #ユーザーのトークンを全て無効にする
+      @user.pass_user_tokens.all.each do |token|
+        token.update_attributes!(expired_at: Time.now) #有効期限を変更する
+      end
+      # 新しいトークン生成
+      @token = SecureRandom.uuid
+      # 有効期限は1時間
+      @user.pass_user_tokens.create!(uuid: @token, expired_at: 5.minutes.since)
+      # メール送信
+      @mail = PassRemindMailer.pass_remind_user(@user,@token).deliver
+      flash[:success] = "#{email}あてにメールを送信しました。"
+      redirect_to root_path
+    else
+      flash[:danger] = "#{email}は存在しないメールアドレスです。"
+      redirect_to root_path
+    end
   end
-
+  
+  def pass_token
+    # 有効期限の確認
+    uuid=params[:uuid]
+    token = PassUserToken.find_by_uuid!(uuid)
+    # 有効期限を過ぎていないか確認
+    if token && token.expired_at > Time.now
+      # ２回目アクセスできないように更新
+      token.update_attributes!(expired_at: Time.now)
+      @user = token.user
+      
+      flash[:success] = "#{@user.nickname}様。パスワードを設定して下さい。"
+      redirect_to reset_password_user_path(uuid: uuid)
+    else
+      flash[:danger] ="トークンの有効期限が切れている。もしくは、URLが適切ではありません。"
+      redirect_to root_path
+    end
+  end
+  
+  def reset_password
+    #binding.pry
+    uuid=params[:uuid]
+    token=PassUserToken.find_by_uuid(uuid)
+    if token
+      @user=token.user
+    else
+      render 'shared/_session_error'
+    end
+  end
+  
+  def update_password
+    #binding.pry
+    uuid=params[:user][:uuid]
+    token=PassUserToken.find_by_uuid!(uuid)
+    @user = token.user
+    @user.attributes = user_params
+    if @user.save(context: :pass_update)
+      flash[:success] = "#{@user.nickname}様。パスワードを変更しました。"
+      redirect_to root_path
+    else
+      flash[:danger] ="パスワードの変更に失敗しました。もう一度入力して下さい。"
+      redirect_to reset_password_user_path(uuid: uuid)
+    end
+  end
+    
   private
   def user_params
     params.require(:user).permit(:nickname, 
@@ -158,7 +218,8 @@ class UsersController < ApplicationController
                                   :uid,
                                   :profile_img,
                                   :profile_img_cache,
-                                  :remove_profile_img)
+                                  :remove_profile_img,
+                                  :status)
   end
   
 end

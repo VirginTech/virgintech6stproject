@@ -5,10 +5,11 @@ class PassRemindMailer < ApplicationMailer
   #
   #   en.pass_remind_mailer.PassRemindSender.subject
   #
-  def pass_remind_user(email)
+  def pass_remind_user(user,token)
     
-    @greeting = "Hi"
-    mail to: email, subject: 'パスワードリマインダー。'
+    @user = user
+    @url  = "http://ik1-301-10815.vs.sakura.ne.jp:3030/pass_token_user/#{token}"
+    mail to: user.email, subject: 'パスワードリマインダー。'
     
   end
   

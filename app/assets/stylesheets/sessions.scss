@@ -1,6 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*==========================================
+ 共通のスタイル
+===========================================*/
 span.input-label{
   color: #000;
   font-weight: bold;
@@ -53,4 +56,27 @@ span.option{
 .text-right{
   float: right;
   line-height: 30px;
+}
+.pass-remind{
+  height:450px; 
+  margin-top:50px;
+}
+
+/*=============================================
+タブレット向けレイアウトの指定
+===============================================*/
+@media only screen and (min-width: 668px) {
+  .pass-remind{
+    height:650px; 
+    margin-top:50px;
+  }
+}
+/*=============================================
+PC向けレイアウトの指定：769px以上では固定レイアウト 
+===============================================*/
+@media only screen and (min-width: 769px) {
+  .pass-remind{
+    height:450px; 
+    margin-top:50px;
+  }
 }

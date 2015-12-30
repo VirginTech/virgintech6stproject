@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   
   get 'pass_reminder_user' => 'users#pass_reminder'
   post 'token_create_user' => 'users#token_create'
+  get 'pass_token_user/:uuid', :to => 'users#pass_token'
+  get 'reset_password_user' => 'users#reset_password'
+  patch 'update_password_user' => 'users#update_password'
   
   resources :users,only: [:new, :create, :destroy, :show, :edit, :update]
   resources :user_sessions, only: [:create, :destroy]
@@ -23,7 +26,7 @@ Rails.application.routes.draw do
   resources :developers do
     get 'regist_token_dev/:uuid', :to => 'developers#regist_token' # ログイントークン
   end
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

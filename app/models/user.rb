@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
   has_many :regist_user_tokens
+  has_many :pass_user_tokens
   
   #============================
   #イメージアップローダー
@@ -20,6 +21,8 @@ class User < ActiveRecord::Base
                                             format: { with: VALID_EMAIL_REGEX },
                                             uniqueness: { case_sensitive: false },
                                             on: [:signup]
+  
+  validates :password,presence: true,on: [:pass_update]
 
   #=====================================================
   #OAuthの情報からユーザーを検索し、なければ新規レコード作成

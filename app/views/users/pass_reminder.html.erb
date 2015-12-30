@@ -9,7 +9,7 @@
 <div class="container">        <!-- 全体を囲むコンテナ -->
   <div class="row">
     <div class="col-xs-12 col-sm-1"></div>
-    <div class="col-xs-12 col-sm-10" style="height:450px; margin-top:50px;">
+    <div class="col-xs-12 col-sm-10 pass-remind">
 
       <div class="panel panel-info">
         <div class="panel-heading">
@@ -19,7 +19,7 @@
       
           <%= form_tag controller:"users", action:"token_create" do %>
             <span class="input-label">メールアドレス</span>
-            <%= text_field_tag :email, nil, class: "form-control" %>
+            <%= text_field_tag :email, nil, class: "form-control", autofocus: true %>
             <p></p>
             <%= submit_tag "送信する", class: "btn btn-primary" %>
           <% end %>
@@ -28,7 +28,8 @@
         <div class="panel-footer">
           <span class="glyphicon glyphicon-exclamation-sign"></span>
           入力されたメールアドレスあてに、ワンタイムトークンを送信します。<br class="hidden-xs">
-          メールの指示に従って、パスワード再設定画面から再度新パスワードを設定して下さい。
+          メールの指示に従って、パスワード再設定画面から再度新パスワードを設定して下さい。<br class="hidden-xs">
+          なお、送付されたトークンは5分で失効しますのでお早めに再設定を行って下さい。
         </div>
       </div>
 
