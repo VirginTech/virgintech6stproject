@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-span.input_label{
+span.input-label{
   color: #000;
   font-weight: bold;
   font-size: 13px;
@@ -48,4 +48,9 @@ span.option{
     //border: 2px solid #fff;
     border-radius: 20%;
   }
+}
+
+.text-right{
+  float: right;
+  line-height: 30px;
 }

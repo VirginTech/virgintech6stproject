@@ -1,0 +1,43 @@
+<!--========================
+ヘッダー表示
+==========================-->
+<%= render 'layouts/header' %>
+
+<!--========================
+ボディ
+==========================-->
+<div class="container">        <!-- 全体を囲むコンテナ -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-1"></div>
+    <div class="col-xs-12 col-sm-10" style="height:450px; margin-top:50px;">
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h2 class="panel-title glyphicon glyphicon-envelope"> 登録しているメールアドレスを入力して下さい</h2>
+        </div>
+        <div class="panel-body" style="height:150px;">
+      
+          <%= form_tag controller:"users", action:"token_create" do %>
+            <span class="input-label">メールアドレス</span>
+            <%= text_field_tag :email, nil, class: "form-control" %>
+            <p></p>
+            <%= submit_tag "送信する", class: "btn btn-primary" %>
+          <% end %>
+      
+        </div>
+        <div class="panel-footer">
+          <span class="glyphicon glyphicon-exclamation-sign"></span>
+          入力されたメールアドレスあてに、ワンタイムトークンを送信します。<br class="hidden-xs">
+          メールの指示に従って、パスワード再設定画面から再度新パスワードを設定して下さい。
+        </div>
+      </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-1"></div>
+  </div>
+</div>        <!-- 全体を囲むコンテナ -->
+
+<!--========================
+フッダー表示
+==========================-->
+<%= render 'layouts/footer' %>

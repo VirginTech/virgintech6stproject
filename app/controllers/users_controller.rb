@@ -134,9 +134,21 @@ class UsersController < ApplicationController
     flash[:danger] = "退会処理に成功しました。またのご利用お待ちしております。"
     redirect_to root_path
   end
+  
+  #=======================
+  #パスワードリマインダー
+  #=======================
+  def pass_reminder
+  end
+  
+  def token_create
+    email=params[:email]
+    @mail = PassRemindMailer.pass_remind_user(email).deliver
+    flash[:success] = "#{email}あてにメールを送信しました。"
+    redirect_to root_path
+  end
 
   private
-
   def user_params
     params.require(:user).permit(:nickname, 
                                   :email,

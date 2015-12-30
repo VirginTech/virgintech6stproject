@@ -1,0 +1,5 @@
+<h1>PassRemindMailer#PassRemindSender</h1>
+
+<p>
+  <%= @greeting %>, find me in app/views/pass_remind_mailer/PassRemindSender.html.erb
+</p>

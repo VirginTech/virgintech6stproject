@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'user_sessions#create_sns_login'
   get "/auth/failure" => "user_sessions#failure"
   
+  get 'pass_reminder_user' => 'users#pass_reminder'
+  post 'token_create_user' => 'users#token_create'
+  
   resources :users,only: [:new, :create, :destroy, :show, :edit, :update]
   resources :user_sessions, only: [:create, :destroy]
   

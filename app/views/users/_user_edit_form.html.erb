@@ -39,16 +39,16 @@
       =========================-->
       <% if !@user.provider.present? %>
 
-        <%= f.label :nickname, "ニックネーム" %>
+        <span class="input-label">ニックネーム</span> <span class="require">＊必須</span>
         <%= f.text_field :nickname, class: 'form-control', autofocus: true %>
         <p></p>
-        <%= f.label :email,"電子メール" %>
+        <span class="input-label">メールアドレス</span> <span class="require">＊必須</span>
         <%= f.email_field :email, class: 'form-control' %>
         <p></p>
-        <%= f.label :password,"パスワード:" %> (パスワードを変更する場合のみ入力して下さい)
+        <span class="input-label">パスワード</span>(パスワードを変更する場合のみ入力して下さい)
         <%= f.password_field :password, class: 'form-control' %>
         <p></p>
-        <%= f.label :password_confirmation, "パスワード（確認用）" %>
+        <span class="input-label">パスワード（確認用）</span>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
         <p></p>
         
