@@ -152,7 +152,7 @@ class UsersController < ApplicationController
       end
       # 新しいトークン生成
       @token = SecureRandom.uuid
-      # 有効期限は1時間
+      # 有効期限は5分以内
       @user.pass_user_tokens.create!(uuid: @token, expired_at: 5.minutes.since)
       # メール送信
       @mail = PassRemindMailer.pass_remind_user(@user,@token).deliver
@@ -167,7 +167,7 @@ class UsersController < ApplicationController
   def pass_token
     # 有効期限の確認
     uuid=params[:uuid]
-    token = PassUserToken.find_by_uuid!(uuid)
+    token = PassUserToken.find_by_uuid(uuid)
     # 有効期限を過ぎていないか確認
     if token && token.expired_at > Time.now
       # ２回目アクセスできないように更新

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230030945) do
+ActiveRecord::Schema.define(version: 20160102085352) do
 
   create_table "developers", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20151230030945) do
 
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true, using: :btree
   add_index "developers", ["name"], name: "index_developers_on_name", unique: true, using: :btree
+
+  create_table "pass_dev_tokens", force: :cascade do |t|
+    t.integer  "developer_id", limit: 4,   null: false
+    t.string   "uuid",         limit: 255, null: false
+    t.datetime "expired_at",               null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "pass_dev_tokens", ["developer_id"], name: "index_pass_dev_tokens_on_developer_id", using: :btree
 
   create_table "pass_user_tokens", force: :cascade do |t|
     t.integer  "user_id",    limit: 4,   null: false

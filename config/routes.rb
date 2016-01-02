@@ -2,14 +2,23 @@ Rails.application.routes.draw do
   
   root to: 'top_pages#top'
   
+  # SNSログイン
   get '/auth/:provider/callback' => 'user_sessions#create_sns_login'
   get "/auth/failure" => "user_sessions#failure"
   
+  # パスワードリマインダー(User)
   get 'pass_reminder_user' => 'users#pass_reminder'
   post 'token_create_user' => 'users#token_create'
   get 'pass_token_user/:uuid', :to => 'users#pass_token'
   get 'reset_password_user' => 'users#reset_password'
   patch 'update_password_user' => 'users#update_password'
+
+  # パスワードリマインダー(Developer)
+  get 'pass_reminder_dev' => 'developers#pass_reminder'
+  post 'token_create_dev' => 'developers#token_create'
+  get 'pass_token_developer/:uuid', :to => 'developers#pass_token'
+  get 'reset_password_dev' => 'developers#reset_password'
+  patch 'update_password_dev' => 'developers#update_password'
   
   resources :users,only: [:new, :create, :destroy, :show, :edit, :update]
   resources :user_sessions, only: [:create, :destroy]

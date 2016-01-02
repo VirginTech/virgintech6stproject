@@ -1,6 +1,7 @@
 class Developer < ActiveRecord::Base
   
   has_many :regist_dev_tokens
+  has_many :pass_dev_tokens
   has_many :products
   
   #============================
@@ -21,5 +22,5 @@ class Developer < ActiveRecord::Base
                                             format: { with: VALID_EMAIL_REGEX },
                                             uniqueness: { case_sensitive: false },
                                             on: [:signup,:update]  
-
+  validates :password,presence: true,on: [:pass_update]
 end

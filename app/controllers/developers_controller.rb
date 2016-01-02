@@ -116,8 +116,81 @@ class DevelopersController < ApplicationController
     redirect_to root_path
   end
 
-  private
+  #=======================
+  #パスワードリマインダー
+  #=======================
+  def pass_reminder
+  end
+  
+  def token_create
+    email=params[:email]
+    # 入力したメールアドレスのユーザが存在するか調べる
+    @developer = Developer.find_by_email(email)
+    if @developer
+      #ユーザーのトークンを全て無効にする
+      @developer.pass_dev_tokens.all.each do |token|
+        token.update_attributes!(expired_at: Time.now) #有効期限を変更する
+      end
+      # 新しいトークン生成
+      @token = SecureRandom.uuid
+      # 有効期限は5分以内
+      @developer.pass_dev_tokens.create!(uuid: @token, expired_at: 5.minutes.since)
+      # メール送信
+      @mail = PassRemindMailer.pass_remind_dev(@developer,@token).deliver
+      flash[:success] = "#{email}あてにメールを送信しました。"
+      redirect_to root_path
+    else
+      flash[:danger] = "#{email}は存在しないメールアドレスです。"
+      redirect_to root_path
+    end
+  end
 
+  def pass_token
+    # 有効期限の確認
+    uuid=params[:uuid]
+    token = PassDevToken.find_by_uuid(uuid)
+    # 有効期限を過ぎていないか確認
+    if token && token.expired_at > Time.now
+      # ２回目アクセスできないように更新
+      token.update_attributes!(expired_at: Time.now)
+      @developer = token.developer
+      
+      flash[:success] = "#{@developer.name}様。パスワードを設定して下さい。"
+      redirect_to reset_password_dev_path(uuid: uuid)
+    else
+      flash[:danger] ="トークンの有効期限が切れている。もしくは、URLが適切ではありません。"
+      redirect_to root_path
+    end
+  end
+
+  def reset_password
+    #binding.pry
+    uuid=params[:uuid]
+    token=PassDevToken.find_by_uuid(uuid)
+    if token
+      @developer=token.developer
+    else
+      render 'shared/_session_error'
+    end
+  end
+
+  def update_password
+    #binding.pry
+    uuid=params[:developer][:uuid]
+    token=PassDevToken.find_by_uuid!(uuid)
+    @developer = token.developer
+    @developer.attributes = dev_params
+    if @developer.save(context: :pass_update)
+      flash[:success] = "#{@developer.name}様。パスワードを変更しました。"
+      redirect_to root_path
+    else
+      flash[:danger] ="パスワードの変更に失敗しました。もう一度入力して下さい。"
+      redirect_to reset_password_dev_path(uuid: uuid)
+    end
+  end
+
+
+  private
   def dev_params
     params.require(:developer).permit(:name,
                                       :email,
