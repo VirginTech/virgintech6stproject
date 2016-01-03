@@ -39,6 +39,94 @@
       アプリ概要はアプリ一覧に表示されます。250文字以内で入力して下さい。
     </div>
   </div>
+  <!--==================
+  アプリ詳細
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">アプリ詳細説明</span> <span class="require2">＊必須</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <%= f.text_area :description, :size=>"70x7", class: 'form-control' %>
+      <p></p>
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アプリの詳細説明を記入して下さい。(文字数制限なし)
+    </div>
+  </div>
+  <!--==================
+  カテゴリ
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">カテゴリ</span> <span class="require2">＊必須</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <%= f.select :category, category_list, 
+                                    {:selected => @product.category, :prompt => true},
+                                    class: 'form-control' %>
+      <p></p>
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アプリの対応するカテゴリを一つ選択して下さい。
+    </div>
+  </div>
+  <!--==================
+  価格
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">価格</span> <span class="require2">＊必須</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <%= f.select :price, price_list, 
+                                    {:selected => @product.price, :prompt => true},
+                                    class: 'form-control' %>
+      <p></p>
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アプリの価格を入力して下さい。
+    </div>
+  </div>
+  <!--==================
+  対応機種
+  ====================-->
+  <%= hidden_field_tag 'product[model]' %> <!--#カスタムバリデート用 -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">対応機種</span> <span class="require2">＊必須</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <table border=0>
+        <tr>
+          <td width=20><%= f.check_box :model_iphone, :checked => @product.model_iphone,class: 'form-control' %></td>
+          <td width=70>iPhone</td>
+        
+          <td width=20><%= f.check_box :model_android, :checked => @product.model_android,class: 'form-control' %></td>
+          <td width=70>Android</td>
+        
+          <td width=20><%= f.check_box :model_web, :checked => @product.model_web,class: 'form-control' %></td>
+          <td width=100>Webゲーム</td>
+        </tr>
+      </table>
+      <p></p>
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アプリの対応機種を選択して下さい。(複数可)
+    </div>
+  </div>
 
 
 

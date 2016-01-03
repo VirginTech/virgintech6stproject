@@ -88,11 +88,15 @@ ja:
     profile_img: "プロフィール画像"
   
   #===========================
-  #モデル属性
+  #プロダクトモデル属性
   #===========================
     appname: "アプリネーム"
     summary: "アプリ概要"
-
+    description: "アプリ詳細説明"
+    category: "カテゴリー"
+    price: "価格"
+    model: "対応機種"
+    
   #===========================
   #汎用なもの(https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/ja.yml)から
   #===========================
@@ -326,5 +330,8 @@ ja:
           other: "全 <b>%{count}</b> 件中の %{entry_name} を表示"
       more_pages:
         display_entries: "全 <b>%{total}</b> 件中の %{entry_name} の <b>%{first}&nbsp;-&nbsp;%{last}</b> 件を表示"
-        
 
+   
+  helpers:
+    select:
+      prompt: "---選択して下さい---"

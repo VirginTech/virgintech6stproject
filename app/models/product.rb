@@ -5,7 +5,14 @@ class Product < ActiveRecord::Base
   #============================
   #バリデーション
   #============================
+  attr_accessor :model
+
   validates :appname, presence: true, length: { maximum: 50 }
   validates :summary, presence: true, length: { maximum: 250 }
-
+  validates :description, presence: true
+  validates :category, presence: true
+  validates :price, presence: true
+  validates :model, present_model: true
+  
+  
 end

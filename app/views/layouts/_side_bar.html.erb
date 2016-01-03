@@ -1,7 +1,7 @@
 <aside>
   <div class="category">
-    <% category_list.each do |list| %>
-      <%= link_to list, "#", class:"btn btn-default btn-sm btn-block" %>
+    <% category_list.each do |key,value| %>
+      <%= link_to key, "#", class:"btn btn-default btn-sm btn-block" %>
     <% end %>
   </div>
 </aside>
