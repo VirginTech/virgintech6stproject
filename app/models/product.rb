@@ -3,6 +3,11 @@ class Product < ActiveRecord::Base
   belongs_to :developer
 
   #============================
+  #イメージアップローダー
+  #============================
+  mount_uploader :img_icon, ProductIconUploader
+
+  #============================
   #バリデーション
   #============================
   attr_accessor :model
@@ -13,6 +18,6 @@ class Product < ActiveRecord::Base
   validates :category, presence: true
   validates :price, presence: true
   validates :model, present_model: true
-  
+  validates :img_icon, presence: true
   
 end

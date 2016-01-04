@@ -6,7 +6,7 @@
   <!--==================
   アプリタイトル
   ====================-->
-  <div class="panel panel-primary">
+  <div class="panel panel-primary" style="margin-top:30px;">
     <div class="panel-heading">
       <h2 class="panel-title glyphicon glyphicon-pencil">
         <span class="input-header">アプリネーム</span> <span class="require2">＊必須</span>
@@ -127,9 +127,44 @@
       アプリの対応機種を選択して下さい。(複数可)
     </div>
   </div>
+  <!--==================
+  アプリアイコン
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">アプリアイコン</span> <span class="require2">＊必須</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <%= f.file_field :img_icon, onchange:"fileIconImage(event,'disp')",class: 'form-control' %>
+      <%= f.hidden_field :img_icon_cache %>
+      <p></p>
+      
+      <div id="disp">
+        <% if @product.img_icon? %>
+          <%= image_tag @product.img_icon.url %>
+          <%= f.check_box :remove_img_icon %>削除する
+        <% end %>
+      </div>
+      <p></p>
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アップロードできるファイルタイプは、jpg, jpeg, gif, png, bmp, tiff です。<br class="hidden-xs">
+      画像は概ね正方形でお願いします。大きさは自動的に100px 100pxにリサイズされます。
+    </div>
+  </div>
 
 
 
   <%= f.submit "登録する", class: "btn btn-primary" %>
 
 <% end %>
+
+<!--===================
+ 画像読み込みアラート
+===================-->
+<div class="modal fade" id="alert_undefined_img">
+  <%= render 'shared/alert_undefined_img' %>
+</div>

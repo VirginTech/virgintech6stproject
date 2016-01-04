@@ -26,7 +26,11 @@ class ProductsController < ApplicationController
                                     :model_iphone,
                                     :model_android,
                                     :model_web,
+                                    
                                     :img_icon,
+                                    :img_icon_cache,
+                                    :remove_img_icon,
+                                    
                                     :img_screenshot_01,
                                     :img_screenshot_02,
                                     :img_screenshot_03,

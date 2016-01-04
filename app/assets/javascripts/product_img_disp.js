@@ -1,7 +1,7 @@
 //==============================
 //ファイル選択ダイアログ
 //==============================
-function fileProfileImage(event,tag) 
+function fileIconImage(event,tag) 
 {
   var file = event.target.files[0];
   var disp = document.getElementById(tag);

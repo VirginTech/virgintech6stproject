@@ -16,7 +16,7 @@
         アップロードできるファイルタイプは、jpg, jpeg, gif, png, bmp, tiff です。<br class="hidden-xs">
         画像は概ね正方形でお願いします。大きさは自動的に100px 100pxにリサイズされます。
       </p>
-      <%= f.file_field :profile_img, onchange:"fileChange(event,'disp')" %>
+      <%= f.file_field :profile_img, onchange:"fileProfileImage(event,'disp')",class: 'form-control' %>
       <%= f.hidden_field :profile_img_cache %>
       <p></p>
       
@@ -76,6 +76,6 @@
 <!--===================
  画像読み込みアラート
 ===================-->
-<div class="modal fade" id="alert_user_profile_img">
-  <%= render 'shared/alert_profile_img' %>
+<div class="modal fade" id="alert_undefined_img">
+  <%= render 'shared/alert_undefined_img' %>
 </div>
