@@ -16,6 +16,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :img_screenshot_03
       t.string :img_screenshot_04
       t.string :img_screenshot_05
+      t.date :sale_date
 
       t.timestamps null: false
       

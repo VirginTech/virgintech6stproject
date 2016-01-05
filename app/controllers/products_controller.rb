@@ -49,8 +49,9 @@ class ProductsController < ApplicationController
                                     
                                     :img_screenshot_05,
                                     :img_screenshot_05_cache,
-                                    :remove_img_screenshot_05
+                                    :remove_img_screenshot_05,
                                     
+                                    :sale_date
                                     )
   end
 

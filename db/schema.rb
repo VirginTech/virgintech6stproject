@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20160102085352) do
     t.string   "img_screenshot_03", limit: 255
     t.string   "img_screenshot_04", limit: 255
     t.string   "img_screenshot_05", limit: 255
+    t.date     "sale_date"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end

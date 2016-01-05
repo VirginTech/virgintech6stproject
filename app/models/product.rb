@@ -25,5 +25,6 @@ class Product < ActiveRecord::Base
   validates :model, present_model: true
   validates :img_icon, presence: true
   validates :img_screenshot_01, presence: true
+  validates :sale_date, presence: true
   
 end

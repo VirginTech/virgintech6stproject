@@ -231,6 +231,32 @@
       なお最低1枚は必須で、最大5枚まで登録できます。
     </div>
   </div>
+  <!--==================
+  リリース日
+  ====================-->
+  <%= hidden_field_tag 'product[model]' %> <!--#カスタムバリデート用 -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">リリース日</span> <span class="require2">＊必須</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <%= f.date_select :sale_date,{
+        use_month_numbers: true, # jan, febとかじゃなくて数字で月を表現
+        start_year: (Time.now.year-5), # 何年から表示させるか
+        end_year: (Time.now.year+2), # 何年まで表示させるか
+        default: Date.new(Time.now.year, Time.now.month, Time.now.day) } #, 最初に表示されている年月日
+        # class: 'form-control'
+      %>
+      <p></p>
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アプリのリリース日を入力して下さい。(未来でも可)<br class="hidden-xs">
+      未来日を設定した場合「リリース待ちアプリ」として絞り込み検索が可能になります。
+    </div>
+  </div>
 
 
 
