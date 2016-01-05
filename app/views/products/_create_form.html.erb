@@ -36,7 +36,7 @@
     </div>
     <div class="panel-footer">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
-      アプリ概要はアプリ一覧に表示されます。250文字以内で入力して下さい。
+      アプリ概要はアプリ一覧に表示されます。140文字以内で入力して下さい。
     </div>
   </div>
   <!--==================
@@ -138,13 +138,13 @@
       </h2>
     </div>
     <div class="panel-body">
-      <span class="store">AppStore</span>
+      <span class="product-input-label">AppStore</span>
       <%= f.text_field :store_iphone_url,disabled: true, class: 'form-control',id: 'store-iphone' %>
       <p></p>
-      <span class="store">GooglePlay Store</span>
+      <span class="product-input-label">GooglePlay Store</span>
       <%= f.text_field :store_android_url,disabled: true, class: 'form-control',id: 'store-android' %>
       <p></p>
-      <span class="store">Web Game</span>
+      <span class="product-input-label">Web Game</span>
       <%= f.text_field :store_webgame_url,disabled: true, class: 'form-control',id: 'store-webgame' %>
       <p></p>
     </div>
@@ -281,6 +281,37 @@
       <span class="glyphicon glyphicon-exclamation-sign"></span>
       アプリのリリース日を入力して下さい。(未来でも可)<br class="hidden-xs">
       未来日を設定した場合「リリース待ちアプリ」として絞り込み検索が可能になります。
+    </div>
+  </div>
+  <!--==================
+  公式サイト等
+  ====================-->
+  <%= hidden_field_tag 'product[model]' %> <!--#カスタムバリデート用 -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">公式サイト等</span> <span class="require2">＊オプション</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
+      <span class="product-input-label">アプリ公式サイト</span>
+      <%= f.text_field :official_site, class: 'form-control' %>
+      <p></p>
+      <span class="product-input-label">公式Twitter</span>
+      <%= f.text_field :twitter, class: 'form-control' %>
+      <p></p>
+      <span class="product-input-label">公式Facebook</span>
+      <%= f.text_field :facebook, class: 'form-control' %>
+      <p></p>
+      <span class="product-input-label">その他攻略サイト等</span>
+      <%= f.text_field :etc_site, class: 'form-control' %>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アプリ公式サイト、公式ツイッター、公式フェイスブックなどがあれば入力して下さい。
     </div>
   </div>
 

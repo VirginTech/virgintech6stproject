@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
   attr_accessor :model
 
   validates :appname, presence: true, length: { maximum: 50 }
-  validates :summary, presence: true, length: { maximum: 250 }
+  validates :summary, presence: true, length: { maximum: 140 }
   validates :description, presence: true
   validates :category, presence: true
   validates :price, presence: true

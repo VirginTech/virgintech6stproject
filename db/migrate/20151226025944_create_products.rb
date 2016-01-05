@@ -20,6 +20,10 @@ class CreateProducts < ActiveRecord::Migration
       t.string :store_iphone_url
       t.string :store_android_url
       t.string :store_webgame_url
+      t.string :official_site
+      t.string :twitter
+      t.string :facebook
+      t.string :etc_site
 
       t.timestamps null: false
       

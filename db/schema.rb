@@ -72,6 +72,10 @@ ActiveRecord::Schema.define(version: 20160102085352) do
     t.string   "store_iphone_url",  limit: 255
     t.string   "store_android_url", limit: 255
     t.string   "store_webgame_url", limit: 255
+    t.string   "official_site",     limit: 255
+    t.string   "twitter",           limit: 255
+    t.string   "facebook",          limit: 255
+    t.string   "etc_site",          limit: 255
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end

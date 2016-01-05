@@ -54,7 +54,11 @@ class ProductsController < ApplicationController
                                     :sale_date,
                                     :store_iphone_url,
                                     :store_android_url,
-                                    :store_webgame_url
+                                    :store_webgame_url,
+                                    :official_site,
+                                    :twitter,
+                                    :facebook,
+                                    :etc_site
                                     )
   end
 
