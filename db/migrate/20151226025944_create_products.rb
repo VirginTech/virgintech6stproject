@@ -17,6 +17,9 @@ class CreateProducts < ActiveRecord::Migration
       t.string :img_screenshot_04
       t.string :img_screenshot_05
       t.date :sale_date
+      t.string :store_iphone_url
+      t.string :store_android_url
+      t.string :store_webgame_url
 
       t.timestamps null: false
       

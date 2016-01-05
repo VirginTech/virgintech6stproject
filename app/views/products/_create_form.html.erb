@@ -110,13 +110,13 @@
     <div class="panel-body">
       <table border=0>
         <tr>
-          <td width=20><%= f.check_box :model_iphone, :checked => @product.model_iphone,class: 'form-control' %></td>
+          <td width=20><%= f.check_box :model_iphone, :checked => @product.model_iphone,class: 'form-control', id: 'model-iphone' %></td>
           <td width=70>iPhone</td>
         
-          <td width=20><%= f.check_box :model_android, :checked => @product.model_android,class: 'form-control' %></td>
+          <td width=20><%= f.check_box :model_android, :checked => @product.model_android,class: 'form-control', id: 'model-android' %></td>
           <td width=70>Android</td>
         
-          <td width=20><%= f.check_box :model_web, :checked => @product.model_web,class: 'form-control' %></td>
+          <td width=20><%= f.check_box :model_web, :checked => @product.model_web,class: 'form-control', id: 'model-webgame' %></td>
           <td width=100>Webゲーム</td>
         </tr>
       </table>
@@ -125,6 +125,32 @@
     <div class="panel-footer">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
       アプリの対応機種を選択して下さい。(複数可)
+    </div>
+  </div>
+  <!--==================
+  ストアURL
+  ====================-->
+  <%= hidden_field_tag 'product[model]' %> <!--#カスタムバリデート用 -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">アプリ(ストア)URL</span> <span class="require2">＊必須</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <span class="store">AppStore</span>
+      <%= f.text_field :store_iphone_url,disabled: true, class: 'form-control',id: 'store-iphone' %>
+      <p></p>
+      <span class="store">GooglePlay Store</span>
+      <%= f.text_field :store_android_url,disabled: true, class: 'form-control',id: 'store-android' %>
+      <p></p>
+      <span class="store">Web Game</span>
+      <%= f.text_field :store_webgame_url,disabled: true, class: 'form-control',id: 'store-webgame' %>
+      <p></p>
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アプリストアのURLを入力して下さい。(ブラウザゲームの場合はそのURLを入力して下さい)
     </div>
   </div>
   <!--==================

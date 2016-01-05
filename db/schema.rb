@@ -69,6 +69,9 @@ ActiveRecord::Schema.define(version: 20160102085352) do
     t.string   "img_screenshot_04", limit: 255
     t.string   "img_screenshot_05", limit: 255
     t.date     "sale_date"
+    t.string   "store_iphone_url",  limit: 255
+    t.string   "store_android_url", limit: 255
+    t.string   "store_webgame_url", limit: 255
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end

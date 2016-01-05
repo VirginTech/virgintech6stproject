@@ -51,7 +51,10 @@ class ProductsController < ApplicationController
                                     :img_screenshot_05_cache,
                                     :remove_img_screenshot_05,
                                     
-                                    :sale_date
+                                    :sale_date,
+                                    :store_iphone_url,
+                                    :store_android_url,
+                                    :store_webgame_url
                                     )
   end
 

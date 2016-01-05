@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+span.store{
+  color: #000;
+  font-weight: bold;
+  font-size: 13px;
+}
 span.input-header{
   color: #fff;
   font-weight: bold;
