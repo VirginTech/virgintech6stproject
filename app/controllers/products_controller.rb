@@ -32,10 +32,26 @@ class ProductsController < ApplicationController
                                     :remove_img_icon,
                                     
                                     :img_screenshot_01,
+                                    :img_screenshot_01_cache,
+                                    :remove_img_screenshot_01,
+                                    
                                     :img_screenshot_02,
+                                    :img_screenshot_02_cache,
+                                    :remove_img_screenshot_02,
+                                    
                                     :img_screenshot_03,
+                                    :img_screenshot_03_cache,
+                                    :remove_img_screenshot_03,
+                                    
                                     :img_screenshot_04,
-                                    :img_screenshot_05)
+                                    :img_screenshot_04_cache,
+                                    :remove_img_screenshot_04,
+                                    
+                                    :img_screenshot_05,
+                                    :img_screenshot_05_cache,
+                                    :remove_img_screenshot_05
+                                    
+                                    )
   end
 
 end

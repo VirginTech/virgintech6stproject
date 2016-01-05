@@ -6,7 +6,12 @@ class Product < ActiveRecord::Base
   #イメージアップローダー
   #============================
   mount_uploader :img_icon, ProductIconUploader
-
+  mount_uploader :img_screenshot_01, ProductScreenShotUploader
+  mount_uploader :img_screenshot_02, ProductScreenShotUploader
+  mount_uploader :img_screenshot_03, ProductScreenShotUploader
+  mount_uploader :img_screenshot_04, ProductScreenShotUploader
+  mount_uploader :img_screenshot_05, ProductScreenShotUploader
+  
   #============================
   #バリデーション
   #============================
@@ -19,5 +24,6 @@ class Product < ActiveRecord::Base
   validates :price, presence: true
   validates :model, present_model: true
   validates :img_icon, presence: true
+  validates :img_screenshot_01, presence: true
   
 end

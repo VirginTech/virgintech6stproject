@@ -132,7 +132,7 @@
   ====================-->
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2 class="panel-title glyphicon glyphicon-pencil">
+      <h2 class="panel-title glyphicon glyphicon-camera">
         <span class="input-header">アプリアイコン</span> <span class="require2">＊必須</span>
       </h2>
     </div>
@@ -153,6 +153,82 @@
       <span class="glyphicon glyphicon-exclamation-sign"></span>
       アップロードできるファイルタイプは、jpg, jpeg, gif, png, bmp, tiff です。<br class="hidden-xs">
       画像は概ね正方形でお願いします。大きさは自動的に100px 100pxにリサイズされます。
+    </div>
+  </div>
+  <!--==================
+  スクリーンショット
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-camera">
+        <span class="input-header">スクリーンショット</span> <span class="require2">＊必須</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+      
+      <span class="require">＊一枚は必須です</span>
+      <%= f.file_field :img_screenshot_01, onchange:"fileScreenShot(event,'screen_01')",class: 'form-control' %>
+      <%= f.hidden_field :img_screenshot_01_cache %>
+      <p></p>
+      <div id="screen_01">
+        <% if @product.img_screenshot_01? %>
+          <%= image_tag @product.img_screenshot_01.url %>
+          <%= f.check_box :remove_img_screenshot_01 %>削除する
+        <% end %>
+      </div>
+      <p></p>
+
+      <span class="option">＊以降はオプション</span>
+      <%= f.file_field :img_screenshot_02, onchange:"fileScreenShot(event,'screen_02')",class: 'form-control' %>
+      <%= f.hidden_field :img_screenshot_02_cache %>
+      <p></p>
+      <div id="screen_02">
+        <% if @product.img_screenshot_02? %>
+          <%= image_tag @product.img_screenshot_02.url %>
+          <%= f.check_box :remove_img_screenshot_02 %>削除する
+        <% end %>
+      </div>
+      <p></p>
+
+      <%= f.file_field :img_screenshot_03, onchange:"fileScreenShot(event,'screen_03')",class: 'form-control' %>
+      <%= f.hidden_field :img_screenshot_03_cache %>
+      <p></p>
+      <div id="screen_03">
+        <% if @product.img_screenshot_03? %>
+          <%= image_tag @product.img_screenshot_03.url %>
+          <%= f.check_box :remove_img_screenshot_03 %>削除する
+        <% end %>
+      </div>
+      <p></p>
+
+      <%= f.file_field :img_screenshot_04, onchange:"fileScreenShot(event,'screen_04')",class: 'form-control' %>
+      <%= f.hidden_field :img_screenshot_04_cache %>
+      <p></p>
+      <div id="screen_04">
+        <% if @product.img_screenshot_04? %>
+          <%= image_tag @product.img_screenshot_04.url %>
+          <%= f.check_box :remove_img_screenshot_04 %>削除する
+        <% end %>
+      </div>
+      <p></p>
+
+      <%= f.file_field :img_screenshot_05, onchange:"fileScreenShot(event,'screen_05')",class: 'form-control' %>
+      <%= f.hidden_field :img_screenshot_05_cache %>
+      <p></p>
+      <div id="screen_05">
+        <% if @product.img_screenshot_05? %>
+          <%= image_tag @product.img_screenshot_05.url %>
+          <%= f.check_box :remove_img_screenshot_05 %>削除する
+        <% end %>
+      </div>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      アップロードできるファイルタイプは、jpg, jpeg, gif, png, bmp, tiff です。<br class="hidden-xs">
+      大きさは縦横比率を維持したまま、300px にリサイズされます。<br class="hidden-xs">
+      なお最低1枚は必須で、最大5枚まで登録できます。
     </div>
   </div>
 
