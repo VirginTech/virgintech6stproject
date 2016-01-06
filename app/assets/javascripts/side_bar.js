@@ -2,7 +2,7 @@ $(function(){
 
   var duration=300;
 
-  var $aside=$('aside');
+  var $aside=$('aside#category-nav');
   var $asideButton=$('.side-button').on('click',function(event){
       
       event.preventDefault();

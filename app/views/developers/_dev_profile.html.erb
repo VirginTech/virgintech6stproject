@@ -1,0 +1,40 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h2 class="panel-title">デベロッパープロフィール</h2>
+  </div>
+  <div class="panel-body dev-profile">
+    <!--プロフィールアイコン-->
+    <% if @developer.profile_img? %>
+      <%= image_tag @developer.profile_img.url, class:"profile-icon" %>
+    <% else %>
+      <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+    <% end %>
+    <!--名前-->
+    <span class="profile-name"><%= @developer.name %></span>
+    <br />
+    <!--Webサイト-->
+    <% if @developer.website? %>
+      <span class="profile-website glyphicon glyphicon-home">:<%=link_to @developer.website, @developer.website %></span>
+    <% end %>
+    <br />
+    <!--公開メール-->
+    <% if @developer.email? %>
+      <span class="profile-email glyphicon glyphicon-envelope">:<%=link_to @developer.contact_email, 'mailto:' + @developer.contact_email %></span>
+    <% end %>
+    <br />
+    <!--ツイッター-->
+    <% if @developer.twitter? %>
+      <%=link_to @developer.twitter do %><%= image_tag 'twitter.png', class:"profile-sns" %><% end %>
+    <% end %>
+    <!--Facebook-->
+    <% if @developer.facebook? %>
+      <%=link_to @developer.facebook do %><%= image_tag 'facebook.png', class:"profile-sns" %><% end %>
+    <% end %>
+    <!--Google+-->
+    <% if @developer.google? %>
+      <%=link_to @developer.google do %><%= image_tag 'google.png', class:"profile-sns" %><% end %>
+    <% end %>
+    <br />
+
+  </div>
+</div>

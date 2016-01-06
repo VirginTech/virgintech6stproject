@@ -4,7 +4,7 @@
 /*==========================================
  共通のスタイル
 ===========================================*/
-aside{
+aside#category-nav{
   background-color: rgba(0,0,0,0.8);
   width: 150px;
   height: 800px;
@@ -21,7 +21,7 @@ aside{
 4.5インチスマホ向けのレイアウトの指定
 ===============================================*/
 @media only screen and (min-width: 375px) {
-  aside{
+  aside#category-nav{
     background-color: rgba(0,0,0,0.8);
     width: 200px;
     left: -200px;
@@ -32,7 +32,7 @@ aside{
 タブレット向けレイアウトの指定
 ===============================================*/
 @media only screen and (min-width: 668px) {
-  aside{
+  aside#category-nav{
     background-color: rgba(0,0,0,0.8);
     width: 350px;
     left: -350px;
@@ -42,7 +42,7 @@ aside{
 PC向けレイアウトの指定：769px以上では固定レイアウト 
 ===============================================*/
 @media only screen and (min-width: 769px) {
-  aside{
+  aside#category-nav{
     background-color: rgba(0,0,0,0.8);
     width: 350px;
     left: -350px;

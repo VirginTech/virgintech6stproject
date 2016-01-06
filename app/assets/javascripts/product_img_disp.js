@@ -76,7 +76,6 @@ function fileScreenShot(event,tag)
     reader.onload = function (evt) 
     {
       var img = document.createElement('img');
-      img.src="";
       img.src = evt.target.result;
       disp.appendChild(img);
     }
