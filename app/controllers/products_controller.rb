@@ -3,10 +3,12 @@ class ProductsController < ApplicationController
   before_action :logged_in_developer, only: [:new]
   
   def new
+    @developer=current_developer
     @product = current_developer.products.build if dev_logged_in? 
   end
 
   def create
+    @developer=current_developer
     @product = current_developer.products.build(product_params)
     if @product.save
       flash[:success] = "新規アプリを登録しました！"

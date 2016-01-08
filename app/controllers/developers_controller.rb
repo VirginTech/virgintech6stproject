@@ -6,9 +6,11 @@ class DevelopersController < ApplicationController
 
   def show
     @developer = Developer.find(params[:id])
+    @products=@developer.products.order(created_at: :desc)
   end
   
   def edit
+    #未登録idでもエラーにしない(nilが入る)為にfind_by_idを使ってみたが、結局どこかでエラーになるので意味なし
     @developer = Developer.find_by_id(params[:id])
   end
   

@@ -4,41 +4,35 @@
 /*==========================================
  共通のスタイル
 ===========================================*/
-aside.dev-mypage-left{
-  margin-top: 10px;
-}
-.dev-profile{
-  .profile-icon{
-    width: 50px;
-    height: 50px;
-    border: 2px solid #fff;
-    border-radius: 100%;
+div.product-list{
+  .app-icon{
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
     float: left;
     margin-right: 10px;
   }
-  .profile-name{
-    //font-style: italic;
+  .app-name{
     font-weight: bold;
     font-size: 15px;
     line-height: 0px;
   }
-  .profile-website{
-    //font-style: italic;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 0px;
+  .app-summary{
+    font-size: 13px;
+    //line-height: 0px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
-  .profile-email{
-    //font-style: italic;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 0px;
+  .app-price{
+     
   }
-  .profile-sns{
-    margin-top: 10px;
-    width: 30px;
-    height: 30px;
-    border: 0px solid #fff;
+  .app-store{
+    float: right;
+    margin-top: -10px;
+    margin-right: 5px;
+    max-width: 80px;
   }
 }
 /*=============================================
@@ -51,23 +45,24 @@ aside.dev-mypage-left{
 タブレット向けレイアウトの指定
 ===============================================*/
 @media only screen and (min-width: 668px) {
-  aside.dev-mypage-left{
-    margin-top: 20px;
-  }
-  div.dev-mypage-center{
-    margin-top: 20px;
+  div.product-list{
+    .app-icon{
+      width: 80px;
+      height: 80px;
+    }
   }
 }
 /*=============================================
 PC向けレイアウトの指定：769px以上では固定レイアウト 
 ===============================================*/
 @media only screen and (min-width: 769px) {
-  div.dev-mypage-right{
-    margin-top: 20px;
-  }
-  .dev-profile{
-    .profile-sns{
-      margin-top: 10px;
+  div.product-list{
+    .app-icon{
+      width: 100px;
+      height: 100px;
+    }
+    .app-summary{
+      font-size: 14px;
     }
   }
 }

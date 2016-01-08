@@ -1,0 +1,45 @@
+<div class="product-list">
+  
+  <!--アプリアイコン-->
+  <%= image_tag product.img_icon.url, class:"app-icon" %>
+  <!--アプリネーム-->
+  <span class="app-name"><%= product.appname %></span>
+  <!--価格-->
+  <% if product.price==1 %>
+    <span class="app-price label label-success">無料</span>
+  <% elsif product.price==2 %>
+    <span class="app-price label label-danger">有料</span>
+  <% end %>
+  <br />
+  <!--対応機種-->
+  <% if product.model_iphone %>
+    <span class="label label-primary">iOS</span>
+  <% end %>
+  <% if product.model_android %>
+    <span class="label label-warning">Android</span>
+  <% end %>
+  <% if product.model_web %>
+    <span class="label label-info">ブラウザゲーム</span>
+  <% end %>
+  <br />
+  <!--アプリ概要-->
+  <span class="app-summary"><%= product.summary %></span>
+  <br />
+  <!--ストアURL-->
+  <% if product.model_web %>
+    <%= link_to product.store_webgame_url do %>
+      <%= image_tag 'gamesite.png', class:"app-store" %>
+    <% end %>
+  <% end %>
+  <% if product.model_android %>
+    <%= link_to product.store_android_url do %>
+      <%= image_tag 'googleplay.png', class:"app-store" %>
+    <% end %>
+  <% end %>
+  <% if product.model_iphone %>
+    <%= link_to product.store_iphone_url do %>
+      <%= image_tag 'appstore.png', class:"app-store" %>
+    <% end %>
+  <% end %>
+  <hr />
+</div>
