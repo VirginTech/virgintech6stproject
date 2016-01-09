@@ -2,6 +2,21 @@
 @import "bootstrap";
 
 /*==========================================
+ スティッキーフッター用
+===========================================*/
+.sticky-footer {
+  position: static;
+  width: 100%;
+  //z-index:2;
+}
+
+.sticky-footer.sticky {
+  position: fixed;
+  width: 100%;
+  top: 400px;
+  //z-index:2;
+}
+/*==========================================
  共通のスタイル
 ===========================================*/
 header {
@@ -104,6 +119,12 @@ footer{
       line-height: 2.0em;
     }
   }
+  .sticky-footer.sticky {
+    position: fixed;
+    width: 100%;
+    top: 400px;
+    //z-index:2;
+  }
 }
 /*=============================================
 タブレット向けレイアウトの指定
@@ -143,6 +164,12 @@ footer{
       line-height: 2.0em;
     }
   }
+  .sticky-footer.sticky {
+    position: fixed;
+    width: 100%;
+    top: 770px;
+    //z-index:2;
+  }
 }
 /*=============================================
 PC向けレイアウトの指定：769px以上では固定レイアウト 
@@ -181,5 +208,11 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
       font-size: 15px;
       line-height: 2.0em;
     }
+  }
+  .sticky-footer.sticky {
+    position: fixed;
+    width: 100%;
+    top: 600px;
+    //z-index:2;
   }
 }
