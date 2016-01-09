@@ -1,16 +1,24 @@
 <div class="product-list">
   
   <!--アプリアイコン-->
-  <%= image_tag product.img_icon.url, class:"app-icon" %>
+  <%= link_to product_path(product) do %>
+    <%= image_tag product.img_icon.url, class:"app-icon" %>
+  <% end %>
+
   <!--アプリネーム-->
-  <span class="app-name"><%= product.appname %></span>
+  <span class="app-name">
+    <%= link_to product_path(product) do %>
+      <%= product.appname %>
+    <% end %>
+  </span>
+
   <!--価格-->
   <% if product.price==1 %>
     <span class="app-price label label-success">無料</span>
   <% elsif product.price==2 %>
     <span class="app-price label label-danger">有料</span>
   <% end %>
-  <br />
+  <br class="hidden-xs">
   <!--対応機種-->
   <% if product.model_iphone %>
     <span class="label label-primary">iOS</span>
@@ -41,5 +49,6 @@
       <%= image_tag 'appstore.png', class:"app-store" %>
     <% end %>
   <% end %>
+  
   <hr />
 </div>

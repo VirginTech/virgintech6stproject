@@ -16,6 +16,18 @@ div.product-list{
     font-weight: bold;
     font-size: 15px;
     line-height: 0px;
+    a:link { 
+      color:#000; text-decoration:none 
+    }
+    a:visited { 
+      color:#000; text-decoration:none 
+    }
+    a:hover { 
+      color:#000; text-decoration:none 
+    }
+    a:active { 
+      color:#000; text-decoration:none 
+    }
   }
   .app-summary{
     font-size: 13px;

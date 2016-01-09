@@ -139,13 +139,13 @@
     </div>
     <div class="panel-body">
       <span class="product-input-label">AppStore</span>
-      <%= f.text_field :store_iphone_url,disabled: true, class: 'form-control',id: 'store-iphone' %>
+      <%= f.text_field :store_iphone_url,disabled: !@product.model_iphone, class: 'form-control',id: 'store-iphone' %>
       <p></p>
       <span class="product-input-label">GooglePlay Store</span>
-      <%= f.text_field :store_android_url,disabled: true, class: 'form-control',id: 'store-android' %>
+      <%= f.text_field :store_android_url,disabled: !@product.model_android, class: 'form-control',id: 'store-android' %>
       <p></p>
       <span class="product-input-label">Web Game</span>
-      <%= f.text_field :store_webgame_url,disabled: true, class: 'form-control',id: 'store-webgame' %>
+      <%= f.text_field :store_webgame_url,disabled: !@product.model_web, class: 'form-control',id: 'store-webgame' %>
       <p></p>
     </div>
     <div class="panel-footer">

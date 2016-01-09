@@ -15,12 +15,12 @@
     </div>
   </div>
 </div>
-
 <!--========================
 ボディ
 ==========================-->
-<div class="container-fluid"> <!-- 全体を囲むコンテナ -->
+<div class="container-fluid">        <!-- 全体を囲むコンテナ -->
   <div class="row">
+
     <!--========================
     左サイド
     ==========================-->
@@ -35,7 +35,11 @@
     ==========================-->
     <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="dev-mypage-center">
-        <%= render 'developers/dev_product_list' %>
+        <% if same_developer? @product.developer.id %>
+          <%= render 'create_form' %>
+        <% else %>
+          <%= render 'shared/session_error' %>
+        <% end %>
       </div>
     </div>
     <!--========================
@@ -47,9 +51,9 @@
         <%= image_tag 'ad_dummy.png',class:"img-responsive" %>
       </div>
     </div>
-    
+
   </div>
-</div> <!-- 全体を囲むコンテナ -->
+</div>        <!-- 全体を囲むコンテナ -->
 
 <!--=========================
 余白

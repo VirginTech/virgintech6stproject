@@ -20,20 +20,24 @@ Rails.application.routes.draw do
   get 'reset_password_dev' => 'developers#reset_password'
   patch 'update_password_dev' => 'developers#update_password'
   
+  # ユーザー
   resources :users,only: [:new, :create, :destroy, :show, :edit, :update]
   resources :user_sessions, only: [:create, :destroy]
   
+  # デヴェロッパー
   resources :developers,only: [:new, :create, :destroy, :show, :edit, :update]
   resources :dev_sessions, only: [:create, :destroy]
   
-  resources :products,only: [:new, :create]
-  
-  resources :users do
-    get 'regist_token_user/:uuid', :to => 'users#regist_token' # ログイントークン
-  end
+  # プロダクト
+  resources :products,only: [:new, :create, :edit, :update, :show, :destroy]
 
+  # ログイントークン(User)
+  resources :users do
+    get 'regist_token_user/:uuid', :to => 'users#regist_token'
+  end
+  # ログイントークン(Developer)
   resources :developers do
-    get 'regist_token_dev/:uuid', :to => 'developers#regist_token' # ログイントークン
+    get 'regist_token_dev/:uuid', :to => 'developers#regist_token'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

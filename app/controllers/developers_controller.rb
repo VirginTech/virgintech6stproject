@@ -1,5 +1,8 @@
 class DevelopersController < ApplicationController
   
+  before_action :logged_in_developer, only: [:edit, :update, :destroy]
+  before_action :is_are_you?, only: [:show]
+  
   def new
     @developer=Developer.new
   end
@@ -193,6 +196,15 @@ class DevelopersController < ApplicationController
 
 
   private
+  
+  def is_are_you?
+    unless Developer.find_by_id(params[:id])
+      dev_store_location
+      flash[:danger] = "セッションエラーが発生しました。存在しないIDです。"
+      return redirect_to root_path
+    end
+  end
+
   def dev_params
     params.require(:developer).permit(:name,
                                       :email,

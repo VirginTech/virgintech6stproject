@@ -2,7 +2,7 @@ class Developer < ActiveRecord::Base
   
   has_many :regist_dev_tokens
   has_many :pass_dev_tokens
-  has_many :products
+  has_many :products, :dependent => :delete_all
   
   #============================
   #イメージアップローダー

@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :is_are_you?, only: [:show]
+  
   def new
     @user = User.new
   end
@@ -209,6 +212,15 @@ class UsersController < ApplicationController
   end
     
   private
+  
+  def is_are_you?
+    unless User.find_by_id(params[:id])
+      dev_store_location
+      flash[:danger] = "セッションエラーが発生しました。存在しないIDです。"
+      return redirect_to root_path
+    end
+  end
+  
   def user_params
     params.require(:user).permit(:nickname, 
                                   :email,

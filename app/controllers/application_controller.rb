@@ -12,7 +12,12 @@ class ApplicationController < ActionController::Base
     unless user_logged_in?
       user_store_location
       flash[:danger] = "ログインして下さい。"
-      redirect_to root_path
+      return redirect_to root_path
+    end
+    unless same_user?(params[:id])
+      user_store_location
+      flash[:danger] = "セッションエラーが発生しました。不正なURLです。"
+      return redirect_to root_path
     end
   end
 
@@ -20,7 +25,12 @@ class ApplicationController < ActionController::Base
     unless dev_logged_in?
       dev_store_location
       flash[:danger] = "ログインして下さい。"
-      redirect_to root_path
+      return redirect_to root_path
+    end
+    unless same_developer?(params[:id])
+      dev_store_location
+      flash[:danger] = "セッションエラーが発生しました。不正なURLです。"
+      return redirect_to root_path
     end
   end
   
