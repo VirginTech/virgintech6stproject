@@ -1,0 +1,52 @@
+<floatbar>
+  <div class="float-search-bar sticky-search-bar">
+    <ul class="menu">
+
+      <li><a href="#" class="side-button glyphicon glyphicon-th-list">カテゴリ</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle glyphicon glyphicon-sort-by-attributes-alt" data-toggle="dropdown">新着順<span class="caret"></span>
+        </a>
+        <ul class="sub-menu dropdown-menu">
+          <li><%= link_to " 新着順","#",class:"glyphicon glyphicon-sort-by-attributes" %></li>
+          <li><%= link_to " ランキング順","#", class:"glyphicon glyphicon-sort-by-attributes-alt" %></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle glyphicon glyphicon-phone" data-toggle="dropdown">機種<span class="caret"></span>
+        </a>
+        <ul class="sub-menu dropdown-menu">
+          <li><%= link_to "すべて","#" %></li>
+          <li class="divider"></li>
+          <li><%= link_to " iPhone","#",class:"glyphicon glyphicon-phone" %></li>
+          <li><%= link_to " Android","#",class:"glyphicon glyphicon-phone" %></li>
+          <li><%= link_to " WebGame","#",class:"glyphicon glyphicon-modal-window" %></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle glyphicon glyphicon-usd" data-toggle="dropdown">価格<span class="caret"></span>
+        </a>
+        <ul class="sub-menu dropdown-menu dropdown-menu-right">
+          <li><%= link_to "すべて","#" %></li>
+          <li class="divider"></li>
+          <li><%= link_to " 無料","#", class:"glyphicon glyphicon-bitcoin" %></li>
+          <li><%= link_to " 有料","#", class:"glyphicon glyphicon-yen" %></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle glyphicon glyphicon-ok" data-toggle="dropdown">セール<span class="caret"></span>
+        </a>
+        <ul class="sub-menu dropdown-menu dropdown-menu-right">
+          <li><%= link_to "すべて","#" %></li>
+          <li class="divider"></li>
+          <li><%= link_to " リリース済み","#",class:"glyphicon glyphicon-eye-open" %></li>
+          <li><%= link_to " リリース待ち","#",class:"glyphicon glyphicon-eye-close" %></li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</floatbar>
