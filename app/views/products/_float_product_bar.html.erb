@@ -1,0 +1,17 @@
+<floatbar>
+  <div class="float-product-bar sticky-product-bar">
+    <div class="btn-toolbar">
+      <div class="btn-group btn-group-justified">
+        <%= link_to product_path(@product), class:"btn btn-default" do %>
+          <span class="glyphicon glyphicon-book">アプリ詳細</span>
+        <% end %>
+        <%= link_to "#", class:"btn btn-default" do %>
+          <span class="glyphicon glyphicon-comment">コメント</span>
+        <% end %>
+        <%= link_to "#", class:"btn btn-default" do %>
+          <span class="glyphicon glyphicon-education">開発者コメ</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</floatbar>

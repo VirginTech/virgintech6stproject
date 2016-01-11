@@ -1,0 +1,18 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*==========================================
+ スティッキーバー用
+===========================================*/
+.sticky-product-bar {
+  position: absolute;
+  width: 100%;
+  z-index:1;
+}
+
+.sticky-product-bar.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index:1;
+}

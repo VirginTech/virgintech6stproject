@@ -1,0 +1,269 @@
+<div class="product-show">
+
+  <!--==================
+  アプリ概要
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title"><%= @product.appname %></h2>
+    </div>
+    <div class="panel-body">
+      
+      <!--アプリアイコン-->
+      <%= image_tag @product.img_icon.url, class:"app-icon" %>
+  
+      <!--価格-->
+      <% if @product.price==1 %>
+        <span class="app-price label label-success">無料</span>
+      <% elsif @product.price==2 %>
+        <span class="app-price label label-danger">有料</span>
+      <% end %>
+
+      <!--カテゴリ-->
+      <span class="label label-info"><%= category_list.key(@product.category) %></span>
+  
+      <!--対応機種-->
+      <% if @product.model_iphone %>
+        <span class="label label-primary">iOS</span>
+      <% end %>
+      <% if @product.model_android %>
+        <span class="label label-warning">Android</span>
+      <% end %>
+      <% if @product.model_web %>
+        <span class="label label-default">ブラウザゲーム</span>
+      <% end %>
+      
+      <br />
+      
+      <!--アプリ概要-->
+      <span class="app-summary"><%= @product.summary %></span>
+      <br />
+      
+      <% if @product.sale_date <= Date.today %> <!--リリースされていれば-->
+
+        <!--リリース日-->
+        <span class="app-sale-date">リリース日:<%= @product.sale_date %></span>
+        <br />
+        
+        <!--ストアURL-->
+        <% if @product.model_web %>
+          <%= link_to @product.store_webgame_url do %>
+            <%= image_tag 'gamesite.png', class:"app-store" %>
+          <% end %>
+        <% end %>
+        <% if @product.model_android %>
+          <%= link_to @product.store_android_url do %>
+            <%= image_tag 'googleplay.png', class:"app-store" %>
+          <% end %>
+        <% end %>
+        <% if @product.model_iphone %>
+          <%= link_to @product.store_iphone_url do %>
+            <%= image_tag 'appstore.png', class:"app-store" %>
+          <% end %>
+        <% end %>
+
+      <% else %> <!--リリースされていなければ-->
+
+        <!--リリース予定日-->
+        <span class="app-sale-date">リリース予定日:<%= @product.sale_date %></span>
+        <br />
+
+      <% end %>
+  
+    </div>
+  </div>
+  
+  <!--==================
+  スクリーンショット
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">スクリーンショット</h2>
+    </div>
+    <div class="panel-body">
+      
+      <% if @screen_vertical %>
+        <div class="app-screen-vertical">
+      <% else %>
+        <div class="app-screen-horizontal">
+      <% end %>
+
+        <%= link_to "#product_screen_01_show",data: {toggle: "modal"} do %>
+          <%= image_tag @product.img_screenshot_01.url %>
+        <% end %>
+        <%= link_to "#product_screen_02_show",data: {toggle: "modal"} do %>
+          <%= image_tag @product.img_screenshot_02.url %>
+        <% end %>
+        <%= link_to "#product_screen_03_show",data: {toggle: "modal"} do %>
+          <%= image_tag @product.img_screenshot_03.url %>
+        <% end %>
+        <%= link_to "#product_screen_04_show",data: {toggle: "modal"} do %>
+          <%= image_tag @product.img_screenshot_04.url %>
+        <% end %>
+        <%= link_to "#product_screen_05_show",data: {toggle: "modal"} do %>
+          <%= image_tag @product.img_screenshot_05.url %>
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+
+  <!--==================
+  アプリ詳細
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">アプリ詳細</h2>
+    </div>
+    <div class="panel-body">
+      <span class="app-description"><%= simple_format(@product.description) %></span>
+    </div>
+  </div>
+
+  <!--==================
+  公式サイト等
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">公式サイト等</h2>
+    </div>
+    <div class="panel-body">
+      <span class="app-official-site">
+        <% if @product.official_site? %>
+          公式サイト:<br />
+          <p><%= link_to @product.official_site, @product.official_site %></p>
+        <% end %>
+        <% if @product.twitter? %>
+          公式Twitter:<br />
+          <p><%= link_to @product.twitter, @product.twitter %></p>
+        <% end %>
+        <% if @product.facebook? %>
+          公式Facebook:<br />
+          <p><%= link_to @product.facebook, @product.facebook %></p>
+        <% end %>
+        <% if @product.etc_site? %>
+          攻略サイト等:<br />
+          <p><%= link_to @product.etc_site, @product.etc_site %></p>
+        <% end %>
+      </span>
+      
+    </div>
+  </div>
+
+</div>
+
+<!--==================================
+拡大イメージ（モーダルダイアログ）
+====================================-->
+<% if @screen_vertical %>
+  <div class="screen-modal-vertical">
+<% else %>
+  <div class="screen-modal-horizontal">
+<% end %>
+
+  <!--1枚目-->
+  <div class="modal fade" id="product_screen_01_show">
+    
+    <% if @screen_vertical %>
+      <div class="modal-dialog modal-sm">
+    <% else %>
+      <div class="modal-dialog">
+    <% end %>
+    
+      <div class="modal-content">
+        <div class="modal-body">
+          <button class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title"><%= @product.appname %></h4>
+          <%= image_tag @product.img_screenshot_01.url, class:"img-responsive" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--2枚目-->
+  <div class="modal fade" id="product_screen_02_show">
+
+    <% if @screen_vertical %>
+      <div class="modal-dialog modal-sm">
+    <% else %>
+      <div class="modal-dialog">
+    <% end %>
+
+      <div class="modal-content">
+        <div class="modal-body">
+          <button class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title"><%= @product.appname %></h4>
+          <%= image_tag @product.img_screenshot_02.url, class:"img-responsive" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--3枚目-->
+  <div class="modal fade" id="product_screen_03_show">
+
+    <% if @screen_vertical %>
+      <div class="modal-dialog modal-sm">
+    <% else %>
+      <div class="modal-dialog">
+    <% end %>
+
+      <div class="modal-content">
+        <div class="modal-body">
+          <button class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title"><%= @product.appname %></h4>
+          <%= image_tag @product.img_screenshot_03.url, class:"img-responsive" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--4枚目-->
+  <div class="modal fade" id="product_screen_04_show">
+
+    <% if @screen_vertical %>
+      <div class="modal-dialog modal-sm">
+    <% else %>
+      <div class="modal-dialog">
+    <% end %>
+
+      <div class="modal-content">
+        <div class="modal-body">
+          <button class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title"><%= @product.appname %></h4>
+          <%= image_tag @product.img_screenshot_04.url, class:"img-responsive" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--5枚目-->
+  <div class="modal fade" id="product_screen_05_show">
+
+    <% if @screen_vertical %>
+      <div class="modal-dialog modal-sm">
+    <% else %>
+      <div class="modal-dialog">
+    <% end %>
+
+      <div class="modal-content">
+        <div class="modal-body">
+          <button class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title"><%= @product.appname %></h4>
+          <%= image_tag @product.img_screenshot_05.url, class:"img-responsive" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

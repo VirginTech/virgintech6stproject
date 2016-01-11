@@ -12,7 +12,17 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @developer=@product.developer
     
+    #スクリーンショット１つをサンプリング (サイズ取得のため)
+    image = MiniMagick::Image.open(@product.img_screenshot_01.url)
+    #image = Magick::ImageList.new(@product.img_screenshot_01.url) RMagicを使うならこちら
+    if image[:width] < image[:height]
+      @screen_vertical = true #縦長
+    else
+      @screen_vertical = false #横長
+    end
   end
   
   def edit

@@ -1,0 +1,134 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*==========================================
+ 共通のスタイル
+===========================================*/
+aside.product-show-left{
+  margin-top: 20px;
+}
+div.product-show-center{
+  margin-top: 0px;
+}
+div.product-show{
+  .app-icon{
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+    float: left;
+    margin-right: 10px;
+  }
+  .app-screen-vertical{
+    border: solid 0px; 
+    height: 250px; 
+    width: 100%; 
+    overflow: auto; 
+    white-space: nowrap;
+    img{
+      max-height: 250px;
+    }
+  }
+  .app-screen-horizontal{
+    border: solid 0px; 
+    height: 150px; 
+    width: 100%; 
+    overflow: auto; 
+    white-space: nowrap;
+    img{
+      max-height: 150px;
+    }
+  }
+  .app-summary{
+    font-size: 13px;
+    //line-height: 0px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    //-webkit-line-clamp: 3;
+    //overflow: hidden;
+  }
+  .app-store{
+    float: right;
+    margin-top: -10px;
+    margin-right: 5px;
+    max-width: 100px;
+  }
+  .app-description{
+    font-size: 13px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+  .app-sale-date{
+    margin-top: -10px;
+    margin-right: 5px;
+    float: right;
+    color: #00f;
+  }
+  .app-official-site{
+    font-size: 13px;
+    p{
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+div.screen-modal-vertical{
+  img{
+    width: 300px; //modal-sm W:300px
+  }
+}
+div.screen-modal-horizontal{
+  img{
+    width: 600px; //modal-指定なし W:600px
+  }
+}
+/*=============================================
+4.5インチスマホ向けのレイアウトの指定
+===============================================*/
+@media only screen and (min-width: 375px) {
+
+}
+/*=============================================
+タブレット向けレイアウトの指定
+===============================================*/
+@media only screen and (min-width: 668px) {
+  aside.product-show-left{
+    margin-top: 20px;
+  }
+  div.product-show-center{
+    margin-top: 20px;
+  }
+  div.product-show{
+    .app-icon{
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+/*=============================================
+PC向けレイアウトの指定：769px以上では固定レイアウト 
+===============================================*/
+@media only screen and (min-width: 769px) {
+  div.product-show-right{
+    margin-top: 20px;
+  }
+  div.product-show{
+    .app-icon{
+      width: 100px;
+      height: 100px;
+    }
+    .app-summary{
+      font-size: 14px;
+    }
+    .app-store{
+      max-width: 120px;
+    }
+    .app-description{
+      font-size: 14px;
+    }
+    .app-official-site{
+      font-size: 14px;
+    }
+  }
+}

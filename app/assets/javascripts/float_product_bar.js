@@ -1,6 +1,6 @@
 $(function(){
   
-  $('.sticky-bar').each(function(){
+  $('.sticky-product-bar').each(function(){
     
     var $window=$(window),
         $header=$(this),

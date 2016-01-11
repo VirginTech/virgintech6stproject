@@ -17,9 +17,9 @@ class ProductScreenShotUploader < CarrierWave::Uploader::Base
   end
 
   #========================
-  # 画像をリサイズする（300px）
+  # 画像をリサイズする（500px）
   #========================
-  process :resize_to_fit => [300, 300]
+  process :resize_to_fit => [500, 500]
 
   #========================
   # フォーマットをJPGにする

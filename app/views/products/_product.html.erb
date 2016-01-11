@@ -18,6 +18,8 @@
   <% elsif product.price==2 %>
     <span class="app-price label label-danger">有料</span>
   <% end %>
+  <!--カテゴリ-->
+  <span class="label label-info"><%= category_list.key(product.category) %></span>
   <br class="hidden-xs">
   <!--対応機種-->
   <% if product.model_iphone %>
@@ -27,7 +29,7 @@
     <span class="label label-warning">Android</span>
   <% end %>
   <% if product.model_web %>
-    <span class="label label-info">ブラウザゲーム</span>
+    <span class="label label-default">ブラウザゲーム</span>
   <% end %>
   <br />
   <!--アプリ概要-->
