@@ -12,10 +12,14 @@ $(function(){
         $aside.stop(true).animate({
           left:'-10px'
         },duration,'easeOutElastic');
+        $asideButton.text(" CLOSE")//文字変更
+        
       }else{
         $aside.stop(true).animate({
           left: -$aside.width()
         },duration,'easeOutElastic');
+        $asideButton.text(" OPEN")//文字変更
       }
     });
+    
 });

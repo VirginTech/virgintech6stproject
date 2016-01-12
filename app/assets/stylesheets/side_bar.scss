@@ -15,6 +15,28 @@ aside#category-nav{
   .category{
     margin-top: 50px;
   }
+  button{
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    
+    background-color: rgba(0,0,0,0.8);
+    display: block;
+    position: fixed;
+    top: 200px;
+    left: -35px;
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: none;
+    img{
+      width: 30px;
+    }
+  }
 }
 
 /*=============================================
@@ -22,9 +44,11 @@ aside#category-nav{
 ===============================================*/
 @media only screen and (min-width: 375px) {
   aside#category-nav{
-    background-color: rgba(0,0,0,0.8);
     width: 200px;
     left: -200px;
+    button{
+      top: 250px;
+    }
   }
 }
 
@@ -33,9 +57,11 @@ aside#category-nav{
 ===============================================*/
 @media only screen and (min-width: 668px) {
   aside#category-nav{
-    background-color: rgba(0,0,0,0.8);
     width: 350px;
     left: -350px;
+    button{
+      top: 250px;
+    }
   }
 }
 /*=============================================
@@ -43,8 +69,10 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
 ===============================================*/
 @media only screen and (min-width: 769px) {
   aside#category-nav{
-    background-color: rgba(0,0,0,0.8);
     width: 350px;
     left: -350px;
+    button{
+      top: 250px;
+    }
   }
 }
