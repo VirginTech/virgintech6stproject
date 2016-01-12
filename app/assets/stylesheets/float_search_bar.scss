@@ -20,7 +20,8 @@
  共通のスタイル
 ===========================================*/
 .float-search-bar {
-  background: #000;
+  //background: #000;
+  background-color: rgba(0,0,0,0.8);
   height: 40px;
   ul.menu{
     list-style:none;

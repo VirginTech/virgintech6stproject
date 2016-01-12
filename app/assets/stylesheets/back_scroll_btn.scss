@@ -5,9 +5,10 @@
   position: fixed;
   bottom: 50px;
   right: 10px;
-  background-color: rgba(0,0,0,1.0);
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 20%;
   span{
-    color: #c0c0c0;
+    color: #fff;
     font-size: 30px;
     text-decoration: none;
   }
