@@ -7,8 +7,8 @@
 aside#category-nav{
   background-color: rgba(0,0,0,0.8);
   width: 150px;
-  height: 800px;
-  top: 50;
+  height: 500px;
+  //top: 100px;
   left: -150px;
   position: absolute;
   z-index:1;
@@ -44,9 +44,6 @@ aside#category-nav{
   aside#category-nav{
     width: 200px;
     left: -200px;
-    button{
-      //top: 250px;
-    }
   }
 }
 
@@ -57,9 +54,6 @@ aside#category-nav{
   aside#category-nav{
     width: 350px;
     left: -350px;
-    button{
-      //top: 250px;
-    }
   }
 }
 /*=============================================
@@ -69,8 +63,5 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
   aside#category-nav{
     width: 350px;
     left: -350px;
-    button{
-     // top: 250px;
-    }
   }
 }
