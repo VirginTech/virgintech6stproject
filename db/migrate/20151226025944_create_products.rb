@@ -24,6 +24,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :twitter
       t.string :facebook
       t.string :etc_site
+      t.string :youtube_url
 
       t.timestamps null: false
       

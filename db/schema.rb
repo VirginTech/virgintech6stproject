@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160102085352) do
     t.string   "twitter",           limit: 255
     t.string   "facebook",          limit: 255
     t.string   "etc_site",          limit: 255
+    t.string   "youtube_url",       limit: 255
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end

@@ -109,6 +109,22 @@
   </div>
 
   <!--==================
+  YouTubeムービー
+  ====================-->
+  <% if @product.youtube_url? %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">プロモーションムービー</h2>
+      </div>
+      <div class="panel-body">
+        <div class="app_youtube">
+          <iframe width="300" height="169" src=<%= @product.youtube_url %> frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <!--==================
   アプリ詳細
   ====================-->
   <div class="panel panel-primary">

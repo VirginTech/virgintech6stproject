@@ -120,7 +120,8 @@ class ProductsController < ApplicationController
                                     :official_site,
                                     :twitter,
                                     :facebook,
-                                    :etc_site
+                                    :etc_site,
+                                    :youtube_url
                                     )
   end
 

@@ -130,7 +130,6 @@
   <!--==================
   ストアURL
   ====================-->
-  <%= hidden_field_tag 'product[model]' %> <!--#カスタムバリデート用 -->
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h2 class="panel-title glyphicon glyphicon-pencil">
@@ -178,7 +177,7 @@
     <div class="panel-footer">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
       アップロードできるファイルタイプは、jpg, jpeg, gif, png, bmp, tiff です。<br class="hidden-xs">
-      画像は概ね正方形でお願いします。大きさは自動的に100px 100pxにリサイズされます。
+      画像は概ね正方形でお願いします。縦横比が異なると表示が歪む場合がございます。
     </div>
   </div>
   <!--==================
@@ -253,14 +252,13 @@
     <div class="panel-footer">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
       アップロードできるファイルタイプは、jpg, jpeg, gif, png, bmp, tiff です。<br class="hidden-xs">
-      大きさは縦横比率を維持したまま、300px にリサイズされます。<br class="hidden-xs">
-      なお最低1枚は必須で、最大5枚まで登録できます。
+      画像サイズに制限はありませんが、大きさは縦横比率を維持したまま表示されます。<br class="hidden-xs">
+      なお、最低1枚は必須で、最大5枚まで登録できます。
     </div>
   </div>
   <!--==================
   リリース日
   ====================-->
-  <%= hidden_field_tag 'product[model]' %> <!--#カスタムバリデート用 -->
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h2 class="panel-title glyphicon glyphicon-pencil">
@@ -286,7 +284,6 @@
   <!--==================
   公式サイト等
   ====================-->
-  <%= hidden_field_tag 'product[model]' %> <!--#カスタムバリデート用 -->
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h2 class="panel-title glyphicon glyphicon-pencil">
@@ -315,6 +312,31 @@
     </div>
   </div>
 
+  <!--==================
+  YouTubeムービー
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">YouTubeムービー</span> <span class="require2">＊オプション</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
+      <span class="product-input-label">YouTube URL</span> (埋め込みコードのURL部分)
+      <%= f.text_field :youtube_url, class: 'form-control' %>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      YouTubeにプロモーションムービー等がありましたら入力して下さい。<br class="hidden-xs">
+      <font color=red>＊注意 URLは埋め込み用コードのURLでなければ正しく表示されません。</font>
+      共有-埋め込みコードの下記赤い部分(URL)を入力してください。
+      <br />
+      &lt;iframe width="560" height="315" src="<font color=red>https://www.youtube.com/embed/**********</font>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 
 
   <%= f.submit "登録する", class: "btn btn-primary" %>

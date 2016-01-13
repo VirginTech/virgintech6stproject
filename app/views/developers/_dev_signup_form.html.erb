@@ -8,7 +8,7 @@
       <!-- エラーメッセージ -->
       <%= render 'shared/error_messages', object: f.object %>
     
-      <span class="input-label">お名前</span> (企業・団体名、個人開発者様は個人名) <span class="require">＊必須</span>
+      <span class="input-label">お名前</span> (企業・団体名、個人開発者様は個人名 : アプリストア表示名を推奨します) <span class="require">＊必須</span>
       <%= f.text_field :name, class: 'form-control', autofocus: true %>
       <p></p>
       <span class="input-label">メールアドレス</span> <span class="require">＊必須</span>
@@ -26,14 +26,17 @@
     </div>
     <div class="panel-footer">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
-      デベロッパーアカウントは一企業(団体、個人)様につき一つまでとさせていただいております。<br class="hidden-xs">
-      複数アカウントの所持を発見した場合にはアカウント停止などの措置を取らせていただく場合がございます。
+      入力されたメールアドレス宛てに仮登録通知が届きますので、
+      メールの指示に従い本登録をお願いいたします。<br class="hidden-xs">
+      なお、デベロッパーアカウントは一企業(団体、個人)様につき一つまでとさせていただいております。<br class="hidden-xs">
+      複数アカウントの所持やなりすまし等、違反行為を発見した場合には、
+      予告なくアカウント停止などの措置を取らせていただく場合がございます。
     </div>
   </div>
 
   <div class="panel panel-info">
     <div class="panel-heading">
-      <h2 class="panel-title glyphicon glyphicon-edit">オプション入力 (後からでも編集できます)</h2>
+      <h2 class="panel-title glyphicon glyphicon-edit">オプション入力 (ログイン後でも入力できます)</h2>
     </div>
     <div class="panel-body">
       <%= f.label :website,"公式ホームーページ" %> <span class="option">＊オプション</span>
@@ -61,7 +64,7 @@
     <div class="panel-footer">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
       オプション項目につきましては空白でもかまいません。<br class="hidden-xs">
-      なお、後からでもアカウント編集より更新することが出来ます。
+      なお、ログイン後アカウント編集画面より編集することが出来ます。
     </div>
   </div>
 

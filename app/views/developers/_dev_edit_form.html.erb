@@ -14,7 +14,7 @@
       <%= f.label :profile_img, "プロフィール画像" %>
       <p class="well well-sm">
         アップロードできるファイルタイプは、jpg, jpeg, gif, png, bmp, tiff です。<br class="hidden-xs">
-        画像は概ね正方形でお願いします。大きさは自動的に100px 100pxにリサイズされます。
+        画像は概ね正方形でお願いします。縦横比が異なると表示が歪む場合がございます。
       </p>
       <%= f.file_field :profile_img, onchange:"fileProfileImage(event,'disp')",class: 'form-control' %>
       <%= f.hidden_field :profile_img_cache %>
