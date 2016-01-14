@@ -8,7 +8,7 @@ class TopPagesController < ApplicationController
     
     # 新着順
     if params[:order]=="0"
-      @products=Product.all.order(created_at: :desc)
+      @products=Product.all.order(created_at: :desc).page(params[:page]).per(5)
     
     # ランキング順
     elsif params[:order]=="1"

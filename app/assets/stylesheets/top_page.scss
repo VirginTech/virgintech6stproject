@@ -1,6 +1,57 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*==============================
+  ページネーション(表示消し用)
+===============================*/
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  //border: 1px solid #DDD;
+  border: 1px solid #fff;
+  border-left-width: 0;
+  color: #fff;//追加分
+}
+
+.pagination {
+  //border-left: 1px solid #ddd;
+  border-left: 1px solid #fff;
+  .first{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .prev {
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .page{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .next{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .last{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+}
+/*==========================================
+ インフィニティ・スクロール
+===========================================*/
+#infscr-loading {
+  text-align:center;
+  margin:0 auto;
+}
 /*==========================================
  共通のスタイル
 ===========================================*/
