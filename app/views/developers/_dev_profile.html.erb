@@ -16,10 +16,13 @@
     <% if @developer.website? %>
       <span class="profile-website glyphicon glyphicon-home">:<%=link_to @developer.website, @developer.website %></span>
     <% end %>
-    <br />
     <!--公開メール-->
     <% if @developer.contact_email? %>
       <span class="profile-email glyphicon glyphicon-envelope">:<%=link_to @developer.contact_email, 'mailto:' + @developer.contact_email %></span>
+    <% end %>
+    <!--その他サイト-->
+    <% if @developer.official_site? %>
+      <span class="profile-website glyphicon glyphicon-star">:<%=link_to @developer.official_site, @developer.official_site %></span>
     <% end %>
     <br />
     <!--ツイッター-->
@@ -34,7 +37,14 @@
     <% if @developer.google? %>
       <%=link_to @developer.google do %><%= image_tag 'google.png', class:"profile-sns" %><% end %>
     <% end %>
-    <br />
-
+    <hr />
+    <!--登録アプリ-->
+    <% @developer.products.each do |product| %>
+      <% if product.id? %>
+        <%= link_to product_path(product) do %>
+          <%= image_tag product.img_icon.url, class:"profile-appicon" %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>

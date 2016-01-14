@@ -30,12 +30,12 @@ div.product-show{
   }
   .app-screen-horizontal{
     border: solid 0px; 
-    height: 150px; 
+    height: 120px; 
     width: 100%; 
     overflow: auto; 
     white-space: nowrap;
     img{
-      max-height: 150px;
+      max-height: 120px;
     }
   }
   .app-summary{
@@ -50,7 +50,7 @@ div.product-show{
     float: right;
     margin-top: -10px;
     margin-right: 5px;
-    max-width: 100px;
+    max-width: 80px;
   }
   .app-description{
     font-size: 13px;
@@ -73,7 +73,11 @@ div.product-show{
     }
   }
   .app_youtube{
-    text-align:center;
+    text-align: center;
+    iframe{
+      width: 250px;
+      height: 141px;
+    }
   }
 }
 div.screen-modal-vertical{
@@ -90,7 +94,27 @@ div.screen-modal-horizontal{
 4.5インチスマホ向けのレイアウトの指定
 ===============================================*/
 @media only screen and (min-width: 375px) {
-
+  div.product-show{
+    .app-screen-vertical{
+      height: 250px; 
+      img{
+        max-height: 250px;
+      }
+    }
+    .app-screen-horizontal{
+      height: 150px; 
+      img{
+        max-height: 150px;
+      }
+    }
+    .app_youtube{
+      text-align: center;
+      iframe{
+        width: 300px;
+        height: 169px;
+      }
+    }
+  }
 }
 /*=============================================
 タブレット向けレイアウトの指定
@@ -107,6 +131,28 @@ div.screen-modal-horizontal{
       width: 80px;
       height: 80px;
     }
+    .app-screen-vertical{
+      height: 250px; 
+      img{
+        max-height: 250px;
+      }
+    }
+    .app-screen-horizontal{
+      height: 180px; 
+      img{
+        max-height: 180px;
+      }
+    }
+    .app-store{
+      max-width: 100px;
+    }
+    .app_youtube{
+      text-align: center;
+      iframe{
+        width: 400px;
+        height: 225px;
+      }
+    }
   }
 }
 /*=============================================
@@ -121,6 +167,18 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
       width: 100px;
       height: 100px;
     }
+    .app-screen-vertical{
+      height: 250px; 
+      img{
+        max-height: 250px;
+      }
+    }
+    .app-screen-horizontal{
+      height: 200px; 
+      img{
+        max-height: 200px;
+      }
+    }
     .app-summary{
       font-size: 14px;
     }
@@ -132,6 +190,13 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
     }
     .app-official-site{
       font-size: 14px;
+    }
+    .app_youtube{
+      text-align: center;
+      iframe{
+        width: 500px;
+        height: 281px;
+      }
     }
   }
 }

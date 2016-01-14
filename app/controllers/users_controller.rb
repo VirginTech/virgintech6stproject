@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if params[:user][:provider].present?
       if @user.save(context: :snslogin)
         flash[:success] = "アカウント情報を変更しました。"
-        redirect_to edit_user_path(@user)
+        redirect_to @user
       else
         #flash[:danger] = "アカウント変更に失敗しました。"
         render 'edit'
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     else
       if @user.save(context: :signup)
         flash[:success] = "アカウント情報を変更しました。"
-        redirect_to edit_user_path(@user)
+        redirect_to @user
       else
         #flash[:danger] = "アカウント変更に失敗しました。"
         render 'edit'

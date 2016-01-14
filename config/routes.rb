@@ -39,7 +39,10 @@ Rails.application.routes.draw do
   resources :developers do
     get 'regist_token_dev/:uuid', :to => 'developers#regist_token'
   end
-
+  
+  #アプリ検索オーダー
+  get 'top_pages/order_query', to: 'top_pages#result'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

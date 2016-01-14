@@ -23,22 +23,34 @@ aside.dev-mypage-left{
     line-height: 0px;
   }
   .profile-website{
-    //font-style: italic;
     font-weight: bold;
     font-size: 12px;
-    line-height: 0px;
+    padding-bottom: 3px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .profile-email{
-    //font-style: italic;
     font-weight: bold;
     font-size: 12px;
-    line-height: 0px;
+    padding-bottom: 3px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .profile-sns{
     margin-top: 10px;
     width: 30px;
     height: 30px;
     border: 0px solid #fff;
+  }
+  .profile-appicon{
+    width: 40px;
+    margin-left: -2px;
+    margin-bottom: 2px;
+    border-radius: 20%;
   }
 }
 /*=============================================

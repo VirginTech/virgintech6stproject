@@ -21,7 +21,7 @@ class DevelopersController < ApplicationController
     @developer = Developer.find(params[:id])
     if @developer.update(dev_params)
       flash[:success] = "アカウント情報を変更しました。"
-      redirect_to edit_developer_path(@developer)
+      redirect_to @developer
     else
       #flash[:danger] = "アカウント変更に失敗しました。"
       render 'edit'

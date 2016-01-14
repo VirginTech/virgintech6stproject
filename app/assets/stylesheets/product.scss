@@ -44,14 +44,18 @@ div.product-list{
     float: right;
     margin-top: -10px;
     margin-right: 5px;
-    max-width: 80px;
+    max-width: 60px;
   }
 }
 /*=============================================
 4.5インチスマホ向けのレイアウトの指定
 ===============================================*/
 @media only screen and (min-width: 375px) {
-
+  div.product-list{
+    .app-store{
+      max-width: 70px;
+    }
+  }
 }
 /*=============================================
 タブレット向けレイアウトの指定
@@ -61,6 +65,9 @@ div.product-list{
     .app-icon{
       width: 80px;
       height: 80px;
+    }
+    .app-store{
+      max-width: 80px;
     }
   }
 }
@@ -75,6 +82,9 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
     }
     .app-summary{
       font-size: 14px;
+    }
+    .app-store{
+      max-width: 100px;
     }
   }
 }

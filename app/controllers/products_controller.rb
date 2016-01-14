@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:success] = "アプリ登録情報を変更しました。"
-      redirect_to edit_product_path(@product)
+      redirect_to current_developer
     else
       #flash[:danger] = "アカウント変更に失敗しました。"
       @developer=current_developer
