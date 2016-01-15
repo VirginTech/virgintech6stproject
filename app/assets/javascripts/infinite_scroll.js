@@ -6,8 +6,8 @@ $(function(){
       finishedMsg: "読み込みが終了しました。これが最後です。"
     },
     navSelector  : ".pagination",
-		nextSelector : ".pagination a[rel=next]",
-		itemSelector : ".product-list",
-		maxPage      : 5
+    nextSelector : ".pagination a[rel=next]",
+    itemSelector : ".product-list",
+    //maxPage      : 5 //反映されない
 	});
 });
