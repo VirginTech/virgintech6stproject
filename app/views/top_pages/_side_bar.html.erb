@@ -1,7 +1,8 @@
 <aside id="category-nav">
   <div class="category">
     <% category_list.each do |key,value| %>
-      <%= link_to key, "#", class:"btn btn-default btn-sm btn-block" %>
+      <%= link_to key, top_pages_order_query_path(order:2,category:value), 
+                                                class:"btn btn-default btn-sm btn-block" %>
     <% end %>
   </div>
   <button class="side-button glyphicon glyphicon-collapse-down"> OPEN</button>

@@ -27,7 +27,9 @@
     <div class="col-xs-12 col-sm-4 col-md-3">
       <aside class=dev-mypage-left>
         <%= render 'developers/dev_profile' %>
-        <%= render 'developers/dev_side_menu' %>
+        <% if same_developer?(@developer.id) %>
+          <%= render 'developers/dev_side_menu' %>
+        <% end %>
       </aside>
     </div>
     <!--========================

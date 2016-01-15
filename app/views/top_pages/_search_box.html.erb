@@ -4,7 +4,8 @@
     <table border=0>
       <tr>
         <td width=100%>
-          <%= form_tag do %><!--controller:"#", action:"#"-->
+          <%= form_tag controller:'top_pages', action:'result' do %>
+          <%= hidden_field_tag :order, 6 %>
           <%= text_field_tag :search_word, nil, class: "form-control", autofocus: true %>
         </td>
         <td>

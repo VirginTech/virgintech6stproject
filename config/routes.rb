@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   
   #アプリ検索オーダー
   get 'top_pages/order_query', to: 'top_pages#result'
+  post 'top_pages/order_query', to: 'top_pages#result'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

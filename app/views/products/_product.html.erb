@@ -35,21 +35,27 @@
   <!--アプリ概要-->
   <span class="app-summary"><%= product.summary %></span>
   <br />
-  <!--ストアURL-->
-  <% if product.model_web %>
-    <%= link_to product.store_webgame_url do %>
-      <%= image_tag 'gamesite.png', class:"app-store" %>
+  
+  <% if product.sale_date <= Date.today %> <!--リリースされていれば-->
+    <!--ストアURL-->
+    <% if product.model_web %>
+      <%= link_to product.store_webgame_url do %>
+        <%= image_tag 'gamesite.png', class:"app-store" %>
+      <% end %>
     <% end %>
-  <% end %>
-  <% if product.model_android %>
-    <%= link_to product.store_android_url do %>
-      <%= image_tag 'googleplay.png', class:"app-store" %>
+    <% if product.model_android %>
+      <%= link_to product.store_android_url do %>
+        <%= image_tag 'googleplay.png', class:"app-store" %>
+      <% end %>
     <% end %>
-  <% end %>
-  <% if product.model_iphone %>
-    <%= link_to product.store_iphone_url do %>
-      <%= image_tag 'appstore.png', class:"app-store" %>
+    <% if product.model_iphone %>
+      <%= link_to product.store_iphone_url do %>
+        <%= image_tag 'appstore.png', class:"app-store" %>
+      <% end %>
     <% end %>
+  <% elsif %>
+    <!--リリース予定日-->
+    <span class="app-sale-date">リリース予定日:<%= product.sale_date %></span>
   <% end %>
   
   <hr />
