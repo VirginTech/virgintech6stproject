@@ -35,6 +35,15 @@ aside#category-nav{
     padding: 0;
     border: none;
   }
+  a{
+    padding:0px;
+    text-align: left;
+  }
+  img.side-bar-icon{
+    width: 25px;
+    border-radius: 20%;
+    margin-left: 25px;
+  }
 }
 
 /*=============================================
@@ -54,6 +63,15 @@ aside#category-nav{
   aside#category-nav{
     width: 350px;
     left: -350px;
+    height: 800px;
+    .category{
+      margin-top: 70px;
+    }
+    img.side-bar-icon{
+      width: 50px;
+      border-radius: 20%;
+      margin-left: 50px;
+    }
   }
 }
 /*=============================================

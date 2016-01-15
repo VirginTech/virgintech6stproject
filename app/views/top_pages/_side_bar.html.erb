@@ -1,8 +1,15 @@
 <aside id="category-nav">
   <div class="category">
     <% category_list.each do |key,value| %>
-      <%= link_to key, top_pages_order_query_path(order:2,category:value), 
-                                                class:"btn btn-default btn-sm btn-block" %>
+      <%= link_to top_pages_order_query_path(order:2,category:value),
+                                                  class:"btn btn-default btn-sm btn-block" do %>
+        <% if Product.exists?(category: value) %>
+          <%= image_tag Product.where(category: value).last.img_icon.url, class:"side-bar-icon" %>
+        <% else %>
+          <%= image_tag "no_appicon_img.png", class:"side-bar-icon" %>
+        <% end %>
+        <span><%= key %></span>
+      <% end %>
     <% end %>
   </div>
   <button class="side-button glyphicon glyphicon-collapse-down"> OPEN</button>
