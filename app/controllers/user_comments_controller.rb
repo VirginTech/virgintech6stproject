@@ -6,6 +6,12 @@ class UserCommentsController < ApplicationController
     @product = Product.find(params[:id])
     @developer=@product.developer
     @comments = @product.user_comments
+    @user_comment = current_user.user_comments.build if user_logged_in?
+    #binding.pry
+  end
+  
+  def create
+    binding.pry
   end
   
   private
