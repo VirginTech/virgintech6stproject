@@ -1,0 +1,69 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h2 class="panel-title">アプリプロフィール</h2>
+  </div>
+  <div class="panel-body">
+
+    <div class="product-profile">
+      <!--アプリアイコン-->
+      <%= link_to product_path(@product) do %>
+        <%= image_tag @product.img_icon.url, class:"app-icon" %>
+      <% end %>
+    
+      <!--アプリネーム-->
+      <span class="app-name">
+        <%= link_to product_path(@product) do %>
+          <%= @product.appname %>
+        <% end %>
+      </span>
+    
+      <!--価格-->
+      <% if @product.price==1 %>
+        <span class="app-price label label-success">無料</span>
+      <% elsif @product.price==2 %>
+        <span class="app-price label label-danger">有料</span>
+      <% end %>
+      <!--カテゴリ-->
+      <span class="label label-info"><%= category_list.key(@product.category) %></span>
+      <br class="hidden-xs">
+      <!--対応機種-->
+      <% if @product.model_iphone %>
+        <span class="label label-primary">iOS</span>
+      <% end %>
+      <% if @product.model_android %>
+        <span class="label label-warning">Android</span>
+      <% end %>
+      <% if @product.model_web %>
+        <span class="label label-default">ブラウザゲーム</span>
+      <% end %>
+      <br />
+      <!--アプリ概要-->
+      <span class="app-summary"><%= @product.summary %></span>
+      <br />
+      
+      <% if @product.sale_date <= Date.today %> <!--リリースされていれば-->
+        <!--ストアURL-->
+        <% if @product.model_web %>
+          <%= link_to @product.store_webgame_url do %>
+            <%= image_tag 'gamesite.png', class:"app-store" %>
+          <% end %>
+        <% end %>
+        <% if @product.model_android %>
+          <%= link_to @product.store_android_url do %>
+            <%= image_tag 'googleplay.png', class:"app-store" %>
+          <% end %>
+        <% end %>
+        <% if @product.model_iphone %>
+          <%= link_to @product.store_iphone_url do %>
+            <%= image_tag 'appstore.png', class:"app-store" %>
+          <% end %>
+        <% end %>
+      <% elsif %>
+        <!--リリース予定日-->
+        <span class="app-sale-date">リリース予定日:<%= @product.sale_date %></span>
+      <% end %>
+      
+    </div>
+    
+  </div>
+</div>
