@@ -7,6 +7,6 @@ class UserComment < ActiveRecord::Base
   # バリデーション
   #=====================
   validates :user_id, presence: true
-  validates :comment, presence: true
+  validates :comment, presence: true, length: { maximum: 300 }
   
 end

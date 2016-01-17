@@ -1,17 +1,26 @@
-<div id="user-comment-box">
-  
-  <div class="user-comment-form">
-    <%#= form_for(@user_comment,:url => {controller:"user_comments", action:"create"}) do |f| %>
-    <%= form_for(@user_comment) do |f| %>
-      <!-- エラーメッセージ -->
-      <%#= render 'shared/error_messages', object: f.object %>
-      
-      <%= f.hidden_field :product, :value => @product.id %>
-      <%= f.text_area :comment, :size=>"70x6", class: 'form-control', autofocus: true %>
-      <p></p>
-      <%= f.submit "　送信する　", class: "btn btn-primary btn-sm" %>
-      <button class="comment-box-close btn btn-danger btn-sm">キャンセル</button>
-    <% end %>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="close" data-dismiss="modal">
+        <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+      </button>
+      <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> つぶやき投稿</h4>
+    </div>
+    <div class="modal-body">
+
+      <div class="user-comment-form">
+        <%#= form_for(@user_comment,:url => {controller:"user_comments", action:"create"}) do |f| %>
+        <%= form_for(@user_comment) do |f| %>
+          <%= f.hidden_field :product_id, :value => @product.id %>
+          <%= f.text_area :comment, :size=>"70x5", class: 'form-control', autofocus: true %>
+          <p></p>
+          <%= f.submit "投稿する", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" data-dismiss="modal">キャンセル</button>
+    </div>
   </div>
-  
 </div>

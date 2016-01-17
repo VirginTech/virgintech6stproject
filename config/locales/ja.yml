@@ -99,6 +99,12 @@ ja:
     img_icon: "アイコンイメージ"
     img_screenshot_01: "スクリーンショット"
     sale_date: "発売日"
+
+  #===========================
+  #その他モデル属性
+  #===========================
+    comment: "コメント"
+
     
   #===========================
   #汎用なもの(https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/ja.yml)から

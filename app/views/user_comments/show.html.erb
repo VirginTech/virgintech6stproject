@@ -11,7 +11,7 @@
 <!--========================
 フラッシュメッセージ
 ==========================-->
-<div class="container-fluid" style="margin-top:30px;">
+<div class="container-fluid" style="margin-top:40px;">
   <div class="row">
     <div class="col-xs-12 col-sm-12">
       <% flash.each do |message_type, message| %>
@@ -20,6 +20,19 @@
     </div>
   </div>
 </div>
+
+<!--=====================
+エラーメッセージ (スマホのみ)
+========================-->
+<% if user_logged_in? %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 hidden-lg hidden-md hidden-sm">
+        <%= render 'shared/error_messages', object: @user_comment %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <!--========================
 ボディ

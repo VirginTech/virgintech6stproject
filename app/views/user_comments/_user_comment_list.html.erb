@@ -1,9 +1,20 @@
+<!--================
+エラーメッセージ
+====================-->
+<% if user_logged_in? %>
+  <div class="hidden-xs">
+    <%= render 'shared/error_messages', object: @user_comment %>
+  </div>
+<% end %>
+
+<!--================
+つぶやきリスト
+====================-->
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h2 class="panel-title">つぶやき</h2>
   </div>
   <div class="panel-body">
-
 
   </div>
 </div>

@@ -13,4 +13,15 @@
 <!--========================
 コメントボックス表示
 ==========================-->
-<%= render 'user_comments/user_comment_box' %>
+<% if user_logged_in? %>
+  <div class="modal fade" id="user-comment-box">
+    <%= render 'user_comments/user_comment_box' %>
+  </div>
+<% end %>
+
+<!--===================
+ ログインアラート
+===================-->
+<div class="modal fade" id="alert-login-dialog">
+  <%= render 'shared/alert_login_dialog' %>
+</div>
