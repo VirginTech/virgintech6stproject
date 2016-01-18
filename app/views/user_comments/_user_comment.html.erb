@@ -1,0 +1,10 @@
+<div class="comment-list">
+
+  <%= simple_format(comment.comment) %>
+  <p></p>
+  <% if comment.image? %>
+    <%= image_tag comment.image.url %>
+  <% end %>
+  <hr />
+
+</div>

@@ -2,6 +2,11 @@ class UserComment < ActiveRecord::Base
   
   belongs_to :product
   belongs_to :user
+
+  #============================
+  #イメージアップローダー
+  #============================
+  mount_uploader :image, UserCommentImgUploader
   
   #=====================
   # バリデーション

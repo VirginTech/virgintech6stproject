@@ -1,26 +1,53 @@
 <div class="modal-dialog">
   <div class="modal-content">
-    <div class="modal-header">
-      <button class="close" data-dismiss="modal">
-        <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
-      </button>
-      <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> つぶやき投稿</h4>
-    </div>
-    <div class="modal-body">
 
+    <%#= form_for(@user_comment,:url => {controller:"user_comments", action:"create"}) do |f| %>
+    <%= form_for(@user_comment) do |f| %>
       <div class="user-comment-form">
-        <%#= form_for(@user_comment,:url => {controller:"user_comments", action:"create"}) do |f| %>
-        <%= form_for(@user_comment) do |f| %>
+        
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+          </button>
+          <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> つぶやき投稿</h4>
+        </div>
+        
+        <div class="modal-body">
+  
           <%= f.hidden_field :product_id, :value => @product.id %>
           <%= f.text_area :comment, :size=>"70x5", class: 'form-control', autofocus: true %>
           <p></p>
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
-        <% end %>
-      </div>
+          
+          <%#= f.file_field :image, onchange:"fileCommentImage(event,'comment_img')",class: 'form-control' %>
+          <%= f.file_field :image, id:"file", style:"display:none;", onchange:"fileCommentImage(event,'comment-img')" %>
+          <%= f.hidden_field :image_cache %>
+          <!--擬似ボタン-->
+          <div onClick="$('#file').click();" class="btn btn-default img-btn">
+            <span class="glyphicon glyphicon-camera img-btn-icon"></span>
+          </div>
+  
+          <div id="comment-img">
+            <% if @user_comment.image? %>
+              <%= image_tag @user_comment.image.url %>
+            <% end %>
+          </div>
 
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-danger" data-dismiss="modal">キャンセル</button>
-    </div>
+        </div>
+        
+        <div class="modal-footer">
+          <%= f.submit "　投稿する　", class: "btn btn-primary" %>
+          <button class="btn btn-danger" data-dismiss="modal">キャンセル</button>
+        </div>
+    
+      </div>
+    <% end %>
+    
   </div>
+</div>
+
+<!--===================
+ 画像読み込みアラート
+===================-->
+<div class="modal fade" id="alert_undefined_img">
+  <%= render 'shared/alert_undefined_img' %>
 </div>

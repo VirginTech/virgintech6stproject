@@ -19,7 +19,34 @@
  コメントボックス
 ===========================================*/
 .user-comment-form{
-
+  #comment-img{
+    text-align: center;  
+    img{
+      border: 1px solid rgba( 0,0,0,0.1 );//外枠の色
+      padding: 5px;//余白
+      background-color: rgba( 128,128,128,0.1 );//余白部分の色
+      
+      max-width: 300px;
+      max-height: 300px;  
+    }
+  }
+  .img-btn{
+    padding: 2px;
+    width: 50px;
+    margin-left:10px;
+    .img-btn-icon{
+      font-size: 25px;
+    }
+  }
+}
+/*==========================================
+ コメント一覧
+===========================================*/
+.comment-list{
+  img{
+    max-width: 250px;
+    max-height: 250px;
+  }
 }
 /*=============================================
 4.5インチスマホ向けのレイアウトの指定
