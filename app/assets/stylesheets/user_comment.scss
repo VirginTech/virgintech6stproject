@@ -43,9 +43,44 @@
  コメント一覧
 ===========================================*/
 .comment-list{
-  img{
-    max-width: 250px;
-    max-height: 250px;
+  td {
+    //text-align: center;
+    vertical-align: top;
+  } 
+  .comment-body{
+    width: 100%;
+  }
+  .comment-img{
+    text-align: center;
+    img{
+      border: 1px solid rgba( 0,0,0,0.1 );//外枠の色
+      padding: 3px;//余白
+      background-color: rgba( 128,128,128,0.1 );//余白部分の色
+  
+      max-width: 200px;
+      max-height: 200px;
+    }
+  }
+  .profile_icon{
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    margin-left: -10px;
+    margin-right: -20px;
+    padding: 0px;
+  }
+  .profile-name{
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  .timestamp{
+    font-style: italic;
+    //font-weight: bold;
+    font-size: 15px;
+    color: #a9a9a9;
+    margin-left: 10px;
   }
 }
 /*=============================================
@@ -58,8 +93,13 @@
 タブレット向けレイアウトの指定
 ===============================================*/
 @media only screen and (min-width: 668px) {
-  .user-comment-form{
-
+  .comment-list {
+    .comment-img{
+      img{
+        max-width: 300px;
+        max-height: 300px;
+      }
+    }
   }
 }
 /*=============================================

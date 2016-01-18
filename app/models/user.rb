@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   has_many :regist_user_tokens
   has_many :pass_user_tokens
-  has_many :user_comments
+  has_many :user_comments, :dependent => :delete_all
   
   #============================
   #イメージアップローダー

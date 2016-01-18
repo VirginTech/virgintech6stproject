@@ -5,7 +5,7 @@ class UserCommentsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @developer=@product.developer
-    @comments = @product.user_comments.order(created_at: :desc)
+    @comments = @product.user_comments.order(created_at: :desc).page(params[:page]).per(10)
     @user_comment = current_user.user_comments.build if user_logged_in?
     #binding.pry
   end
@@ -18,7 +18,7 @@ class UserCommentsController < ApplicationController
     else
       @product=@user_comment.product
       @developer=@product.developer
-      @comments = @product.user_comments.order(created_at: :desc)
+      @comments = @product.user_comments.order(created_at: :desc).page(params[:page]).per(10)
       render 'user_comments/show'
     end
   end

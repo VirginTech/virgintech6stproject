@@ -1,27 +1,18 @@
-<!--================
-エラーメッセージ
-====================-->
-<% if user_logged_in? %>
-  <div class="hidden-xs">
-    <%= render 'shared/error_messages', object: @user_comment %>
-  </div>
-<% end %>
-
-<!--================
-つぶやきリスト
-====================-->
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2 class="panel-title">つぶやき一覧</h2>
+    <h2 class="panel-title">新着のつぶやき一覧</h2>
   </div>
   <div class="panel-body">
     
     <div id="user-comments">
       <% @comments.each do |comment| %>
+        <div class="user-comment-app-icon">
+          <%= image_tag comment.product.img_icon.url %>
+        </div>
         <%= render partial: 'user_comments/user_comment', locals: { comment: comment } %>
       <% end %>
       <%= paginate(@comments) %>
+      <%#= paginate(@products, {:window => 0, :outer_window => 0}) %>
     </div>
-
   </div>
 </div>

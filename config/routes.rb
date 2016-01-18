@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   
   # ユーザーコメント
   resources :user_comments, only: [:show, :create]
+  get 'top_pages/user_comment_all', to: 'top_pages#user_comment_all'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

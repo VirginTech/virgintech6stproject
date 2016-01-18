@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   
   belongs_to :developer
   
-  has_many :user_comments
+  has_many :user_comments, :dependent => :delete_all
   
   #============================
   #イメージアップローダー

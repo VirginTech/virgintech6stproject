@@ -1,10 +1,39 @@
 <div class="comment-list">
+  
+  <table border=0>
+    <td>
+      <!--プロフィールアイコン-->
+      <% if comment.user.profile_img? %>
+        <%= image_tag comment.user.profile_img.url, class:"profile_icon" %>
+      <% else %>
+        <%= image_tag "no_profile_img.png", class:"profile_icon" %>
+      <% end %>
+    </td>
+    <td class="comment-body">
 
-  <%= simple_format(comment.comment) %>
-  <p></p>
-  <% if comment.image? %>
-    <%= image_tag comment.image.url %>
-  <% end %>
-  <hr />
+      <div class="well" style="padding-top: 7px;">
+        <!--ネーム-->
+        <span class="profile-name"><%= comment.user.nickname %></span>
+        
+        <!--タイムスタンプ-->
+        <span class="timestamp">
+          <%= time_ago_in_words(comment.created_at) %>前
+        </span>        
+        <p></p>
+        
+        <!--コメント-->
+        <%= simple_format(comment.comment) %>
+        <p></p>
+        
+        <!--添付イメージ-->
+        <div class="comment-img">
+          <% if comment.image? %>
+            <%= image_tag comment.image.url %>
+          <% end %>
+        <div>
 
+      </div>
+    </td>
+  </table>
+  
 </div>

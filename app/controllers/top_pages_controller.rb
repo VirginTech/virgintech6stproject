@@ -2,6 +2,11 @@ class TopPagesController < ApplicationController
   
   def top
     @products=Product.all.order(created_at: :desc).limit(10)
+    @comments = UserComment.all.order(created_at: :desc).limit(10)
+  end
+  
+  def user_comment_all
+    @comments = UserComment.all.order(created_at: :desc).page(params[:page]).per(10)
   end
   
   #======================
