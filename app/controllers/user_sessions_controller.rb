@@ -19,14 +19,14 @@ class UserSessionsController < ApplicationController
       if @user.status
         session[:user_id] = @user.id
         flash[:info] = "ようこそ #{@user.nickname} さん！"
-        redirect_to root_path
+        redirect_to session[:forwarding_url] #root_path
       else
         flash[:danger] = '本登録が済んでいません。登録されたメールアドレスあてに確認用メールが届いていませんか？'
-        redirect_to root_path
+        redirect_to session[:forwarding_url]
       end
     else
       flash[:danger] = 'メールアドレス又は、パスワードに誤りがあります。'
-      redirect_to root_path
+      redirect_to session[:forwarding_url]
     end
   end
   

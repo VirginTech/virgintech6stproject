@@ -11,7 +11,7 @@
     </td>
     <td class="comment-body">
 
-      <div class="well" style="padding-top: 7px;">
+      <div class="well">
         <!--ネーム-->
         <span class="profile-name"><%= comment.user.nickname %></span>
         
@@ -26,11 +26,11 @@
         <p></p>
         
         <!--添付イメージ-->
-        <div class="comment-img">
-          <% if comment.image? %>
+        <% if comment.image? %>
+          <div class="comment-img">
             <%= image_tag comment.image.url %>
-          <% end %>
-        <div>
+          <div>
+        <% end %>
 
       </div>
     </td>

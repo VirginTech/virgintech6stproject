@@ -6,14 +6,14 @@ class DevSessionsController < ApplicationController
       if @developer.status
         session[:developer_id] = @developer.id
         flash[:info] = "ようこそ #{@developer.name} さん！"
-        redirect_to root_path
+        redirect_to session[:forwarding_url]
       else
         flash[:danger] = '本登録が済んでいません。登録されたメールアドレスあてに確認用メールが届いていませんか？'
-        redirect_to root_path
+        redirect_to session[:forwarding_url]
       end
     else
       flash[:danger] = '電子メール又は、パスワードに誤りがあります。'
-      redirect_to root_path
+      redirect_to session[:forwarding_url]
     end
   end
 

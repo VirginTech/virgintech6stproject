@@ -19,14 +19,14 @@
           <p></p>
           
           <%#= f.file_field :image, onchange:"fileCommentImage(event,'comment_img')",class: 'form-control' %>
-          <%= f.file_field :image, id:"file", style:"display:none;", onchange:"fileCommentImage(event,'comment-img')" %>
+          <%= f.file_field :image, id:"file-2", style:"display:none;", onchange:"fileCommentImage(event,'comment-img-2')" %>
           <%= f.hidden_field :image_cache %>
           <!--擬似ボタン-->
-          <div onClick="$('#file').click();" class="btn btn-default img-btn">
+          <div onClick="$('#file-2').click();" class="btn btn-default img-btn">
             <span class="glyphicon glyphicon-camera img-btn-icon"></span>
           </div>
   
-          <div id="comment-img">
+          <div id="comment-img-2">
             <% if @user_comment.image? %>
               <%= image_tag @user_comment.image.url %>
             <% end %>
@@ -45,9 +45,3 @@
   </div>
 </div>
 
-<!--===================
- 画像読み込みアラート
-===================-->
-<div class="modal fade" id="alert_undefined_img">
-  <%= render 'shared/alert_undefined_img' %>
-</div>
