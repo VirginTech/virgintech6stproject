@@ -5,9 +5,6 @@
   <div class="panel-body comment-body-bg">
     
     <% @comments.each do |comment| %>
-      <div class="user-comment-app-icon">
-        <%= image_tag comment.product.img_icon.url %>
-      </div>
       <%= render partial: 'user_comments/user_comment', locals: { comment: comment } %>
     <% end %>
     

@@ -10,6 +10,11 @@
       <% end %>
     </td>
     <td class="comment-body">
+      
+      <!--アプリアイコン-->
+      <div class="user-comment-app-icon">
+        <%= image_tag comment.product.img_icon.url %>
+      </div>
 
       <div class="well">
         <!--ネーム-->
@@ -22,7 +27,10 @@
         <p></p>
         
         <!--コメント-->
-        <%= simple_format(comment.comment) %>
+        <span class="comment">
+          <%#= simple_format(h(comment.comment)) %>
+          <%= auto_link(h(comment.comment), link = :urls, href_options = {:target => '_blank'})  %>
+        </span>
         <p></p>
         
         <!--添付イメージ-->

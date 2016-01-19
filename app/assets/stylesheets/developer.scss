@@ -21,6 +21,7 @@ aside.dev-mypage-left{
     font-weight: bold;
     font-size: 15px;
     line-height: 0px;
+    word-break: break-all; //強制改行
     a:link { 
       color:#000; text-decoration:none 
     }

@@ -45,6 +45,7 @@ div.product-show{
     -webkit-box-orient: vertical;
     //-webkit-line-clamp: 3;
     //overflow: hidden;
+    word-break: break-all; //強制改行
   }
   .app-store{
     float: right;
@@ -56,6 +57,7 @@ div.product-show{
     font-size: 13px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    word-break: break-all; //強制改行
   }
   .app-sale-date{
     margin-top: -10px;

@@ -48,12 +48,20 @@ header {
   .session-user{
     margin: 0px 10px;
     float: right;
+    width: 200px;
     ul.user-menu{
       list-style: none;
-      a {
+      a.user-name {
         color: #fff;
         text-decoration: none;
         font-size: 15px;
+        text-align: right;
+        margin-top: 10px;
+        display: block;
+        width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
     ul.sub-menu{
@@ -99,9 +107,10 @@ footer{
       }
     }
     .session-user{
-      margin: 0px 10px;
+      //margin: 0px 10px;
       ul.user-menu{
-        a {
+        a.user-name {
+          margin-top: 12px;
           font-size: 15px;
         }
       }
@@ -144,9 +153,12 @@ footer{
       }
     }
     .session-user{
-      margin: 15px 40px;
+      //margin: 15px 40px;
+      width: 300px;
       ul.user-menu{
-        a {
+        a.user-name {
+          width: 250px;
+          margin-top: 25px;
           font-size: 20px;
         }
       }
@@ -189,9 +201,12 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
       }
     }
     .session-user{
-      margin: 25px 50px;
+      //margin: 25px 50px;
+      width: 400px;
       ul.user-menu{
-        a {
+        a.user-name {
+          width: 350px;
+          margin-top: 25px;
           font-size: 20px;
         }
       }
