@@ -1,6 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*=============================================
+  拡大イメージ(モーダルイメージダイアログ)
+===============================================*/
+#modal-img-disp{
+  width: 100%;
+  img{
+    width: 100%;
+  }
+}
 /*==========================================
  共通のスタイル
 ===========================================*/
@@ -80,16 +89,6 @@ div.product-show{
       width: 250px;
       height: 141px;
     }
-  }
-}
-div.screen-modal-vertical{
-  img{
-    width: 300px; //modal-sm W:300px
-  }
-}
-div.screen-modal-horizontal{
-  img{
-    width: 600px; //modal-指定なし W:600px
   }
 }
 /*=============================================

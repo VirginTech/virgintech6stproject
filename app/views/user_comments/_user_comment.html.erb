@@ -41,8 +41,15 @@
         
         <!--添付イメージ-->
         <% if comment.image? %>
+          <%# binding.pry %>
           <div class="comment-img">
-            <%= image_tag comment.image.url %>
+            <%= link_to "#modal-img-dialog",data: {
+                                            toggle: "modal",
+                                            title: comment.product.appname,
+                                            imgurl: comment.image.url
+                                            } do %>
+              <%= image_tag comment.image.url %>
+            <% end %>
           <div>
         <% end %>
 
@@ -51,3 +58,4 @@
   </table>
   
 </div>
+
