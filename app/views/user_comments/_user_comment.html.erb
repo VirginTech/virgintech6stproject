@@ -4,18 +4,24 @@
     <td>
       <!--プロフィールアイコン-->
       <% if comment.user.profile_img? %>
-        <%= image_tag comment.user.profile_img.url, class:"profile_icon" %>
+        <%= link_to user_path(comment.user) do %>
+          <%= image_tag comment.user.profile_img.url, class:"profile_icon" %>
+        <% end %>
       <% else %>
-        <%= image_tag "no_profile_img.png", class:"profile_icon" %>
+        <%= link_to user_path(comment.user) do %>
+          <%= image_tag "no_profile_img.png", class:"profile_icon" %>
+        <% end %>
       <% end %>
     </td>
     <td class="comment-body">
       
       <!--アプリアイコン-->
-      <div class="user-comment-app-icon">
-        <%= image_tag comment.product.img_icon.url %>
-      </div>
-
+      <%= link_to product_path(comment.product) do %>
+        <div class="user-comment-app-icon">
+          <%= image_tag comment.product.img_icon.url %>
+        </div>
+      <% end %>
+      
       <div class="well">
         <!--ネーム-->
         <span class="profile-name"><%= comment.user.nickname %></span>

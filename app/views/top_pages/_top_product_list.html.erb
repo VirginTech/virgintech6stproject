@@ -4,11 +4,13 @@
   </div>
   <div class="panel-body">
     
-    <% @products.each do |product| %>
-      <%= render partial: 'products/product', locals: { product: product } %>
+    <% if !@products.present? %>
+      <span class="result-empty">まだ何もございません。</span>
+    <% else %>
+      <% @products.each do |product| %>
+        <%= render partial: 'products/product', locals: { product: product } %>
+      <% end %>
+      <%= link_to "すべて見る", top_pages_order_query_path(order:0), class:"btn btn-default form-control" %>
     <% end %>
-    
-    <%= link_to "すべて見る", top_pages_order_query_path(order:0), class:"btn btn-default form-control" %>
-    
   </div>
 </div>

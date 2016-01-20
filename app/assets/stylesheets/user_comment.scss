@@ -12,7 +12,18 @@
   background-color: #ccc;
   .input-comment{
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
+  }
+  .td-input{
+    width: 100%;
+  }
+  .img-btn-2{
+    padding: 2px;
+    width: 50px;
+    //margin-left:10px;
+    .img-btn-icon-2{
+      font-size: 23px;
+    }
   }
 }
 /*==========================================
@@ -55,6 +66,10 @@
     .img-btn-icon{
       font-size: 25px;
     }
+  }
+  .comment-notes{
+    display: block;
+    text-align: left;
   }
 }
 /*==========================================

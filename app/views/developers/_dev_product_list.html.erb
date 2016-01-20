@@ -4,27 +4,31 @@
   </div>
   <div class="panel-body">
     
-    <table>
-      <% @products.each do |product| %>
-        <tr>
-          <td>
-            <%= render partial: 'products/product', locals: { product: product } %>
-          </td>
-          <% if same_developer?(product.developer.id) %>
-            <td width=50 valign=top align=right>
-              <%= link_to "編集", edit_product_path(product), class:"btn btn-primary btn-xs app-edit-btn" %><br />
-              <%= link_to "削除", product_path(product), method: "delete", 
-                data: {confirm: "削除するとアプリに関わる全てのデータが削除されます。<br class='hidden-xs'>
-                削除されたデータは元に戻す事はできません。<br class='hidden-xs'>",
-                "commit" => "削除する",
-                "cancel" => "キャンセル"},
-                title: "本当に削除しますか？",
-                class:"btn btn-danger btn-xs app-delete-btn" %>
+    <% if !@products.present? %>
+      <span class="result-empty">まだ何もございません。</span>  
+    <% else %>
+      <table>
+        <% @products.each do |product| %>
+          <tr>
+            <td>
+              <%= render partial: 'products/product', locals: { product: product } %>
             </td>
-          <% end %>
-        </tr>
-      <% end %>
-    </table>
+            <% if same_developer?(product.developer.id) %>
+              <td width=50 valign=top align=right>
+                <%= link_to "編集", edit_product_path(product), class:"btn btn-primary btn-xs app-edit-btn" %><br />
+                <%= link_to "削除", product_path(product), method: "delete", 
+                  data: {confirm: "削除するとアプリに関わる全てのデータが削除されます。<br class='hidden-xs'>
+                  削除されたデータは元に戻す事はできません。<br class='hidden-xs'>",
+                  "commit" => "削除する",
+                  "cancel" => "キャンセル"},
+                  title: "本当に削除しますか？",
+                  class:"btn btn-danger btn-xs app-delete-btn" %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
     
   </div>
 </div>

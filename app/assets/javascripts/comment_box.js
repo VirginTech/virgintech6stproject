@@ -1,12 +1,27 @@
 $(function(){
 
-  $('.input-comment input').focus(function(){
-    event.preventDefault();
+  $('.input-comment input').on('click',function(){
+    //event.preventDefault();
     if($('#user-comment-box')[0]){
-      $('.input-comment input').blur();//フォーカスを外す
+      //$('.input-comment input').blur();//フォーカスを外す
       $('#user-comment-box').modal('show');
     }else{
-      $('.input-comment input').blur();//フォーカスを外す
+      //$('.input-comment input').blur();//フォーカスを外す
+      $('#alert-login-dialog').modal('show');
+    }
+  });
+  
+});
+
+$(function(){
+
+  $('.input-comment .img-btn-2').on('click',function(){
+    //event.preventDefault();
+    if($('#user-comment-box')[0]){
+      //$('.input-comment input').blur();//フォーカスを外す
+      $('#user-comment-box').modal('show');
+    }else{
+      //$('.input-comment input').blur();//フォーカスを外す
       $('#alert-login-dialog').modal('show');
     }
   });

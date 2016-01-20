@@ -13,14 +13,12 @@
 <% if user_logged_in? %>
   <div class="panel panel-primary hidden-sm hidden-xs">
     <div class="panel-heading">
-      <h2 class="panel-title">つぶやき投稿</h2>
+      <h2 class="panel-title">つぶやきを投稿してみましょう！</h2>
     </div>
     <div class="panel-body">
       
       <%= form_for(@user_comment) do |f| %>
         <div class="user-comment-form">
-          
-  
           <%= f.hidden_field :product_id, :value => @product.id %>
           <%= f.text_area :comment, :size=>"70x5", class: 'form-control' %>
           <p></p>
@@ -42,11 +40,17 @@
           <div class="text-right">
             <%= f.submit "　投稿する　", class: "btn btn-primary" %>
           </div>
-  
         </div>
       <% end %>
-  
     </div>
+    
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      公序良俗に反する発言や他人を誹謗中傷する行為等、利用規約に反する不適切なコメントを
+      発見した場合、予告なくコメント削除またはアカウント停止などの措置を取らせていただく場合が
+      ございます。
+    </div>
+    
   </div>
 <% end %>
 <!--================
@@ -58,12 +62,16 @@
   </div>
   <div class="panel-body comment-body-bg">
     
-    <div id="user-comments">
-      <% @comments.each do |comment| %>
-        <%= render partial: 'user_comments/user_comment', locals: { comment: comment } %>
-      <% end %>
-      <%= paginate(@comments) %>
-    </div>
+    <% if !@comments.present? %>
+      <span class="result-empty">まだ何もございません。</span>
+    <% else %>
+      <div id="user-comments">
+        <% @comments.each do |comment| %>
+          <%= render partial: 'user_comments/user_comment', locals: { comment: comment } %>
+        <% end %>
+        <%= paginate(@comments) %>
+      </div>
+    <% end %>
 
   </div>
 </div>
