@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @comments = @user.user_comments.order(created_at: :desc).page(params[:page]).per(10)
+    #binding.pry
   end
   
   def edit
@@ -213,6 +215,7 @@ class UsersController < ApplicationController
     
   private
   
+  # 存在チェック
   def is_are_you?
     unless User.find_by_id(params[:id])
       dev_store_location

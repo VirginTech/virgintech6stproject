@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   
+  before_action :logged_in_developer, only: [:new, :create]
   before_action :is_developer_app?, only: [:edit, :update, :destroy]
   
   def destroy

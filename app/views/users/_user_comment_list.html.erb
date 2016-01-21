@@ -1,0 +1,41 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">つぶやき一覧</h2>
+  </div>
+  <div class="panel-body comment-body-bg">
+
+    <% if !@comments.present? %>
+      <span class="result-empty">まだ何もございません。</span>
+    <% else %>
+      <div id="user-comments">
+        <% @comments.each do |comment| %>
+          <!--そのユーザーのコメントであるか再度確認-->
+          <%# if comment.user_id==params[:id].to_i %>
+            <%= render partial: 'user_comments/user_comment', locals: { comment: comment } %>
+          <%# end %>
+        <% end %>
+        <%= paginate(@comments) %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+<!--=================
+  拡大イメージ（モーダルダイアログ）
+=====================-->
+<div class="modal fade" id="modal-img-dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+        </button>
+        <h4 class="modal-title"><span id="modal-app-title"></span></h4>
+        <div id="modal-img-disp">
+          <img src="#" class="img-responsive">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

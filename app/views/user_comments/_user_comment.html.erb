@@ -1,61 +1,62 @@
 <div class="comment-list">
   
-  <table border=0>
-    <td>
-      <!--プロフィールアイコン-->
-      <% if comment.user.profile_img? %>
-        <%= link_to user_path(comment.user) do %>
-          <%= image_tag comment.user.profile_img.url, class:"profile_icon" %>
-        <% end %>
-      <% else %>
-        <%= link_to user_path(comment.user) do %>
-          <%= image_tag "no_profile_img.png", class:"profile_icon" %>
-        <% end %>
-      <% end %>
-    </td>
-    <td class="comment-body">
-      
-      <!--アプリアイコン-->
-      <%= link_to product_path(comment.product) do %>
-        <div class="user-comment-app-icon">
-          <%= image_tag comment.product.img_icon.url %>
-        </div>
-      <% end %>
-      
-      <div class="well">
-        <!--ネーム-->
-        <span class="profile-name"><%= comment.user.nickname %></span>
-        
-        <!--タイムスタンプ-->
-        <span class="timestamp">
-          <%= time_ago_in_words(comment.created_at) %>前
-        </span>        
-        <p></p>
-        
-        <!--コメント-->
-        <span class="comment">
-          <%#= simple_format(h(comment.comment)) %>
-          <%= auto_link(h(comment.comment), link = :urls, href_options = {:target => '_blank'})  %>
-        </span>
-        <p></p>
-        
-        <!--添付イメージ-->
-        <% if comment.image? %>
-          <%# binding.pry %>
-          <div class="comment-img">
-            <%= link_to "#modal-img-dialog",data: {
-                                            toggle: "modal",
-                                            title: comment.product.appname,
-                                            imgurl: comment.image.url
-                                            } do %>
-              <%= image_tag comment.image.url %>
-            <% end %>
-          <div>
-        <% end %>
+  <div class="well">
 
+    <!--プロフィールアイコン-->
+    <% if comment.user.profile_img? %>
+      <%= link_to user_path(comment.user) do %>
+        <%= image_tag comment.user.profile_img.url, class:"profile_icon" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(comment.user) do %>
+        <%= image_tag "no_profile_img.png", class:"profile_icon" %>
+      <% end %>
+    <% end %>
+    
+    <!--アプリアイコン-->
+    <%= link_to product_path(comment.product) do %>
+      <div class="user-comment-app-icon">
+        <%= image_tag comment.product.img_icon.url %>
       </div>
-    </td>
-  </table>
+    <% end %>
   
+    <!--ネーム-->
+    <span class="profile-name"><%= comment.user.nickname %></span>
+    
+    <!--タイムスタンプ-->
+    <span class="timestamp">
+      <%= time_ago_in_words(comment.created_at) %>前
+    </span>        
+    <p></p>
+    
+    <!--コメント-->
+    <span class="comment">
+      <%#= simple_format(h(comment.comment)) %>
+      <%= auto_link(simple_format(h(comment.comment)), link = :urls, href_options = {:target => '_blank'})  %>
+    </span>
+    <p></p>
+    
+    <!--添付イメージ-->
+    <% if comment.image? %>
+      <%# binding.pry %>
+      <div class="comment-img">
+        <%= link_to "#modal-img-dialog",data: {
+                                        toggle: "modal",
+                                        title: comment.product.appname,
+                                        imgurl: comment.image.url
+                                        } do %>
+          <%= image_tag comment.image.url %>
+        <% end %>
+      </div>
+    <% end %>
+    <hr />
+    
+    <!--フッターメニュー-->
+    <div class="comment-footer-menu">
+      [削除]
+    </div>
+    
+  </div>
+
 </div>
 

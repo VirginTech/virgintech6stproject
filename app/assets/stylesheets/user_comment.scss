@@ -32,11 +32,18 @@
 .comment-body-bg{
   background-color: #f5f5f5;
   .well {
+    width: 95%;
+    margin-left: auto;
     min-height: 20px;
-    //padding: 19px;
-    padding-top: 10px;
-    //padding-right: 70px;
-    margin-bottom: 30px;
+
+    padding-top: 0px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    margin-top: 30px;
+    margin-bottom: 40px;
+
     background-color: #ffffff;
     border: 1px solid #e3e3e3;
     border-radius: 10px;
@@ -76,68 +83,67 @@
  コメント一覧
 ===========================================*/
 .comment-list{
-  td {
-    //text-align: center;
-    vertical-align: top;
-  } 
   .profile_icon{
     width: 50px;
     height: 50px;
     border: 2px solid #fff;
     border-radius: 100%;
-    margin-top: -10px;
-    margin-left: -10px;
-    margin-right: -20px;
+    margin-top: -30px;
+    margin-left: -40px;
+    margin-bottom: 0px;
     padding: 0px;
   }
-  .comment-body{
+  .user-comment-app-icon{
+    margin-top: -40px;
+    margin-right: -20px;
+    text-align: right;
+    img{
+      width: 40px;
+      height: 40px;
+      border-radius: 20%;
+    }
+  }
+  .comment{
+    word-break: break-all; //強制改行
+    //word-wrap: break-word; //強制改行
+  }
+  .comment-img{
     width: 100%;
-    .user-comment-app-icon{
-      margin-bottom: -35px;
-      margin-right: 0px;
-      text-align: right;
-      img{
-        width: 40px;
-        height: 40px;
-        border-radius: 20%;
-      }
-    }
-    .comment{
-      word-break: break-all; //強制改行
-      //word-wrap: break-word; //強制改行
-    }
-    .comment-img{
+    max-height: 130px;
+    overflow: hidden;
+    margin: 0 auto;
+    img{
+      border: 1px solid rgba( 0,0,0,0.1 );//外枠の色
+      padding: 3px;//余白
+      background-color: rgba( 128,128,128,0.1 );//余白部分の色
+  
       width: 100%;
-      max-height: 130px;
-      overflow: hidden;
-      margin: 0 auto;
-      img{
-        border: 1px solid rgba( 0,0,0,0.1 );//外枠の色
-        padding: 3px;//余白
-        background-color: rgba( 128,128,128,0.1 );//余白部分の色
-    
-        width: 100%;
-        //height: 150px;
-      }
+      //height: 150px;
     }
-    .profile-name{
-      font-weight: bold;
-      font-size: 18px;
-      margin-top: -5px;
-      margin-left: 10px;
-      display: block;
-      width: 150px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .timestamp{
-      //font-style: italic;
-      //font-weight: bold;
-      font-size: 12px;
-      color: #a9a9a9;
-      margin-left: 10px;
-    }
+  }
+  .profile-name{
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: -20px;
+    margin-left: 10px;
+    display: block;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .timestamp{
+    //font-style: italic;
+    //font-weight: bold;
+    font-size: 12px;
+    color: #a9a9a9;
+    margin-left: 10px;
+  }
+  .comment-footer-menu{
+    //background-color: #fff;
+    width: 95%;
+    text-align: right;
+    margin-top: -10px;
   }
 }
 /*=============================================
@@ -145,11 +151,9 @@
 ===============================================*/
 @media only screen and (min-width: 375px) {
   .comment-list{
-    .comment-body{
-      .comment-img{
-        max-height: 140px;
-        img{
-        }
+    .comment-img{
+      max-height: 140px;
+      img{
       }
     }
   }
@@ -172,23 +176,22 @@
   }
 
   .comment-list {
-    .comment-body{
-      .user-comment-app-icon{
-        margin-bottom: -45px;
-        img{
-          width: 60px;
-          height: 60px;
-        }
+    .user-comment-app-icon{
+      img{
+        width: 60px;
+        height: 60px;
       }
-      .comment-img{
-        width: 90%;
-        max-height: 200px;
-        img{
-        }
+    }
+    .comment-img{
+      width: 90%;
+      max-height: 200px;
+      img{
       }
-      .profile-name{
-        width: 200px;
-      }
+    }
+    .profile-name{
+      margin-top: -40px;
+      margin-left: 10px;
+      width: 200px;
     }
   }
 }
@@ -197,16 +200,14 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
 ===============================================*/
 @media only screen and (min-width: 769px) {
   .comment-list {
-    .comment-body{
-      .comment-img{
-        width: 80%;
-        max-height: 300px;
-        img{
-        }
+    .comment-img{
+      width: 80%;
+      max-height: 280px;
+      img{
       }
-      .profile-name{
-        width: 300px;
-      }
+    }
+    .profile-name{
+      width: 300px;
     }
   }
 }

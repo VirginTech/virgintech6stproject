@@ -4,12 +4,37 @@
 /*==========================================
  共通のスタイル
 ===========================================*/
-aside.top-page-left{
+aside.user-mypage-left{
   margin-top: 10px;
 }
-.result-empty{
-  display: block;
-  text-align: center;
+.user-profile{
+  .profile-icon{
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    float: left;
+    margin-right: 10px;
+  }
+  .profile-name{
+    //font-style: italic;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 0px;
+    word-break: break-all; //強制改行
+    a:link { 
+      color:#000; text-decoration:none 
+    }
+    a:visited { 
+      color:#000; text-decoration:none 
+    }
+    a:hover { 
+      color:#000; text-decoration:none 
+    }
+    a:active { 
+      color:#000; text-decoration:none 
+    }
+  }
 }
 /*=============================================
 4.5インチスマホ向けのレイアウトの指定
@@ -21,10 +46,10 @@ aside.top-page-left{
 タブレット向けレイアウトの指定
 ===============================================*/
 @media only screen and (min-width: 668px) {
-  aside.top-page-left{
+  aside.user-mypage-left{
     margin-top: 20px;
   }
-  div.top-page-center{
+  div.user-mypage-center{
     margin-top: 20px;
   }
 }
@@ -32,7 +57,12 @@ aside.top-page-left{
 PC向けレイアウトの指定：769px以上では固定レイアウト 
 ===============================================*/
 @media only screen and (min-width: 769px) {
-  div.top-page-right{
+  div.user-mypage-right{
     margin-top: 20px;
+  }
+  .user-profile{
+    .profile-sns{
+      margin-top: 10px;
+    }
   }
 }

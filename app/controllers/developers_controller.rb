@@ -197,6 +197,7 @@ class DevelopersController < ApplicationController
 
   private
   
+  # 存在チェック
   def is_are_you?
     unless Developer.find_by_id(params[:id])
       dev_store_location

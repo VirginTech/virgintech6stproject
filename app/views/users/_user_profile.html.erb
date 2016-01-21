@@ -1,0 +1,25 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h2 class="panel-title">ユーザープロフィール</h2>
+  </div>
+  <div class="panel-body user-profile">
+    
+    <!--プロフィールアイコン-->
+    <% if @user.profile_img? %>
+      <%= link_to user_path(@user) do %>
+        <%= image_tag @user.profile_img.url, class:"profile-icon" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(@user) do %>
+        <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+      <% end %>
+    <% end %>
+
+    <!--名前-->
+    <span class="profile-name">
+      <%= link_to @user.nickname, user_path(@user) %>
+    </span>
+    <br />
+
+  </div>
+</div>

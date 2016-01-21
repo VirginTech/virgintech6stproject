@@ -1,0 +1,54 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*==============================
+  ページネーション(表示消し用)
+===============================*/
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: rgba(0,0,0,0.0);//透明化
+  //border: 1px solid #DDD;
+  border: 1px solid rgba(0,0,0,0.0);//透明化
+  border-left-width: 0;
+  color: #fff;//追加分
+}
+
+.pagination {
+  //border-left: 1px solid #ddd;
+  border-left: 1px solid rgba(0,0,0,0.0);//透明化
+  .first{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .prev {
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .page{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .next{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+  .last{
+    padding : 0;
+    float: none;
+    border: none;
+  }
+}
+/*==========================================
+ インフィニティ・スクロール
+===========================================*/
+#infscr-loading {
+  text-align:center;
+  margin:0 auto;
+}
