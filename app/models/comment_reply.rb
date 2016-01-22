@@ -1,8 +1,7 @@
-class UserComment < ActiveRecord::Base
-  
-  belongs_to :product
+class CommentReply < ActiveRecord::Base
+
+  belongs_to :user_comment
   belongs_to :user
-  has_many :comment_replies, :dependent => :delete_all
 
   #============================
   #イメージアップローダー
@@ -13,6 +12,6 @@ class UserComment < ActiveRecord::Base
   # バリデーション
   #=====================
   validates :user_id, presence: true
-  validates :comment, presence: true, length: { maximum: 300 }
-  
+  validates :reply_comment, presence: true, length: { maximum: 150 }
+
 end

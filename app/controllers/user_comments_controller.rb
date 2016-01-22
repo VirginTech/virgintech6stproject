@@ -2,11 +2,23 @@ class UserCommentsController < ApplicationController
   
   #before_action :logged_in_user, only: [:create]
   
+  #==================
+  # リプライ
+  #==================
+  def create_reply
+    flash[:success] = "返信を投稿しました。"
+    redirect_to session[:forwarding_url]
+  end
+  
+  #==================
+  # コメント
+  #==================
   def show
     @product = Product.find(params[:id])
     @developer=@product.developer
     @comments = @product.user_comments.order(created_at: :desc).page(params[:page]).per(10)
     @user_comment = current_user.user_comments.build if user_logged_in?
+    @reply = current_user.comment_replies.build if user_logged_in?
     #binding.pry
   end
   
@@ -19,6 +31,7 @@ class UserCommentsController < ApplicationController
       @product=@user_comment.product
       @developer=@product.developer
       @comments = @product.user_comments.order(created_at: :desc).page(params[:page]).per(10)
+      @reply = current_user.comment_replies.build if user_logged_in?
       render 'user_comments/show'
     end
   end
@@ -36,6 +49,10 @@ class UserCommentsController < ApplicationController
   
   def comment_params
     params.require(:user_comment).permit(:product_id, :comment, :image, :image_cache)
+  end
+
+  def reply_params
+    params.require(:comment_reply).permit(:comment_id, :reply_comment, :image, :image_cache)
   end
 
 end

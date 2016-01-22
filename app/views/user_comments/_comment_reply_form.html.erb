@@ -1,0 +1,27 @@
+<%=form_for(@reply,:url => {controller:"user_comments", action:"create_reply"}) do |f| %>
+
+  <div class="reply-form">
+    
+    <span>返信を書く</span>
+    <%= f.hidden_field :user_comment_id, :value => comment.id %>
+    <%= f.text_area :reply_comment, :size=>"50x3", class: 'form-control' %>
+    <p></p>
+    
+    <%= f.file_field :image, id:"reply-file-#{comment.id}", style:"display:none;", onchange:"fileCommentImage(event,'reply-img-#{comment.id}')" %>
+    <%= f.hidden_field :image_cache %>
+    <!--擬似ボタン-->
+    <div onClick="$('#<%="reply-file-#{comment.id}" %>').click();" class="btn btn-default img-btn">
+      <span class="glyphicon glyphicon-camera img-btn-icon"></span>
+    </div>
+    
+    <div id="reply-img-<%= comment.id %>" class="reply-img"></div>
+    <p></p>
+    
+    <div class="reply-form-footer">
+      <%= f.submit "　投稿する　", class: "btn btn-primary btn-sm" %>
+      <a href=<%="#comment-reply-#{comment.id}" %> data-toggle="collapse" class="btn btn-danger btn-sm">キャンセル</a>
+    </div>
+    
+  </div>
+
+<% end %>

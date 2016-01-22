@@ -51,8 +51,14 @@
     <% end %>
     <hr />
     
-    <!--フッターメニュー-->
+    <!--=================
+    フッターメニュー
+    ====================-->
     <div class="comment-footer-menu">
+      
+      <!--返信-->
+      <a href=<%="#comment-reply-#{comment.id}" %> data-toggle="collapse">[返信]</a>
+
       <!--コメント削除-->
       <% if same_user?(comment.user.id) %>
         <%= link_to user_comment_path(comment.id), method: "delete",
@@ -63,8 +69,19 @@
           [削除]
         <% end %>
       <% end %>
+      
     </div>
-    
+    <!--================
+    返信用パネル
+    ===================-->
+    <div id=<%="comment-reply-#{comment.id}" %> class="collapse">
+      <% if user_logged_in? %>
+        <%=render "user_comments/comment_reply_form",comment: comment %>
+      <% else %>
+        ログインが必要です。
+      <% end %>
+    </div>
+  
   </div>
 
 </div>

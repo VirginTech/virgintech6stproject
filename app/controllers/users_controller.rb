@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @comments = @user.user_comments.order(created_at: :desc).page(params[:page]).per(10)
+    @reply = current_user.comment_replies.build if user_logged_in?
     #binding.pry
   end
   
