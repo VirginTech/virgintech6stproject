@@ -17,7 +17,7 @@
               <td width=50 valign=top align=right>
                 <%= link_to "編集", edit_product_path(product), class:"btn btn-primary btn-xs app-edit-btn" %><br />
                 <%= link_to "削除", product_path(product), method: "delete", 
-                  data: {confirm: "削除するとアプリに関わる全てのデータが削除されます。<br class='hidden-xs'>
+                  data: {confirm: "アプリを削除するとそれに関わる全てのデータが削除されます。<br class='hidden-xs'>
                   削除されたデータは元に戻す事はできません。<br class='hidden-xs'>",
                   "commit" => "削除する",
                   "cancel" => "キャンセル"},

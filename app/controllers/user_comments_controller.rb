@@ -23,6 +23,15 @@ class UserCommentsController < ApplicationController
     end
   end
   
+  def destroy
+    @user=current_user
+    @comment = @user.user_comments.find_by(id: params[:id])
+    return redirect_to session[:forwarding_url] if @comment.nil?
+    @comment.destroy
+    flash[:danger] = "つぶやきが削除されました。"
+    redirect_to session[:forwarding_url]
+  end
+  
   private
   
   def comment_params

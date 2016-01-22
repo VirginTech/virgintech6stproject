@@ -10,9 +10,9 @@
       <div id="user-comments">
         <% @comments.each do |comment| %>
           <!--そのユーザーのコメントであるか再度確認-->
-          <%# if comment.user_id==params[:id].to_i %>
+          <% if comment.user_id==params[:id].to_i %>
             <%= render partial: 'user_comments/user_comment', locals: { comment: comment } %>
-          <%# end %>
+          <% end %>
         <% end %>
         <%= paginate(@comments) %>
       </div>

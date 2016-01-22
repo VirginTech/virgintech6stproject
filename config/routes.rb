@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   post 'top_pages/order_query', to: 'top_pages#result'
   
   # ユーザーコメント
-  resources :user_comments, only: [:show, :create]
+  resources :user_comments, only: [:show, :create, :destroy]
   get 'top_pages/user_comment_all', to: 'top_pages#user_comment_all'
   
   # The priority is based upon order of creation: first created -> highest priority.
