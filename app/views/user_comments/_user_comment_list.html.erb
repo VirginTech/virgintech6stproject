@@ -32,6 +32,7 @@
           </div>
   
           <div id="comment-img">
+            <!--バリデーションで引っかかった場合、キャッシュを表示させる-->
             <% if @user_comment.image? %>
               <%= image_tag @user_comment.image.url %>
             <% end %>

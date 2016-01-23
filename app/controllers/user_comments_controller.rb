@@ -6,8 +6,14 @@ class UserCommentsController < ApplicationController
   # リプライ
   #==================
   def create_reply
-    flash[:success] = "返信を投稿しました。"
-    redirect_to session[:forwarding_url]
+    @reply = current_user.comment_replies.build(reply_params)
+    if @reply.save
+      flash[:success] = "返信を投稿しました。"
+      redirect_to session[:forwarding_url]
+    else
+      flash[:danger] = "返信の投稿に失敗しました。"
+      redirect_to session[:forwarding_url]
+    end
   end
   
   #==================
@@ -52,7 +58,7 @@ class UserCommentsController < ApplicationController
   end
 
   def reply_params
-    params.require(:comment_reply).permit(:comment_id, :reply_comment, :image, :image_cache)
+    params.require(:comment_reply).permit(:user_comment_id, :reply_comment, :image)
   end
 
 end

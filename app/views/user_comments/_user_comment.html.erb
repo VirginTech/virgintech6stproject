@@ -49,6 +49,16 @@
         <% end %>
       </div>
     <% end %>
+
+    <!--================
+    リプライ表示
+    ===================-->
+    <% if comment.comment_replies.present? %>
+      <% comment.comment_replies.each do |reply| %>
+        <%= render partial: 'user_comments/comment_reply', locals: { reply: reply, comment: comment } %>
+      <% end %>
+    <% end %>
+    
     <hr />
     
     <!--=================

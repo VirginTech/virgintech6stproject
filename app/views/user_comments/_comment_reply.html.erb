@@ -1,0 +1,49 @@
+<div class="reply-list">
+  
+  <div class="well">
+    
+    <!--プロフィールアイコン-->
+    <% if reply.user.profile_img? %>
+      <%= link_to user_path(reply.user) do %>
+        <%= image_tag reply.user.profile_img.url, class:"reply-profile_icon" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(reply.user) do %>
+        <%= image_tag "no_profile_img.png", class:"reply-profile_icon" %>
+      <% end %>
+    <% end %>
+
+    <!--ネーム-->
+    <span class="reply-profile-name"><%= reply.user.nickname %></span>
+
+    <!--タイムスタンプ-->
+    <span class="reply-timestamp">
+      <%= time_ago_in_words(reply.created_at) %>前
+    </span>        
+    <p></p>
+
+    <!--コメント-->
+    <span class="reply-comment">
+      <%#= simple_format(h(comment.comment)) %>
+      <%= auto_link(simple_format(h(reply.reply_comment)), link = :urls, href_options = {:target => '_blank'}) %>
+    </span>
+    <p></p>
+
+    <!--添付イメージ-->
+    <% if reply.image? %>
+      <%# binding.pry %>
+      <div class="reply-comment-img">
+        <%= link_to "#modal-img-dialog",data: {
+                                        toggle: "modal",
+                                        title: comment.product.appname,
+                                        imgurl: reply.image.url
+                                        } do %>
+          <%= image_tag reply.image.url %>
+        <% end %>
+      </div>
+    <% end %>
+
+
+  </div>
+  
+</div>
