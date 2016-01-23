@@ -53,11 +53,11 @@
     <!--================
     リプライ表示
     ===================-->
-    <% if comment.comment_replies.present? %>
+    <%# if comment.comment_replies.present? %>
       <% comment.comment_replies.each do |reply| %>
         <%= render partial: 'user_comments/comment_reply', locals: { reply: reply, comment: comment } %>
       <% end %>
-    <% end %>
+    <%# end %>
     
     <hr />
     
@@ -72,7 +72,8 @@
       <!--コメント削除-->
       <% if same_user?(comment.user.id) %>
         <%= link_to user_comment_path(comment.id), method: "delete",
-                                            data: {confirm: "つぶやきを削除します。",
+                                            data: {confirm: "つぶやきを削除してもよろしいですか？
+                                            削除すると元に戻す事はできません。",
                                             "commit" => "削除する",
                                             "cancel" => "キャンセル"
                                             },title: "本当に削除しますか？" do %>
@@ -88,7 +89,9 @@
       <% if user_logged_in? %>
         <%=render "user_comments/comment_reply_form",comment: comment %>
       <% else %>
-        ログインが必要です。
+        <div class="login-prompt">
+          ログインが必要です。
+        </div>
       <% end %>
     </div>
   

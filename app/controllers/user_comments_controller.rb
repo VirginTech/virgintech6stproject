@@ -3,20 +3,6 @@ class UserCommentsController < ApplicationController
   #before_action :logged_in_user, only: [:create]
   
   #==================
-  # リプライ
-  #==================
-  def create_reply
-    @reply = current_user.comment_replies.build(reply_params)
-    if @reply.save
-      flash[:success] = "返信を投稿しました。"
-      redirect_to session[:forwarding_url]
-    else
-      flash[:danger] = "返信の投稿に失敗しました。"
-      redirect_to session[:forwarding_url]
-    end
-  end
-  
-  #==================
   # コメント
   #==================
   def show
@@ -55,10 +41,6 @@ class UserCommentsController < ApplicationController
   
   def comment_params
     params.require(:user_comment).permit(:product_id, :comment, :image, :image_cache)
-  end
-
-  def reply_params
-    params.require(:comment_reply).permit(:user_comment_id, :reply_comment, :image)
   end
 
 end

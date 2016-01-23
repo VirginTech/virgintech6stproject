@@ -49,9 +49,8 @@ Rails.application.routes.draw do
   get 'top_pages/user_comment_all', to: 'top_pages#user_comment_all'
   
   # コメントリプライ
-  get 'user_comments/create_reply', to: 'user_comments#create_reply'
-  post 'user_comments/create_reply', to: 'user_comments#create_reply'
-  
+  resources :comment_replies, only: [:create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
