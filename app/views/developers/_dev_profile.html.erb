@@ -20,6 +20,11 @@
       <%= link_to @developer.name, developer_path(@developer) %>
     </span>
     <br />
+
+    <!--プロフィール-->
+    <span class="my-profile">
+      プロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィール
+    </span>
     
     <!--Webサイト-->
     <% if @developer.website? %>
@@ -49,9 +54,9 @@
     <% if @developer.google? %>
       <%=link_to @developer.google do %><%= image_tag 'google.png', class:"profile-sns" %><% end %>
     <% end %>
-    <hr />
-    
+
     <!--登録アプリ-->
+    <div class="bg-info text-info app-label">登録アプリ</div>
     <% @developer.products.each do |product| %>
       <% if product.id? %>
         <%= link_to product_path(product) do %>

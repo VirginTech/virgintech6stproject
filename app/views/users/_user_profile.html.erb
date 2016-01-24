@@ -20,6 +20,35 @@
       <%= link_to @user.nickname, user_path(@user) %>
     </span>
     <br />
+    
+    <!--プロフィール-->
+    <span class="my-profile">
+      プロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィール
+    </span>
+    
+    <!--フォロー-->
+    <div class="bg-info text-info follow-label">フォロー</div>
+    <div class="my-follow">
+      <% (0..4).each do |num| %>
+        <% if @user.profile_img? %>
+          <%=image_tag @user.profile_img.url, class:"follow-icon" %>
+        <% else %>
+          <%=image_tag "no_profile_img.png", class:"follow-icon" %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <!--フォロワー-->
+    <div class="bg-info text-info follow-label">フォロワー</div>
+    <div class="my-follow">
+      <% (0..4).each do |num| %>
+        <% if @user.profile_img? %>
+          <%=image_tag @user.profile_img.url, class:"follow-icon" %>
+        <% else %>
+          <%=image_tag "no_profile_img.png", class:"follow-icon" %>
+        <% end %>
+      <% end %>
+    </div>
 
   </div>
 </div>

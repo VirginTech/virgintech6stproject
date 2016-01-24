@@ -4,9 +4,14 @@
 <%= render 'layouts/header' %>
 
 <!--========================
+フロート・バー表示
+==========================-->
+<%= render 'users/float_userpage_bar' %>
+
+<!--========================
 フラッシュメッセージ
 ==========================-->
-<div class="container-fluid" style="margin-top:10px;">
+<div class="container-fluid" style="margin-top:70px;">
   <div class="row">
     <div class="col-xs-12 col-sm-12">
       <% flash.each do |message_type, message| %>

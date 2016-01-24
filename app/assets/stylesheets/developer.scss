@@ -35,6 +35,20 @@ aside.dev-mypage-left{
       color:#000; text-decoration:none 
     }
   }
+  .my-profile{
+    font-size: 13px;
+    //line-height: 0px;
+    word-break: break-all; //強制改行
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  .app-label{
+    font-size: 12px;
+    margin: 5px -15px;
+    padding: 3px 10px;
+  }
   .profile-website{
     font-weight: bold;
     font-size: 12px;

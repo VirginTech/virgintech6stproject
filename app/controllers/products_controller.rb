@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   
-  before_action :logged_in_developer, only: [:new, :create]
+  before_action :logged_in?, only: [:new, :create]
   before_action :is_developer_app?, only: [:edit, :update, :destroy]
   
   def destroy
@@ -60,6 +60,15 @@ class ProductsController < ApplicationController
   end
 
   private
+  
+  # ログインしてる？
+  def logged_in?
+    unless dev_logged_in?
+      dev_store_location
+      flash[:danger] = "デバロッパーログインが必要です。"
+      return redirect_to root_path
+    end
+  end
   
   # アプリがデヴェロッパーのものかチェック
   def is_developer_app?

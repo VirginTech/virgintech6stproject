@@ -35,6 +35,31 @@ aside.user-mypage-left{
       color:#000; text-decoration:none 
     }
   }
+  .my-profile{
+    font-size: 13px;
+    //line-height: 0px;
+    word-break: break-all; //強制改行
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  .follow-label{
+    font-size: 12px;
+    margin: 5px -15px;
+    padding: 3px 10px;
+  }
+  .my-follow{
+    max-height: 120px;
+    overflow: hidden;
+    .follow-icon{
+      width: 40px;
+      height: 40px;
+      border: 2px solid #fff;
+      border-radius: 100%;
+      margin-right: 0px;
+    }
+  }
 }
 /*=============================================
 4.5インチスマホ向けのレイアウトの指定
