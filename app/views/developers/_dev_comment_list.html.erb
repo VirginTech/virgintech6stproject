@@ -1,17 +1,23 @@
+<!--================
+コメントリスト
+====================-->
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2 class="panel-title">新着のつぶやき一覧</h2>
+    <h2 class="panel-title">コメント一覧</h2>
   </div>
   <div class="panel-body comment-body-bg">
-    
+
     <% if !@comments.present? %>
       <span class="result-empty">まだ何もございません。</span>
     <% else %>
-      <% @comments.each do |comment| %>
-        <%= render partial: 'user_comments/user_comment', locals: { comment: comment } %>
-      <% end %>
-      <%= link_to "すべて見る", user_comment_all_path, class:"btn btn-default form-control" %>
-    <% end %>    
+      <div id="user-comments">
+        <% @comments.each do |comment| %>
+          <%= render partial: 'dev_comments/dev_comment', locals: { comment: comment } %>
+        <% end %>
+        <%= paginate(@comments) %>
+      </div>
+    <% end %>
+
   </div>
 </div>
 
@@ -33,3 +39,4 @@
     </div>
   </div>
 </div>
+

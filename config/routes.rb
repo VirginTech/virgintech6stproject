@@ -41,15 +41,19 @@ Rails.application.routes.draw do
   end
   
   #アプリ検索オーダー
-  get 'top_pages/order_query', to: 'top_pages#result'
-  post 'top_pages/order_query', to: 'top_pages#result'
+  get 'order_query', to: 'top_pages#result'
+  post 'order_query', to: 'top_pages#result'
   
   # ユーザーコメント
   resources :user_comments, only: [:show, :create, :destroy]
-  get 'top_pages/user_comment_all', to: 'top_pages#user_comment_all'
+  get 'user_comment_all', to: 'top_pages#user_comment_all'
   
   # コメントリプライ
   resources :comment_replies, only: [:create, :destroy]
+
+  # デヴェロッパーコメント
+  resources :dev_comments, only: [:show, :create, :destroy, :edit, :update]
+  get 'dev_comment_show', to: 'developers#dev_comment_show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

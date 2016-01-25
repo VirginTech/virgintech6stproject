@@ -1,6 +1,7 @@
 class UserCommentsController < ApplicationController
   
   #before_action :logged_in_user, only: [:create]
+  before_action :is_are_product?, only: [:show]
   
   #==================
   # コメント
@@ -38,7 +39,15 @@ class UserCommentsController < ApplicationController
   end
   
   private
-  
+
+  # 存在チェック
+  def is_are_product?
+    unless Product.find_by_id(params[:id])
+      flash[:danger] = "セッションエラーが発生しました。存在しないIDです。"
+      return redirect_to root_path
+    end
+  end
+
   def comment_params
     params.require(:user_comment).permit(:product_id, :comment, :image, :image_cache)
   end

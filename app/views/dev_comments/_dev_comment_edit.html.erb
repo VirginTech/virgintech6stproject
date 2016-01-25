@@ -1,0 +1,57 @@
+<!--================
+エラーメッセージ
+====================-->
+<% if dev_logged_in? %>
+  <div class="hidden-xs">
+    <%= render 'shared/error_messages', object: @dev_comment %>
+  </div>
+<% end %>
+
+<!--================
+コメント投稿パネル
+====================-->
+<% if same_developer?(@product.developer.id) %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">コメントの編集</h2>
+    </div>
+    <div class="panel-body">
+
+      <%= form_for(@dev_comment) do |f| %>
+        <div class="user-comment-form">
+          <%= f.hidden_field :product_id, :value => @product.id %>
+          <%= f.text_area :comment, :size=>"70x5", class: 'form-control' %>
+          <p></p>
+          
+          <%#= f.file_field :image, onchange:"fileCommentImage(event,'comment_img')",class: 'form-control' %>
+          <%= f.file_field :image, id:"file", style:"display:none;", onchange:"fileCommentImage(event,'comment-img')" %>
+          <%= f.hidden_field :image_cache %>
+          <!--擬似ボタン-->
+          <div onClick="$('#file').click();" class="btn btn-default img-btn">
+            <span class="glyphicon glyphicon-camera img-btn-icon"></span>
+          </div>
+  
+          <div id="comment-img">
+            <!--バリデーションで引っかかった場合、キャッシュを表示させる-->
+            <% if @dev_comment.image? %>
+              <%= image_tag @dev_comment.image.url %>
+              <%= f.check_box :remove_image %>削除する
+            <% end %>
+          </div>
+  
+          <div class="text-right">
+            <%= f.submit "　投稿する　", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+    
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      リリース及びアップデート情報やイベント告知などにご活用ください。<br class="hidden-xs">
+      （もちろんそれ以外でも目的などは問いません）
+    </div>
+    
+  </div>
+<% end %>

@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   
   before_action :logged_in?, only: [:new, :create]
   before_action :is_developer_app?, only: [:edit, :update, :destroy]
+  before_action :is_are_product?, only: [:show]
   
   def destroy
     @developer=current_developer
@@ -85,6 +86,14 @@ class ProductsController < ApplicationController
     unless same_developer?(Product.find(params[:id]).developer.id)
       dev_store_location
       flash[:danger] = "セッションエラーが発生しました。不正なURLです。"
+      return redirect_to root_path
+    end
+  end
+
+  # 存在チェック
+  def is_are_product?
+    unless Product.find_by_id(params[:id])
+      flash[:danger] = "セッションエラーが発生しました。存在しないIDです。"
       return redirect_to root_path
     end
   end

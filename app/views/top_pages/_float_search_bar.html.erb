@@ -8,7 +8,7 @@
         <a href="#" class="dropdown-toggle glyphicon glyphicon-sort-by-attributes-alt" data-toggle="dropdown">新着順<span class="caret"></span>
         </a>
         <ul class="sub-menu dropdown-menu">
-          <li><%= link_to " 新着順",top_pages_order_query_path(order:0),class:"glyphicon glyphicon-sort-by-attributes" %></li>
+          <li><%= link_to " 新着順",order_query_path(order:0),class:"glyphicon glyphicon-sort-by-attributes" %></li>
           <li><%= link_to " ランキング順","#", class:"glyphicon glyphicon-sort-by-attributes-alt" %></li>
         </ul>
       </li>
@@ -17,11 +17,11 @@
         <a href="#" class="dropdown-toggle glyphicon glyphicon-phone" data-toggle="dropdown">機種<span class="caret"></span>
         </a>
         <ul class="sub-menu dropdown-menu">
-          <li><%= link_to "すべて",top_pages_order_query_path(order:0) %></li>
+          <li><%= link_to "すべて",order_query_path(order:0) %></li>
           <li class="divider"></li>
-          <li><%= link_to " iPhone",top_pages_order_query_path(order:3,model:1),class:"glyphicon glyphicon-phone" %></li>
-          <li><%= link_to " Android",top_pages_order_query_path(order:3,model:2),class:"glyphicon glyphicon-phone" %></li>
-          <li><%= link_to " WebGame",top_pages_order_query_path(order:3,model:3),class:"glyphicon glyphicon-modal-window" %></li>
+          <li><%= link_to " iPhone",order_query_path(order:3,model:1),class:"glyphicon glyphicon-phone" %></li>
+          <li><%= link_to " Android",order_query_path(order:3,model:2),class:"glyphicon glyphicon-phone" %></li>
+          <li><%= link_to " WebGame",order_query_path(order:3,model:3),class:"glyphicon glyphicon-modal-window" %></li>
         </ul>
       </li>
 
@@ -29,10 +29,10 @@
         <a href="#" class="dropdown-toggle glyphicon glyphicon-usd" data-toggle="dropdown">価格<span class="caret"></span>
         </a>
         <ul class="sub-menu dropdown-menu">
-          <li><%= link_to "すべて",top_pages_order_query_path(order:0) %></li>
+          <li><%= link_to "すべて",order_query_path(order:0) %></li>
           <li class="divider"></li>
-          <li><%= link_to " 無料",top_pages_order_query_path(order:4,price:1), class:"glyphicon glyphicon-bitcoin" %></li>
-          <li><%= link_to " 有料",top_pages_order_query_path(order:4,price:2), class:"glyphicon glyphicon-yen" %></li>
+          <li><%= link_to " 無料",order_query_path(order:4,price:1), class:"glyphicon glyphicon-bitcoin" %></li>
+          <li><%= link_to " 有料",order_query_path(order:4,price:2), class:"glyphicon glyphicon-yen" %></li>
         </ul>
       </li>
 
@@ -40,10 +40,10 @@
         <a href="#" class="dropdown-toggle glyphicon glyphicon-ok" data-toggle="dropdown">セール<span class="caret"></span>
         </a>
         <ul class="sub-menu dropdown-menu dropdown-menu-right">
-          <li><%= link_to "すべて",top_pages_order_query_path(order:0) %></li>
+          <li><%= link_to "すべて",order_query_path(order:0) %></li>
           <li class="divider"></li>
-          <li><%= link_to " リリース済み",top_pages_order_query_path(order:5,sale:1),class:"glyphicon glyphicon-eye-open" %></li>
-          <li><%= link_to " リリース待ち",top_pages_order_query_path(order:5,sale:2),class:"glyphicon glyphicon-eye-close" %></li>
+          <li><%= link_to " リリース済み",order_query_path(order:5,sale:1),class:"glyphicon glyphicon-eye-open" %></li>
+          <li><%= link_to " リリース待ち",order_query_path(order:5,sale:2),class:"glyphicon glyphicon-eye-close" %></li>
         </ul>
       </li>
       

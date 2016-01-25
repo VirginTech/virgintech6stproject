@@ -1,0 +1,76 @@
+<div class="comment-list">
+  
+  <div class="well">
+
+    <!--プロフィールアイコン-->
+    <% if comment.developer.profile_img? %>
+      <%= link_to developer_path(comment.developer) do %>
+        <%= image_tag comment.developer.profile_img.url, class:"profile_icon" %>
+      <% end %>
+    <% else %>
+      <%= link_to developer_path(comment.developer) do %>
+        <%= image_tag "no_profile_img.png", class:"profile_icon" %>
+      <% end %>
+    <% end %>
+    
+    <!--アプリアイコン-->
+    <div class="user-comment-app-icon">
+      <%= link_to product_path(comment.product) do %>
+        <%= image_tag comment.product.img_icon.url %>
+      <% end %>
+    </div>
+  
+    <!--ネーム-->
+    <span class="profile-name"><%= comment.developer.name %></span>
+    
+    <!--タイムスタンプ-->
+    <span class="timestamp">
+      <%= time_ago_in_words(comment.created_at) %>前
+    </span>        
+    <p></p>
+    
+    <!--コメント-->
+    <span class="comment">
+      <%#= simple_format(h(comment.comment)) %>
+      <%= auto_link(simple_format(h(comment.comment)), link = :urls, href_options = {:target => '_blank'})  %>
+    </span>
+    <p></p>
+    
+    <!--添付イメージ-->
+    <% if comment.image? %>
+      <%# binding.pry %>
+      <div class="comment-img">
+        <%= link_to "#modal-img-dialog",data: {
+                                        toggle: "modal",
+                                        title: comment.product.appname,
+                                        imgurl: comment.image.url
+                                        } do %>
+          <%= image_tag comment.image.url %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <hr />
+    
+    <!--=================
+    フッターメニュー
+    ====================-->
+    <div class="comment-footer-menu">
+      
+      <!--コメント編集、削除-->
+      <% if same_developer?(comment.developer.id) %>
+        <%= link_to "[編集]", edit_dev_comment_path(comment) %>
+        <%= link_to dev_comment_path(comment), method: "delete",
+                                            data: {confirm: "コメントを削除してもよろしいですか？
+                                            削除すると元に戻す事はできません。",
+                                            "commit" => "削除する",
+                                            "cancel" => "キャンセル"
+                                            },title: "本当に削除しますか？" do %>
+          [削除]
+        <% end %>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
+

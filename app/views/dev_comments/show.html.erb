@@ -1,0 +1,103 @@
+<!--========================
+ヘッダー表示
+==========================-->
+<%= render 'layouts/header' %>
+
+<!--========================
+フロート・バー表示
+==========================-->
+<%= render 'products/float_product_bar' %>
+
+<!--========================
+フラッシュメッセージ
+==========================-->
+<div class="container-fluid" style="margin-top:40px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!--=====================
+エラーメッセージ (スマホのみ)
+========================-->
+<% if dev_logged_in? %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 hidden-lg hidden-md hidden-sm">
+        <%= render 'shared/error_messages', object: @dev_comment %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<!--========================
+ボディ
+==========================-->
+<div class="container-fluid">        <!-- 全体を囲むコンテナ -->
+  <div class="row">
+    <!--========================
+    左サイド
+    ==========================-->
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      <aside class=product-show-left>
+        <%= render 'products/product_profile' %>
+        <div class="row">
+          <div class="col-xs-12 hidden-xs">
+            <%= render 'developers/dev_profile' %>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <!--========================
+    中央（メイン）
+    ==========================-->
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="product-show-center">
+        <%= render 'dev_comments/dev_comment_list' %>
+      </div>
+    </div>
+    <!--========================
+    右サイド
+    ==========================-->
+    <div class="col-xs-12 col-md-3 hidden-xs hidden-sm">
+      <!--ダミー広告-->
+      <div class="product-show-right">
+        <%= image_tag 'ad_dummy.png',class:"img-responsive" %>
+      </div>
+    </div>
+    
+  </div>
+</div>        <!-- 全体を囲むコンテナ -->
+
+<!--=========================
+余白
+==========================-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 text-center" style="height:50px;">
+  
+    </div>
+  </div>
+</div>
+
+<!--========================
+フッダー表示
+==========================-->
+<div>
+  <%= render 'layouts/footer' %>
+</div>
+<!--========================
+バックスクロールボタン表示
+==========================-->
+<%= render 'layouts/back_scroll_btn' %>
+
+<!--===================
+ 画像読み込みアラート
+===================-->
+<div class="modal fade" id="alert-undefined-img">
+  <%= render 'shared/alert_undefined_img' %>
+</div>

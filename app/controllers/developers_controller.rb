@@ -3,6 +3,15 @@ class DevelopersController < ApplicationController
   before_action :logged_in_developer, only: [:edit, :update, :destroy]
   before_action :is_are_you?, only: [:show]
   
+  def dev_comment_show
+    if @developer = Developer.find_by_id(params[:dev_id])
+      @comments = @developer.dev_comments.order(created_at: :desc).page(params[:page]).per(10)
+    else
+      flash[:danger] = "セッションエラーが発生しました。存在しないIDです。"
+      return redirect_to root_path
+    end
+  end
+  
   def new
     @developer=Developer.new
   end
@@ -200,7 +209,6 @@ class DevelopersController < ApplicationController
   # 存在チェック
   def is_are_you?
     unless Developer.find_by_id(params[:id])
-      dev_store_location
       flash[:danger] = "セッションエラーが発生しました。存在しないIDです。"
       return redirect_to root_path
     end

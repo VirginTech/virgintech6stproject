@@ -1,7 +1,7 @@
 <aside id="category-nav">
   <div class="category">
     <% category_list.each do |key,value| %>
-      <%= link_to top_pages_order_query_path(order:2,category:value),
+      <%= link_to order_query_path(order:2,category:value),
                                                   class:"btn btn-default btn-sm btn-block" do %>
         <% if Product.exists?(category: value) %>
           <%= image_tag Product.where(category: value).last.img_icon.url, class:"side-bar-icon" %>

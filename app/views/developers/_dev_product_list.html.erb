@@ -7,7 +7,7 @@
     <% if !@products.present? %>
       <span class="result-empty">まだ何もございません。</span>  
     <% else %>
-      <table>
+      <table border=0>
         <% @products.each do |product| %>
           <tr>
             <td>
@@ -15,7 +15,10 @@
             </td>
             <% if same_developer?(product.developer.id) %>
               <td width=50 valign=top align=right>
-                <%= link_to "編集", edit_product_path(product), class:"btn btn-primary btn-xs app-edit-btn" %><br />
+                <%= link_to  dev_comment_path(product), class:"btn btn-warning btn-xs app-comment-btn" do %>
+                  <span class="glyphicon glyphicon-comment"></span>
+                <% end %>
+                <%= link_to "編集", edit_product_path(product), class:"btn btn-primary btn-xs app-edit-btn" %>
                 <%= link_to "削除", product_path(product), method: "delete", 
                   data: {confirm: "アプリを削除するとそれに関わる全てのデータが削除されます。<br class='hidden-xs'>
                   削除されたデータは元に戻す事はできません。<br class='hidden-xs'>",
