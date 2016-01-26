@@ -8,9 +8,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-12" style="padding:0px;" ><!--定義されているPaddingを打ち消し-->
-        <span class="logo">
-          <%= link_to "VirginTech", root_path %>
-        </span>
+        <span class="logo"><%= link_to "Game☆ nist", root_path %></span><br />
+        <span class="logo-descript">ゲームアプリのソーシャルレビューサービス</span>
         
         <!--======================
         ユーザーログイン中
@@ -77,7 +76,7 @@
               <tr>
                 <td>
                   <%= link_to "#user_login", class: "btn btn-primary btn-sm", data: {toggle: "modal"} do %>
-                    <span class="glyphicon glyphicon-user"></span>　ユーザー　<br />ログイン
+                    <span class="glyphicon glyphicon-user login-btn-font">　ユーザー　<br />ログイン</span>
                   <% end %>
                   <!--こちらでも別に良いよ
                   <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#login">
@@ -86,7 +85,7 @@
                 </td>
                 <td>
                   <%= link_to "#dev_login", class:"btn btn-success btn-sm", data: {toggle: "modal"} do %>
-                    <span class="glyphicon glyphicon-knight"></span>デベロッパー<br />ログイン
+                    <span class="glyphicon glyphicon-knight login-btn-font">デベロッパー<br />ログイン</span>
                   <% end %>
                 </td>
               </tr>

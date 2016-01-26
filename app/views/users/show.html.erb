@@ -1,4 +1,13 @@
 <!--========================
+タイトル、メタ情報表示
+==========================-->
+<% content_for :head do %>
+  <title><%= @user.nickname %> | ゲームニスト - ゲームアプリソーシャルレビューサービス</title>
+  <meta name="description" content="ゲームニスト | <%= @user.nickname %> に関する情報です。">
+  <meta name="keywords" content="ゲームニスト,<%= @user.nickname %>">
+<% end %>
+
+<!--========================
 ヘッダー表示
 ==========================-->
 <%= render 'layouts/header' %>

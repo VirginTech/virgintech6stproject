@@ -7,14 +7,10 @@
 .sticky-footer {
   position: static;
   width: 100%;
-  //z-index:2;
 }
-
 .sticky-footer.sticky {
   position: fixed;
   width: 100%;
-  top: 400px;
-  //z-index:2;
 }
 /*==========================================
  共通のスタイル
@@ -23,9 +19,11 @@ header {
   background:#FF6347;
   height:70px;
   .logo{
+    position: absolute;
+    top: 15px;
     color:#fff;
-    font-size:15px;
-    line-height: 2.0em;
+    font-size:18px;
+    //line-height: 2.0em;
     font-weight: bold;
     font-family: 'Georgia';
     font-style: italic;
@@ -36,19 +34,36 @@ header {
       text-decoration: none;
     }
   }
+  .logo-descript {
+    position: absolute;
+    margin: 0px;
+    top: 0px;
+    color:#fff;
+    font-size:10px;
+  }
   .login-btn{
-    float: right;
+    position: absolute;
+    top: 0px;
+    right: 0px;
     margin: 0.5px 2.0px;
+    .login-btn-font{
+      font-weight: bold;
+      font-size: 10px;
+      line-height: 10px;
+    }
     .signup {
-      line-height: 1.5em;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 2.0em;
       color: #fff;
       text-decoration: none;
     }
   }
   .session-user{
-    margin: 0px 10px;
-    float: right;
-    width: 200px;
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    width: 230px;
     ul.user-menu{
       list-style: none;
       a.user-name {
@@ -56,9 +71,8 @@ header {
         text-decoration: none;
         font-size: 15px;
         text-align: right;
-        margin-top: 10px;
         display: block;
-        width: 150px;
+        width: 180px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -73,20 +87,20 @@ header {
     }
   }
   .profile_icon{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border: 2px solid #fff;
     border-radius: 100%;
   }
 }
 footer{
   background:#000;
-  height:100px;
   text-align:center;
-  .copyright{
-    color:#fff;
-    font-size: 10px;
-    line-height: 2.0em;
+  color:#fff;
+  font-size: 10px;
+  .copyright-box{
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 }
 /*=============================================
@@ -97,20 +111,21 @@ footer{
     height:80px;
     .logo{
       font-size:20px;
-      line-height: 2.0em;
       margin-left:10px;
     }
     .login-btn{
       margin: 1.0px 2.0px;
+      .login-btn-font{
+        font-size: 10px;
+        line-height: 15px;
+      }
       .signup {
-        line-height: 2.0em;
+        line-height: 2.5em;
       }
     }
     .session-user{
-      //margin: 0px 10px;
       ul.user-menu{
         a.user-name {
-          margin-top: 12px;
           font-size: 15px;
         }
       }
@@ -122,17 +137,11 @@ footer{
     }
   }
   footer{
-    height:200px;
-    .copyright{
-      font-size: 15px;
-      line-height: 2.0em;
-    }
+    font-size: 12px;
   }
   .sticky-footer.sticky {
     position: fixed;
     width: 100%;
-    top: 400px;
-    //z-index:2;
   }
 }
 /*=============================================
@@ -143,22 +152,30 @@ footer{
     height:100px;
     .logo{
       font-size:30px;
-      line-height: 2.0em;
       margin-left:20px;
     }
+    .logo-descript {
+      margin: 3px;
+      font-size:12px;
+    }
     .login-btn{
-      margin: 10px 20px;
+      margin: 5px 20px;
+      .login-btn-font{
+        font-size: 13px;
+        line-height: 15px;
+      }
       .signup {
-        line-height: 2.0em;
+        font-size: 15px;
+        line-height: 3.0em;
       }
     }
     .session-user{
-      //margin: 15px 40px;
       width: 300px;
+      top: 25px;
+      right: 10px;
       ul.user-menu{
         a.user-name {
           width: 250px;
-          margin-top: 25px;
           font-size: 20px;
         }
       }
@@ -168,19 +185,17 @@ footer{
         }
       }
     }
+    .profile_icon{
+      width: 40px;
+      height: 40px;
+    }
   }
   footer{
-    height:200px;
-    .copyright{
-      font-size: 15px;
-      line-height: 2.0em;
-    }
+    font-size: 15px;
   }
   .sticky-footer.sticky {
     position: fixed;
     width: 100%;
-    top: 770px;
-    //z-index:2;
   }
 }
 /*=============================================
@@ -191,22 +206,20 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
     height:100px;
     .logo{
       font-size:30px;
-      line-height: 3.0em;
       margin-left:20px;
     }
     .login-btn{
-      margin: 10px 20px;
-       .signup {
-        line-height: 3.0em;
+      .login-btn-font{
+      }
+      .signup {
+        font-weight: normal;
       }
     }
     .session-user{
-      //margin: 25px 50px;
       width: 400px;
       ul.user-menu{
         a.user-name {
           width: 350px;
-          margin-top: 25px;
           font-size: 20px;
         }
       }
@@ -218,16 +231,10 @@ PC向けレイアウトの指定：769px以上では固定レイアウト
     }
   }
   footer{
-    height:200px;
-    .copyright{
-      font-size: 15px;
-      line-height: 2.0em;
-    }
+    font-size: 15px;
   }
   .sticky-footer.sticky {
     position: fixed;
     width: 100%;
-    top: 600px;
-    //z-index:2;
   }
 }

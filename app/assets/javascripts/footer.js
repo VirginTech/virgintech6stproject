@@ -12,6 +12,7 @@ $(function(){
     {
       if($window.height()>footerOffsetTop){
         $footer.addClass('sticky');
+        $footer.css('top',$window.height()-$footer.height());
       }else {
         $footer.removeClass('sticky');
       }
