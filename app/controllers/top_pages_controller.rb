@@ -2,13 +2,18 @@ class TopPagesController < ApplicationController
   
   def top
     @products=Product.all.order(created_at: :desc).limit(10)
-    @comments = UserComment.all.order(created_at: :desc).limit(10)
+    @user_comments = UserComment.all.order(created_at: :desc).limit(10)
+    @dev_comments = DevComment.all.order(created_at: :desc).limit(10)
     @reply = current_user.comment_replies.build if user_logged_in?
   end
   
   def user_comment_all
-    @comments = UserComment.all.order(created_at: :desc).page(params[:page]).per(10)
+    @user_comments = UserComment.all.order(created_at: :desc).page(params[:page]).per(10)
     @reply = current_user.comment_replies.build if user_logged_in?
+  end
+  
+  def dev_comment_all
+    @dev_comments = DevComment.all.order(created_at: :desc).page(params[:page]).per(10)
   end
   
   #======================

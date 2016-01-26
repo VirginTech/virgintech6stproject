@@ -1,0 +1,16 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">新着のニュース一覧</h2>
+  </div>
+  <div class="panel-body comment-body-bg">
+    
+    <% if !@dev_comments.present? %>
+      <span class="result-empty">まだ何もございません。</span>
+    <% else %>
+      <% @dev_comments.each do |comment| %>
+        <%= render partial: 'dev_comments/dev_comment', locals: { comment: comment } %>
+      <% end %>
+      <%= link_to "すべて見る", dev_comment_all_path, class:"btn btn-warning form-control" %>
+    <% end %>    
+  </div>
+</div>

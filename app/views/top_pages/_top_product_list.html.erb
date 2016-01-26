@@ -10,7 +10,7 @@
       <% @products.each do |product| %>
         <%= render partial: 'products/product', locals: { product: product } %>
       <% end %>
-      <%= link_to "すべて見る", order_query_path(order:0), class:"btn btn-default form-control" %>
+      <%= link_to "すべて見る", order_query_path(order:0), class:"btn btn-warning form-control" %>
     <% end %>
   </div>
 </div>

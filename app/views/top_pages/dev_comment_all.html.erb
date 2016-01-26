@@ -52,15 +52,7 @@
       ==========================-->
       <div class="col-xs-12 col-sm-8 col-md-6">
         <div class="top-page-center">
-          <%= render 'top_pages/top_product_list' %>
-          <!--ダミー広告-->
-          <%= image_tag 'ad_dummy2.png',class:"img-responsive" %>
-          <p></p>
-          <%= render 'top_pages/top_user_comment_list' %>
-          <!--ダミー広告-->
-          <%= image_tag 'ad_dummy2.png',class:"img-responsive" %>
-          <p></p>
-          <%= render 'top_pages/top_dev_comment_list' %>
+          <%= render 'top_pages/dev_comment_all' %>
         </div>
   
       </div>
@@ -87,22 +79,3 @@
 バックスクロールボタン表示
 ==========================-->
 <%= render 'layouts/back_scroll_btn' %>
-
-<!--=================
-  拡大イメージ（モーダルダイアログ）
-=====================-->
-<div class="modal fade" id="modal-img-dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button class="close" data-dismiss="modal">
-          <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
-        </button>
-        <h4 class="modal-title"><span id="modal-app-title"></span></h4>
-        <div id="modal-img-disp">
-          <img src="#" class="img-responsive">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
