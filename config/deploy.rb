@@ -14,3 +14,5 @@ set :deploy_to, "/home/#{user}/workspace/virgintech6stproject"
 set :deploy_via, :remote_cache
 ssh_options[:port] = 37876
 ssh_options[:forward_agent] = true
+
+#require "capistrano-unicorn" # 再起動せず
