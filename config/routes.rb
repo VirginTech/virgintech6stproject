@@ -56,6 +56,9 @@ Rails.application.routes.draw do
   get 'dev_comment_show', to: 'developers#dev_comment_show'
   get 'dev_comment_all', to: 'top_pages#dev_comment_all'
   
+  # フォロー・フォロワー
+  resources :user_follows, only: [:create, :destroy]
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

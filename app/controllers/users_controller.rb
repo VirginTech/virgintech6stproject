@@ -8,10 +8,17 @@ class UsersController < ApplicationController
   end
   
   def show
+    
     @user = User.find(params[:id])
     @comments = @user.user_comments.order(created_at: :desc).page(params[:page]).per(10)
     @reply = current_user.comment_replies.build if user_logged_in?
-    #binding.pry
+    # フォローイングユーザーをフォローした日付(新しい順)で取得
+    followings_ids = UserFollow.where(follower_id: @user.id).order(created_at: :desc).pluck(:followed_id)
+    @followings = @user.following_users.sort_by{|o| followings_ids.index(o.id)}
+    # フォロワーユーザーをフォローされた日付(新しい順)で取得
+    followers_ids = UserFollow.where(followed_id: @user.id).order(created_at: :desc).pluck(:follower_id)
+    @followers = @user.follower_users.sort_by{|o| followers_ids.index(o.id)}
+    
   end
   
   def edit

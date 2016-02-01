@@ -25,15 +25,45 @@
     <span class="my-profile">
       プロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィール
     </span>
+
+    <p></p>
+    
+    <!--フォローボタン-->
+    <% if user_logged_in? %>
+      <% if current_user != @user %>
+        <% if current_user.following?(@user) %>
+          <!--フォロー解除-->
+          <%= form_for(current_user.following_relationships.find_by(followed_id: @user.id), html: { method: :delete }) do |f| %>
+            <%= f.submit "フォロー解除", class: "btn btn-default form-control" %>
+          <% end %>
+        <% else %>
+          <!--フォロー登録-->
+          <%= form_for(current_user.following_relationships.build) do |f| %>
+            <%= hidden_field_tag :followed_id, @user.id %>
+            <%= f.submit "フォローする", class: "btn btn-danger form-control" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <p></p>
     
     <!--フォロー-->
     <div class="bg-info text-info follow-label">フォロー</div>
     <div class="my-follow">
-      <% (0..4).each do |num| %>
-        <% if @user.profile_img? %>
-          <%=image_tag @user.profile_img.url, class:"follow-icon" %>
-        <% else %>
-          <%=image_tag "no_profile_img.png", class:"follow-icon" %>
+      <% if !@followings.present? %>
+        <span class="result-empty">まだ誰もございません。</span>
+      <% else %>
+        <% @followings.each do |followings| %>
+          <% if followings.profile_img? %>
+            <%= link_to user_path(followings) do %>
+              <%=image_tag followings.profile_img.url, class:"follow-icon" %>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(followings) do %>
+              <%=image_tag "no_profile_img.png", class:"follow-icon" %>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -41,11 +71,19 @@
     <!--フォロワー-->
     <div class="bg-info text-info follow-label">フォロワー</div>
     <div class="my-follow">
-      <% (0..4).each do |num| %>
-        <% if @user.profile_img? %>
-          <%=image_tag @user.profile_img.url, class:"follow-icon" %>
-        <% else %>
-          <%=image_tag "no_profile_img.png", class:"follow-icon" %>
+      <% if !@followers.present? %>
+        <span class="result-empty">まだ誰もございません。</span>
+      <% else %>
+        <% @followers.each do |followers| %>
+          <% if followers.profile_img? %>
+            <%= link_to user_path(followers) do %>
+              <%=image_tag followers.profile_img.url, class:"follow-icon" %>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(followers) do %>
+              <%=image_tag "no_profile_img.png", class:"follow-icon" %>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     </div>

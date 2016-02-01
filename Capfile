@@ -1,3 +1,3 @@
 load 'deploy'
-load 'deploy/assets' #エラーになる
+load 'deploy/assets'
 load 'config/deploy'

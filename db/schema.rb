@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125023821) do
+ActiveRecord::Schema.define(version: 20160201094548) do
 
   create_table "comment_replies", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
@@ -139,6 +139,17 @@ ActiveRecord::Schema.define(version: 20160125023821) do
 
   add_index "user_comments", ["product_id"], name: "index_user_comments_on_product_id", using: :btree
   add_index "user_comments", ["user_id"], name: "index_user_comments_on_user_id", using: :btree
+
+  create_table "user_follows", force: :cascade do |t|
+    t.integer  "follower_id", limit: 4
+    t.integer  "followed_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "user_follows", ["followed_id"], name: "index_user_follows_on_followed_id", using: :btree
+  add_index "user_follows", ["follower_id", "followed_id"], name: "index_user_follows_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "user_follows", ["follower_id"], name: "index_user_follows_on_follower_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname",        limit: 255
