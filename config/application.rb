@@ -44,9 +44,9 @@ module GmailMailer
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.smtp_settings = {
       :enable_starttls_auto => true,
-      :address => 'smtp.gmail.com',
+      :address => 'smtp.muumuu-mail.com',
       :port => '587',
-      :domain => 'smtp.gmail.com',
+      :domain => 'smtp.muumuu-mail.com',
       :authentication => 'plain',
       :user_name => Rails.application.secrets.gmail_account_id ,
       :password => Rails.application.secrets.gmail_account_secret

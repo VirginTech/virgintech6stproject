@@ -7,25 +7,45 @@ class RegistConfirmMailer < ApplicationMailer
   #
   def regist_confirm_user(user,token)
     @user = user
-    @url  = "http://ik1-301-10815.vs.sakura.ne.jp:3030/regist_token_user/#{token}"
+    case Rails.env
+      when 'development'
+        @url  = "http://ik1-301-10815.vs.sakura.ne.jp:3030/regist_token_user/#{token}"
+      when 'production'
+        @url  = "http://www.gamenist.com/regist_token_user/#{token}"
+    end    
     mail to: user.email, subject: '【ゲーム☆ニクス】アカウントの本登録をお願いします'
   end
 
   def regist_complet_user(user)
     @user = user
-    @url  = "http://ik1-301-10815.vs.sakura.ne.jp:3030"
+    case Rails.env
+      when 'development'
+        @url  = "http://ik1-301-10815.vs.sakura.ne.jp:3030"
+      when 'production'
+        @url  = "http://www.gamenist.com"
+    end    
     mail to: user.email, subject: '【ゲーム☆ニクス】登録完了のお知らせ。'
   end
 
   def regist_confirm_dev(developer,token)
     @developer = developer
-    @url  = "http://ik1-301-10815.vs.sakura.ne.jp:3030/regist_token_dev/#{token}"
+    case Rails.env
+      when 'development'
+        @url  = "http://ik1-301-10815.vs.sakura.ne.jp:3030/regist_token_dev/#{token}"
+      when 'production'
+        @url  = "http://www.gamenist.com/regist_token_dev/#{token}"
+    end    
     mail to: developer.email, subject: '【ゲーム☆ニクス】アカウントの本登録をお願いします'
   end
 
   def regist_complet_dev(developer)
     @developer = developer
-    @url  = "http://ik1-301-10815.vs.sakura.ne.jp:3030"
+    case Rails.env
+      when 'development'
+        @url  = "http://ik1-301-10815.vs.sakura.ne.jp:3030"
+      when 'production'
+        @url  = "http://www.gamenist.com"
+    end    
     mail to: developer.email, subject: '【ゲーム☆ニクス】登録完了のお知らせ。'
   end
 
