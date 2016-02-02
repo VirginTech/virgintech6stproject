@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">タイムライン</h2>
+  </div>
+  <div class="panel-body comment-body-bg">
+
+    <% if !@timeline.present? %>
+      <span class="result-empty">まだ何もございません。</span>
+    <% else %>
+      <div id="user-comments">
+        <% @timeline.each do |comment| %>
+          <%= render partial: 'user_comments/user_comment', locals: { comment: comment } %>
+        <% end %>
+        <%= paginate(@timeline) %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

@@ -1,7 +1,22 @@
 class UsersController < ApplicationController
   
   before_action :logged_in_user, only: [:edit, :update, :destroy]
-  before_action :is_are_you?, only: [:show]
+  before_action :is_are_you?, only: [:show, :user_timeline]
+  
+  def user_timeline
+
+    @user = User.find(params[:id])
+    @timeline = @user.timelines.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    @reply = current_user.comment_replies.build if user_logged_in?
+
+    # フォローイングユーザーをフォローした日付(新しい順)で取得
+    followings_ids = UserFollow.where(follower_id: @user.id).order(created_at: :desc).pluck(:followed_id)
+    @followings = @user.following_users.sort_by{|o| followings_ids.index(o.id)}
+    # フォロワーユーザーをフォローされた日付(新しい順)で取得
+    followers_ids = UserFollow.where(followed_id: @user.id).order(created_at: :desc).pluck(:follower_id)
+    @followers = @user.follower_users.sort_by{|o| followers_ids.index(o.id)}
+    
+  end
   
   def new
     @user = User.new

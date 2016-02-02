@@ -55,6 +55,11 @@ class User < ActiveRecord::Base
     following_users.include?(other_user)
   end
   
+  # 自分とフォローしているユーザーのつぶやきを全部取得
+  def timelines
+    UserComment.where(user_id: following_user_ids + [self.id])
+  end
+  
   #=====================================================
   #OAuthの情報からユーザーを検索し、なければ新規レコード作成
   #=====================================================

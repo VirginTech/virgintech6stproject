@@ -32,14 +32,10 @@ Rails.application.routes.draw do
   resources :products,only: [:new, :create, :edit, :update, :show, :destroy]
 
   # ログイントークン(User)
-  resources :users do
-    get 'regist_token_user/:uuid', :to => 'users#regist_token'
-  end
+  get 'regist_token_user/:uuid', :to => 'users#regist_token'
   # ログイントークン(Developer)
-  resources :developers do
-    get 'regist_token_dev/:uuid', :to => 'developers#regist_token'
-  end
-  
+  get 'regist_token_dev/:uuid', :to => 'developers#regist_token'
+
   #アプリ検索オーダー
   get 'order_query', to: 'top_pages#result'
   post 'order_query', to: 'top_pages#result'
@@ -58,6 +54,9 @@ Rails.application.routes.draw do
   
   # フォロー・フォロワー
   resources :user_follows, only: [:create, :destroy]
+  
+  # ユーザータイムライン
+  get 'user_timeline', to: 'users#user_timeline'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
