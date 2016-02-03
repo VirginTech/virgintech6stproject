@@ -61,6 +61,15 @@ Rails.application.routes.draw do
   # お気に入りアプリ表示
   get 'user_favorite', to: 'users#user_favorite'
   
+  # フッターメニュー
+  get 'about_site', to: 'docs#about_site'
+  get 'terms', to: 'docs#terms'
+  get 'privacypolicy', to: 'docs#privacypolicy'
+  get 'contact', to: 'docs#contact'
+  get 'faq', to: 'docs#faq'
+  get 'developer_s', to: 'docs#developer_s'
+  get 'advertising', to: 'docs#advertising'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

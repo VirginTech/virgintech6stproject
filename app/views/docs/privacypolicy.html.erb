@@ -1,0 +1,185 @@
+<!--========================
+タイトル、メタ情報表示
+==========================-->
+<% content_for :head do %>
+  <title>プライバシーポリシー | ゲームニスト - ゲームアプリソーシャルレビューサービス</title>
+  <meta name="description" content="ゲームニスト | プライバシーポリシー">
+  <meta name="keywords" content="ゲームニスト,プライバシーポリシー">
+<% end %>
+
+<!--========================
+ヘッダー表示
+==========================-->
+<%= render 'layouts/header' %>
+
+<!--========================
+フラッシュメッセージ
+==========================-->
+<div class="container-fluid" style="margin-top:10px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!--
+============================= 
+プライバシーポリシー（本文）
+=============================
+-->
+<div class="container-fluid" style="margin-top:10px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-2"></div>
+    
+    <div class="col-xs-12 col-sm-8">
+  
+      <div class="panel panel-info">
+        <div class="panel-heading"><h2 class="panel-title">プライバシーポリシー</h2></div>
+          <div class="panel-body">
+            <p>
+            
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <span>
+                  　合同会社 VirginTech（以下、VirginTech）では、個人情報の取扱いに関して、以下のプライバシーポリシーを指針とし、これを遵守するとともに、
+                  お客様の個人情報をはじめとする全ての個人情報をより安全かつ適切に取り扱うよう心掛けております。
+                  </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <strong>プライバシーポリシーの定義</strong>
+                  <span>
+                    　VirginTech では、個人情報とは特定の個人を特定するため、または特定の個人に接触するために利用できる情報と定義します。
+                    本プライバシーポリシーは、弊社が入手した全ての個人情報をその対象として、弊社の個人情報に関する基本的指針を定めるものです。
+                  </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <strong>１.法令等の遵守</strong>
+                  <span>
+                    　VirginTech では、個人情報を取り扱うにあたっては、「個人情報の保護に関する法律」をはじめとする個人情報の保護に関する法令、
+                    ガイドラインおよび本プライバシーポリシーを遵守いたします。
+                  </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <strong>２.個人情報の収集</strong>
+                  <span>
+                    　VirginTech では、必要な範囲内で個人情報を収集することがあります。収集する個人情報の範囲は、
+                    利用目的を達成するために必要な限度を超えないものとします。
+                    また、収集するにあたっては、適正かつ公正な手段により行い、法令により例外として扱うことが認められている場合を除き、
+                    利用目的を予め明示または公表するものとします。
+                  </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <strong>３.個人情報の管理・保護について</strong>
+                  <span>
+                    （１）個人情報を取り扱う際には、適切かつ厳重な管理を行うとともに、外部への流出防止に努めます。<br>
+                    （２）外部からの不正アクセスまたは紛失、破壊、改ざん等の危険に対しては、適切かつ合理的な安全対策を実施し、個人情報の保護に努めます。<br>
+                    （３）個人情報に係るデータベース等へのアクセス権を最小限に限定し、不正な利用がなされないように厳重に管理いたします。<br>
+                    （４）個人情報の利用目的が達成された場合は、遅滞なく個人情報を廃棄・消去いたします。<br>
+                  </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <strong>４.個人情報の利用について</strong>
+                  <span>
+                    　VirginTech では、本人の同意を得た場合、および法令により例外として取り扱うことが認められている場合を除き、収集した個人情報について、
+                    収集の際に予め明示した目的または公表している利用目的においてのみ利用いたします。
+                  </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <strong>５.個人情報の第三者への開示・提供</strong>
+                  <span>
+                    　VirginTech では、個人情報をご本人の同意なしに、業務委託先以外の第三者に開示・提供することはありません。
+                    ただし、法令により開示を求められた場合、または裁判所、警察等の公的機関から開示を求められた場合には、
+                    ご本人の同意なく個人情報を開示・提供することがあります。
+                  </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <strong>６.個人情報保護の運用・整備</strong>
+                  <span>
+                  　VirginTech では、個人情報保護についての意識の向上を図ると共に、定期的に運用を確認し、個人情報管理を見直すと共に
+                  継続的に改善し、適正な管理の維持に努めます。
+                  </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <strong>７.お子様の個人情報の取り扱いについて</strong>
+                  <span>
+                  　VirginTech では、お子様の個人情報については、必ず保護者の方、又は責任ある成人の方の同意の下に提供頂きますようお願いしています。
+                  </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                	<strong>８.個人情報における苦情・相談窓口</strong>
+                  	<span>
+                    　VirginTech では、個人情報の取扱い及び、個人情報管理に関する苦情・相談窓口を設置し、ご本人からの申し入れに対して遅延
+                    なく適切な対応に努めます。
+                    </span>
+                </div>
+              </div>
+              
+              <div class="txtTempSet txtTemp1 clearfix">
+                <div class="fL">
+                  <strong>９.個人情報に関するお問い合わせ及び相談（苦情）窓口</strong>
+                    <span>
+                      個人情報に関するお問い合わせ及び相談、苦情は、下記メールアドレス宛にお願い致します。
+                      <p>
+                      customer_service@virgintech.co.jp
+                    </span>
+                </div>
+              </div>
+  
+            </p>
+          </div>
+        </div>
+      </div>
+    <div class="col-xs-12 col-sm-2"></div>
+  </div>  
+</div>
+
+<!--=========================
+余白
+==========================-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 text-center" style="height:50px;">
+  
+    </div>
+  </div>
+</div>
+
+<!--========================
+フッダー表示
+==========================-->
+<%= render 'layouts/footer' %>
+
+<!--========================
+バックスクロールボタン表示
+==========================-->
+<%= render 'layouts/back_scroll_btn' %>

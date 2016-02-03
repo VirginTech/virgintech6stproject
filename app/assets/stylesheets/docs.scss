@@ -1,0 +1,55 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+div.txtTempSet{
+	margin-bottom: 30px;
+}
+
+div.txtTempSet strong{
+	display: block;
+	font-weight: bold;
+}
+
+div.txtTemp1 strong{
+  margin-bottom: 6px;
+}
+
+div.txtTemp1 span{
+  color: #666;
+}
+
+.fL {
+  float : left; display: block;
+}
+.fR {
+  float : right; display: block;
+}
+
+.clear{
+  display: block; clear:both; height:0;
+}
+
+/*//clearFix Coponents//*/
+.clear {
+  clear:both;
+}
+
+.clearfix{
+  display:block;
+} 
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+ 
+.clearfix:after {
+	content: url(pixel.gif);
+	display: block;
+	clear: both;
+	height: 0;
+}

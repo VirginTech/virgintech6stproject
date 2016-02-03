@@ -98,9 +98,22 @@ footer{
   text-align:center;
   color:#fff;
   font-size: 10px;
+  line-height: 25px;
   .copyright-box{
     margin-top: 20px;
     margin-bottom: 10px;
+  }
+  a:link { 
+    color:#fff; text-decoration:none 
+  }
+  a:visited { 
+    color:#fff; text-decoration:none 
+  }
+  a:hover { 
+    color:#fff; text-decoration:none 
+  }
+  a:active { 
+    color:#fff; text-decoration:none 
   }
 }
 /*=============================================

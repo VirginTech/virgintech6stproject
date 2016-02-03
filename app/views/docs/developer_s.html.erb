@@ -1,0 +1,70 @@
+<!--========================
+タイトル、メタ情報表示
+==========================-->
+<% content_for :head do %>
+  <title>デヴェロッパーの皆様へ | ゲームニスト - ゲームアプリソーシャルレビューサービス</title>
+  <meta name="description" content="ゲームニスト | デヴェロッパーの皆様へ">
+  <meta name="keywords" content="ゲームニスト,デヴェロッパーの皆様へ">
+<% end %>
+
+<!--========================
+ヘッダー表示
+==========================-->
+<%= render 'layouts/header' %>
+
+<!--========================
+フラッシュメッセージ
+==========================-->
+<div class="container-fluid" style="margin-top:10px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!--
+============================= 
+デヴェロッパーの皆様へ（本文）
+=============================
+-->
+<div class="container-fluid" style="margin-top:10px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-2"></div>
+    
+    <div class="col-xs-12 col-sm-8">
+  
+      <div class="panel panel-info">
+        <div class="panel-heading"><h2 class="panel-title">デヴェロッパーの皆様へ</h2></div>
+          <div class="panel-body">
+
+
+          </div>
+        </div>
+      </div>
+    <div class="col-xs-12 col-sm-2"></div>
+  </div>  
+</div>
+
+<!--=========================
+余白
+==========================-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 text-center" style="height:50px;">
+  
+    </div>
+  </div>
+</div>
+
+<!--========================
+フッダー表示
+==========================-->
+<%= render 'layouts/footer' %>
+
+<!--========================
+バックスクロールボタン表示
+==========================-->
+<%= render 'layouts/back_scroll_btn' %>
