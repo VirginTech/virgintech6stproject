@@ -30,4 +30,12 @@ class Product < ActiveRecord::Base
   validates :img_screenshot_01, presence: true
   validates :sale_date, presence: true
   
+  #===========================
+  #お気に入り(逆引：プロダクト〜ユーザー)
+  #===========================
+  has_many :favorited_relationships, class_name:  "Favorite",
+                                          foreign_key: "product_id",
+                                          dependent:   :destroy
+  has_many :favorited_users, through: :favorited_relationships, source: :user
+  
 end

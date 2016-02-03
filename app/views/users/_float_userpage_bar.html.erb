@@ -8,7 +8,7 @@
         <%= link_to user_timeline_path(id: @user.id), class:"btn btn-default" do %>
           <span class="glyphicon glyphicon-comment">タイムライン</span>
         <% end %>
-        <%= link_to "#", class:"btn btn-default" do %>
+        <%= link_to user_favorite_path(id: @user.id), class:"btn btn-default" do %>
           <span class="glyphicon glyphicon-education">お気に入り</span>
         <% end %>
       </div>

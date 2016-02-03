@@ -54,9 +54,12 @@ Rails.application.routes.draw do
   
   # フォロー・フォロワー
   resources :user_follows, only: [:create, :destroy]
-  
   # ユーザータイムライン
   get 'user_timeline', to: 'users#user_timeline'
+  # お気に入りアプリ
+  resources :favorites, only: [:create, :destroy]
+  # お気に入りアプリ表示
+  get 'user_favorite', to: 'users#user_favorite'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

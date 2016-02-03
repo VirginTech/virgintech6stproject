@@ -23,9 +23,18 @@ class TopPagesController < ApplicationController
     # 新着順
     if params[:order]=="0"
       @products=Product.order(created_at: :desc).page(params[:page]).per(10)
-    # ランキング順
+    # お気に入りランキング順
     elsif params[:order]=="1"
-    
+      product_ids = Favorite.group(:product_id)
+                            .order('count_product_id desc')
+                            .count('product_id')
+                            .keys
+      # お気に入りされてないものも足す
+      product_ids += Product.pluck(:id) - product_ids
+      #検索して多い順に並び替え
+      products_ = Product.find(product_ids).sort_by{|o| product_ids.index(o.id)}
+      #配列をページング
+      @products = Kaminari.paginate_array(products_).page(params[:page]).per(10)
     # カテゴリー
     elsif params[:order]=="2"
       @products = Product.where(category: params[:category]).order(created_at: :desc).page(params[:page]).per(10)

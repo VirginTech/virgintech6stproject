@@ -59,6 +59,29 @@ class User < ActiveRecord::Base
   def timelines
     UserComment.where(user_id: following_user_ids + [self.id])
   end
+
+  #===========================
+  #お気に入り(正引：ユーザー〜プロダクト)
+  #===========================
+  has_many :favoriting_relationships, class_name:  "Favorite",
+                                            foreign_key: "user_id",
+                                            dependent:   :destroy
+  has_many :favoriting_products, through: :favoriting_relationships, source: :product
+  
+  # アプリをお気に入りする
+  def favoriting(other_product)
+    favoriting_relationships.create(product_id: other_product.id)
+  end
+
+  # お気に入りを解除する
+  def unfavoriting(other_product)
+    favoriting_relationships.find_by(product_id: other_product.id).destroy
+  end
+
+  # アプリをお気に入りしてるかどうか？
+  def favoriting?(other_product)
+    favoriting_products.include?(other_product)
+  end
   
   #=====================================================
   #OAuthの情報からユーザーを検索し、なければ新規レコード作成

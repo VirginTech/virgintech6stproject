@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201094548) do
+ActiveRecord::Schema.define(version: 20160203010901) do
 
   create_table "comment_replies", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(version: 20160201094548) do
 
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true, using: :btree
   add_index "developers", ["name"], name: "index_developers_on_name", unique: true, using: :btree
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "product_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "favorites", ["product_id"], name: "index_favorites_on_product_id", using: :btree
+  add_index "favorites", ["user_id", "product_id"], name: "index_favorites_on_user_id_and_product_id", unique: true, using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "pass_dev_tokens", force: :cascade do |t|
     t.integer  "developer_id", limit: 4,   null: false

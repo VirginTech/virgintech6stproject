@@ -1,10 +1,14 @@
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h2 class="panel-title">アプリプロフィール</h2>
-  </div>
-  <div class="panel-body">
+<div class="product-profile">
 
-    <div class="product-profile">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        アプリプロフィール
+        <span class="glyphicon glyphicon-user favorite-count">(<%= @product.favorited_users.count %>人)</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
       <!--アプリアイコン-->
       <%= link_to product_path(@product) do %>
         <%= image_tag @product.img_icon.url, class:"app-icon" %>
@@ -62,6 +66,24 @@
         <!--リリース予定日-->
         <span class="app-sale-date">リリース予定日:<%= @product.sale_date %></span>
       <% end %>
+      
+      <!--お気に入り登録ボタン-->
+      <div class="favorite">
+        <% if user_logged_in? %>
+          <% if current_user.favoriting?(@product) %>
+            <!--お気に入り解除-->
+            <%= form_for(current_user.favoriting_relationships.find_by(product_id: @product.id), html: { method: :delete }) do |f| %>
+              <%= f.submit "お気に入り解除", class: "btn btn-default form-control" %>
+            <% end %>
+          <% else %>
+            <!--お気に入り登録-->
+            <%= form_for(current_user.favoriting_relationships.build) do |f| %>
+              <%= hidden_field_tag :product_id, @product.id %>
+              <%= f.submit "お気に入り登録", class: "btn btn-danger form-control" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
       
     </div>
     

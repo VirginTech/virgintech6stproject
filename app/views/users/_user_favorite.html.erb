@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">お気に入り一覧</h2>
+  </div>
+  <div class="panel-body">
+
+    <% if !@products.present? %>
+      <span class="result-empty">まだ何もございません。</span>
+    <% else %>
+      <div id="content">
+        <% @products.each do |product| %>
+          <%= render partial: 'products/product', locals: { product: product } %>
+        <% end %>
+        <%= paginate(@products) %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
