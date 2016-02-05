@@ -1,0 +1,20 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*==========================================
+ スティッキーバー用
+===========================================*/
+.sticky-ad-left{
+  position: absolute;
+}
+.sticky-ad-left.sticky{
+  position: fixed;
+  top: 70px;
+}
+.sticky-ad-right{
+  position: absolute;
+}
+.sticky-ad-right.sticky{
+  position: fixed;
+  top: 70px;
+}
