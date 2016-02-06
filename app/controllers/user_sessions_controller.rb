@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
       flash[:danger] = 'すでに同名のニックネームが使用されています。
                         別のSNSを利用するか、メールアドレスでサインアップして下さい'
     end
-    redirect_to root_path
+    redirect_to session[:forwarding_url]
   end
   
   def create
