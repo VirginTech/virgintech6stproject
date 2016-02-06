@@ -19,11 +19,16 @@
     <span class="profile-name">
       <%= link_to @developer.name, developer_path(@developer) %>
     </span>
-    <br />
+    <p></p>
 
     <!--プロフィール-->
     <span class="my-profile">
-      プロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィール
+      <% if @developer.profile? %>
+        <%#= auto_link(simple_format(h(@developer.profile)), link = :urls, href_options = {:target => '_blank'})  %>
+        <%= @developer.profile %>
+      <% else %>
+        プロフィールはありません。
+      <% end %>
     </span>
     
     <!--Webサイト-->
@@ -57,12 +62,16 @@
 
     <!--登録アプリ-->
     <div class="bg-info text-info app-label">登録アプリ</div>
-    <% @developer.products.each do |product| %>
-      <% if product.id? %>
-        <%= link_to product_path(product) do %>
-          <%= image_tag product.img_icon.url, class:"profile-appicon" %>
+    <% if @developer.products.present? %>
+      <% @developer.products.each do |product| %>
+        <% if product.id? %>
+          <%= link_to product_path(product) do %>
+            <%= image_tag product.img_icon.url, class:"profile-appicon" %>
+          <% end %>
         <% end %>
       <% end %>
+    <% else %>
+      <span class="result-empty">まだ何もございません。</span>
     <% end %>
 
   </div>

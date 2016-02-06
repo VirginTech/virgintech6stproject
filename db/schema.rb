@@ -43,14 +43,15 @@ ActiveRecord::Schema.define(version: 20160203010901) do
     t.string   "password_digest", limit: 255
     t.string   "profile_img",     limit: 255
     t.boolean  "status"
+    t.text     "profile",         limit: 65535
     t.string   "website",         limit: 255
     t.string   "twitter",         limit: 255
     t.string   "facebook",        limit: 255
     t.string   "google",          limit: 255
     t.string   "official_site",   limit: 255
     t.string   "contact_email",   limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true, using: :btree
@@ -170,8 +171,9 @@ ActiveRecord::Schema.define(version: 20160203010901) do
     t.string   "uid",             limit: 255
     t.string   "profile_img",     limit: 255
     t.boolean  "status"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.text     "profile",         limit: 65535
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

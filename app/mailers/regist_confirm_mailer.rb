@@ -13,7 +13,7 @@ class RegistConfirmMailer < ApplicationMailer
       when 'production'
         @url  = "http://www.gamenist.com/regist_token_user/#{token}"
     end    
-    mail to: user.email, subject: '【ゲーム☆ニクス】アカウントの本登録をお願いします'
+    mail to: user.email, subject: '【ゲーム☆ニスト】アカウントの本登録をお願いします'
   end
 
   def regist_complet_user(user)
@@ -24,7 +24,7 @@ class RegistConfirmMailer < ApplicationMailer
       when 'production'
         @url  = "http://www.gamenist.com"
     end    
-    mail to: user.email, subject: '【ゲーム☆ニクス】登録完了のお知らせ。'
+    mail to: user.email, subject: '【ゲーム☆ニスト】登録完了のお知らせ。'
   end
 
   def regist_confirm_dev(developer,token)
@@ -35,7 +35,7 @@ class RegistConfirmMailer < ApplicationMailer
       when 'production'
         @url  = "http://www.gamenist.com/regist_token_dev/#{token}"
     end    
-    mail to: developer.email, subject: '【ゲーム☆ニクス】アカウントの本登録をお願いします'
+    mail to: developer.email, subject: '【ゲーム☆ニスト】アカウントの本登録をお願いします'
   end
 
   def regist_complet_dev(developer)
@@ -46,7 +46,7 @@ class RegistConfirmMailer < ApplicationMailer
       when 'production'
         @url  = "http://www.gamenist.com"
     end    
-    mail to: developer.email, subject: '【ゲーム☆ニクス】登録完了のお知らせ。'
+    mail to: developer.email, subject: '【ゲーム☆ニスト】登録完了のお知らせ。'
   end
 
 end

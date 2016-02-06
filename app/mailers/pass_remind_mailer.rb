@@ -13,7 +13,7 @@ class PassRemindMailer < ApplicationMailer
       when 'production'
         @url  = "http://www.gamenist.com/pass_token_user/#{token}"
     end    
-    mail to: user.email, subject: '新パスワード設定'
+    mail to: user.email, subject: '【ゲーム☆ニスト】新パスワード設定'
   end
 
   def pass_remind_dev(developer,token)
@@ -24,7 +24,7 @@ class PassRemindMailer < ApplicationMailer
       when 'production'
         @url  = "http://www.gamenist.com/pass_token_developer/#{token}"
     end    
-    mail to: developer.email, subject: '新パスワード設定'
+    mail to: developer.email, subject: '【ゲーム☆ニスト】新パスワード設定'
   end
   
 end

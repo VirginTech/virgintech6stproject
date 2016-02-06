@@ -7,7 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :provider
       t.string :uid
       t.string :profile_img
-      t.boolean :status
+      t.boolean :status # 本登録済み確認用
+      t.text :profile
       
       t.timestamps null: false
       

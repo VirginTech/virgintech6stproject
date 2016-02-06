@@ -49,6 +49,9 @@
       <h2 class="panel-title glyphicon glyphicon-edit">オプション入力欄</h2>
     </div>
     <div class="panel-body">
+      <%= f.label :profile,"プロフィール" %> <span class="option">＊オプション</span>
+      <%= f.text_area :profile, :size=>"70x3", class: 'form-control' %>
+      <p></p>
       <%= f.label :website,"公式ホームーページ" %> <span class="option">＊オプション</span>
       <%= f.text_field :website, class: 'form-control' %>
       <p></p>
@@ -69,6 +72,13 @@
       <p></p>
       <%= f.submit "変更する", class: "btn btn-primary" %>
     </div>
+    
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      オプション項目につきましては空白でもかまいません。
+      なお、プロフィール欄においては、改行は無視されます。
+    </div>
+    
   </div>
 
 <% end %>

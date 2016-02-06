@@ -41,7 +41,7 @@ aside.user-mypage-left{
     word-break: break-all; //強制改行
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 10;
     overflow: hidden;
   }
   .follow-label{

@@ -261,7 +261,8 @@ class UsersController < ApplicationController
                                   :profile_img,
                                   :profile_img_cache,
                                   :remove_profile_img,
-                                  :status)
+                                  :status,
+                                  :profile)
   end
   
 end

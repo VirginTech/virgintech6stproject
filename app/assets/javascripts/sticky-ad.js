@@ -43,7 +43,7 @@ $(function(){
         $ad.css('left', centerBoxLeft + centerBoxWidth + 40); //windowの絶対値
       }else {
         $ad.removeClass('sticky');
-        $ad.css('left', 25); //なぜか相対位置からの絶対値
+        $ad.css('left', 26); //なぜか相対位置からの絶対値
       }
     }));
     $window.trigger('scroll');

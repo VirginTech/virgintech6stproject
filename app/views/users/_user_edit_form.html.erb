@@ -1,12 +1,11 @@
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h2 class="panel-title glyphicon glyphicon-pencil">アカウント編集</h2>
-  </div>
-  
-  <div class="panel-body">
+<%= form_for(@user) do |f| %>
 
-    <%= form_for(@user) do |f| %>
-
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">アカウント編集</h2>
+    </div>
+    
+    <div class="panel-body">
       <!-- エラーメッセージ -->
       <%= render 'shared/error_messages', object: f.object %>
       
@@ -38,7 +37,7 @@
       通常アカウントのみ変更可能
       =========================-->
       <% if !@user.provider.present? %>
-
+  
         <span class="input-label">ニックネーム</span> <span class="require">＊必須</span>
         <%= f.text_field :nickname, class: 'form-control', autofocus: true %>
         <p></p>
@@ -53,21 +52,43 @@
         <p></p>
         
       <% end %>
-
+  
       <%= f.submit "変更する", class: "btn btn-primary" %>
+        
       
+    </div>
+    
+    <% if @user.provider.present? %>
+      <div class="panel-footer">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        SNSアカウントではニックネーム、電子メール、パスワードは変更できません。
+      </div>
     <% end %>
     
   </div>
-  
-  <% if @user.provider.present? %>
+
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">オプション入力欄</h2>
+    </div>
+    <div class="panel-body">
+
+      <span class="input-label">プロフィール</span> <span class="option">＊オプション</span>
+      <%= f.text_area :profile, :size=>"70x3", class: 'form-control' %>
+      <p></p>
+      <%= f.submit "変更する", class: "btn btn-primary" %>
+    </div>
+
     <div class="panel-footer">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
-      SNSアカウントではニックネーム、電子メール、パスワードは変更できません。
+      オプション項目につきましては空白でもかまいません。
+      なお、プロフィール欄においては、改行は無視されます。
     </div>
-  <% end %>
-  
-</div>
+      
+  </div>
+
+<% end %>
 
 <!--===================
  画像読み込みアラート

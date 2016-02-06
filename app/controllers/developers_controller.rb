@@ -223,6 +223,7 @@ class DevelopersController < ApplicationController
                                       :profile_img_cache,
                                       :remove_profile_img,
                                       :status,
+                                      :profile,
                                       :website,
                                       :twitter,
                                       :facebook,

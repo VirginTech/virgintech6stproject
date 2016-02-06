@@ -19,11 +19,16 @@
     <span class="profile-name">
       <%= link_to @user.nickname, user_path(@user) %>
     </span>
-    <br />
+    <p></p>
     
     <!--プロフィール-->
     <span class="my-profile">
-      プロフィールプロフィールプロフィールプロフィールプロフィールプロフィールプロフィール
+      <% if @user.profile? %>
+        <%#= auto_link(simple_format(h(@user.profile)), link = :urls, href_options = {:target => '_blank'})  %>
+        <%= @user.profile %>
+      <% else %>
+        プロフィールはありません。
+      <% end %>
     </span>
 
     <p></p>
