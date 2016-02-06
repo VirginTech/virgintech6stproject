@@ -49,25 +49,23 @@
         <% end %>
       </div>
     <% end %>
-
-    <hr />
     
+    <p></p>
     <!--=================
     フッターメニュー
     ====================-->
     <div class="comment-footer-menu">
-      
       <!--コメント編集、削除-->
       <% if same_developer?(comment.developer.id) %>
-        <%= link_to "[編集]", edit_dev_comment_path(comment) %>
-        <%= link_to dev_comment_path(comment), method: "delete",
+        <hr />
+        <%= link_to "編集", edit_dev_comment_path(comment), class: "btn btn-sm btn-default glyphicon glyphicon-pencil" %>
+        <%= link_to "削除", dev_comment_path(comment), method: "delete",
                                             data: {confirm: "コメントを削除してもよろしいですか？
                                             削除すると元に戻す事はできません。",
                                             "commit" => "削除する",
                                             "cancel" => "キャンセル"
-                                            },title: "本当に削除しますか？" do %>
-          [削除]
-        <% end %>
+                                            },title: "本当に削除しますか？",
+                                            class: "btn btn-sm btn-default glyphicon glyphicon-trash" %>
       <% end %>
       
     </div>

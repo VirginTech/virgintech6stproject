@@ -20,5 +20,8 @@ class DocsController < ApplicationController
 
   def advertising
   end
-
+  
+  def notice
+  end
+  
 end

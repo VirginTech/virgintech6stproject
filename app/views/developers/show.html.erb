@@ -44,13 +44,66 @@
         <% if same_developer?(@developer.id) %>
           <%= render 'developers/dev_side_menu' %>
         <% end %>
+        
+        <!-- i-mobile for PC client script -->
+        <div class="sticky-ad-left  width-300 visible-md visible-lg">
+        	<script type="text/javascript">
+        		imobile_pid = "31967"; 
+        		imobile_asid = "753017"; 
+        		imobile_width = 300; 
+        		imobile_height = 250;
+        	</script>
+        	<script type="text/javascript" src="http://spdeliver.i-mobile.co.jp/script/ads.js?20101001"></script>
+        </div>
+        <!-- i-mobile for PC client script -->
+        <div class="sticky-ad-left  width-200 visible-sm">
+        	<script type="text/javascript">
+        		imobile_pid = "31967"; 
+        		imobile_asid = "755168"; 
+        		imobile_width = 200; 
+        		imobile_height = 200;
+        	</script>
+        	<script type="text/javascript" src="http://spdeliver.i-mobile.co.jp/script/ads.js?20101001"></script>
+        </div>
+        
       </aside>
     </div>
     <!--========================
     中央（メイン）
     ==========================-->
     <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="dev-mypage-center">
+      <div class="dev-mypage-center page-center">
+        
+        <!-- i-mobile for PC client script -->
+        <div style="text-align:center;" class="visible-sm visible-md visible-lg">
+        	<script type="text/javascript">
+        		imobile_pid = "31967"; 
+        		imobile_asid = "754817"; 
+        		imobile_width = 468; 
+        		imobile_height = 60;
+        	</script>
+        	<script type="text/javascript" src="http://spdeliver.i-mobile.co.jp/script/ads.js?20101001"></script>
+      	</div>
+        <!-- i-mobile for SmartPhone client script -->
+        <div style="text-align:center;" class="visible-xs">
+          <!-- i-mobile for SmartPhone client script -->
+        	<script type="text/javascript">
+        		imobile_tag_ver = "0.3"; 
+        		imobile_pid = "31967"; 
+        		imobile_asid = "755133"; 
+        		imobile_type = "icon_inline";
+          	imobile_style = {
+          		align: "center",
+          	};
+          	imobile_icon = {
+          		num: "3",
+          		show_title: "true",
+          	};
+        	</script>
+        	<script type="text/javascript" src="http://spad.i-mobile.co.jp/script/adssp.js?20110215"></script>
+        </div>
+        
+        <p></p>        
         <%= render 'developers/dev_product_list' %>
       </div>
     </div>
@@ -58,9 +111,19 @@
     右サイド
     ==========================-->
     <div class="col-xs-12 col-md-3 hidden-xs hidden-sm">
-      <!--ダミー広告-->
       <div class="dev-mypage-right">
-        <%= image_tag 'ad_dummy.png',class:"img-responsive" %>
+
+        <!-- i-mobile for PC client script -->
+        <div class="sticky-ad-right">
+        	<script type="text/javascript">
+        		imobile_pid = "31967"; 
+        		imobile_asid = "753155"; 
+        		imobile_width = 160; 
+        		imobile_height = 600;
+        	</script>
+        	<script type="text/javascript" src="http://spdeliver.i-mobile.co.jp/script/ads.js?20101001"></script>
+      	</div>
+
       </div>
     </div>
     

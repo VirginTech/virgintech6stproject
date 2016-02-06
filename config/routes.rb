@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   get 'faq', to: 'docs#faq'
   get 'developer_s', to: 'docs#developer_s'
   get 'advertising', to: 'docs#advertising'
+  get 'notice', to: 'docs#notice'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

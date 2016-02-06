@@ -20,7 +20,7 @@
       <span class="input-label">パスワード（確認用）</span> <span class="require">＊必須</span>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       <p></p>
-      利用規約、プライバシーポリシーをご確認の上、「同意して新規登録」を押してください。
+      <%= link_to '利用規約', terms_path %>、<%= link_to 'プライバシーポリシー', privacypolicy_path %>をご確認の上、「同意して新規登録」を押してください。
       <p></p>
       <%= f.submit "同意して新規登録", class: "btn btn-primary" %>
     </div>
@@ -57,7 +57,7 @@
       <%= f.label :official_site,"その他公式ページ" %> (ゲーム攻略ページなど) <span class="option">＊オプション</span>
       <%= f.text_field :official_site, class: 'form-control' %>
       <p></p>
-      利用規約、プライバシーポリシーをご確認の上、「同意して新規登録」を押してください。
+      <%= link_to '利用規約', terms_path %>、<%= link_to 'プライバシーポリシー', privacypolicy_path %>をご確認の上、「同意して新規登録」を押してください。
       <p></p>
       <%= f.submit "同意して新規登録", class: "btn btn-primary" %>
     </div>

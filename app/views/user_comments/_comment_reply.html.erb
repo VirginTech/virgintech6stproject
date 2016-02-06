@@ -43,8 +43,7 @@
       </div>
     <% end %>
     
-    <hr />
-
+    <p></p>
     <!--=================
     フッターメニュー
     ====================-->
@@ -52,14 +51,16 @@
       
       <!--リプライ削除-->
       <% if same_user?(reply.user.id) %>
-        <%= link_to comment_reply_path(reply.id), method: "delete",
+        <hr />
+        
+        <%= link_to "削除", comment_reply_path(reply.id), method: "delete",
                                             data: {confirm: "リプライを削除してもよろしいですか？
                                             削除すると元に戻す事はできません。",
                                             "commit" => "削除する",
                                             "cancel" => "キャンセル"
-                                            },title: "本当に削除しますか？" do %>
-          [削除]
-        <% end %>
+                                            },title: "本当に削除しますか？",
+                                            class: "btn btn-sm btn-default glyphicon glyphicon-trash",
+                                            style: "margin-right:-20px;" %>
       <% end %>
       
     </div>

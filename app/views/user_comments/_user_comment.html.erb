@@ -65,20 +65,28 @@
     フッターメニュー
     ====================-->
     <div class="comment-footer-menu">
-      
-      <!--返信-->
-      <a href=<%="#comment-reply-#{comment.id}" %> data-toggle="collapse">[返信]</a>
 
+      <% if user_logged_in? %>
+        <!--ブクマ-->
+        <a href="#" class="btn btn-sm btn-default glyphicon glyphicon-star-empty comment-btn">ブクマ</a>
+      <% end %>
+  
+      <!--返信-->
+      <a href=<%="#comment-reply-#{comment.id}" %> data-toggle="collapse" class="btn btn-sm btn-default glyphicon glyphicon-edit comment-btn">返信</a>
+
+      <!--通報-->
+      <a href="#" class="btn btn-sm btn-default glyphicon glyphicon-bullhorn comment-btn">通報</a>
+      
       <!--コメント削除-->
       <% if same_user?(comment.user.id) %>
-        <%= link_to user_comment_path(comment.id), method: "delete",
+        <%= link_to "削除", user_comment_path(comment.id), method: "delete",
                                             data: {confirm: "つぶやきを削除してもよろしいですか？
                                             削除すると元に戻す事はできません。",
                                             "commit" => "削除する",
                                             "cancel" => "キャンセル"
-                                            },title: "本当に削除しますか？" do %>
-          [削除]
-        <% end %>
+                                            },title: "本当に削除しますか？", 
+                                            class: "btn btn-sm btn-default glyphicon glyphicon-trash comment-btn",
+                                            style: "margin-right:-20px;" %>
       <% end %>
       
     </div>
@@ -90,6 +98,7 @@
         <%=render "user_comments/comment_reply_form",comment: comment %>
       <% else %>
         <div class="login-prompt">
+          <p></p>
           ユーザーログインが必要です。
         </div>
       <% end %>

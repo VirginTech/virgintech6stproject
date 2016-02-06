@@ -151,6 +151,9 @@
     height:150px;
     text-align: center;
   }
+  .comment-btn{
+    padding: 5px 2px;
+  }
 }
 /*=============================================
 4.5インチスマホ向けのレイアウトの指定
@@ -198,6 +201,9 @@
       margin-top: -40px;
       margin-left: 10px;
       width: 200px;
+    }
+    .comment-btn{
+      padding: 8px 15px;
     }
   }
 }
