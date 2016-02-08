@@ -41,7 +41,13 @@
     <div class="col-xs-12 col-sm-4 col-md-3">
       <aside class=product-show-left>
         <%= render 'developers/dev_profile' %>
-        
+        <% if dev_logged_in? %>
+          <%= render 'developers/dev_side_menu' %>
+        <% end %>
+        <% if user_logged_in? %>
+          <%= render 'users/user_side_menu' %>
+        <% end %>
+
         <!-- i-mobile for PC client script -->
         <div class="sticky-ad-left  width-300 visible-md visible-lg">
         	<script type="text/javascript">

@@ -42,7 +42,10 @@
     <div class="col-xs-12 col-sm-4 col-md-3">
       <aside class=user-mypage-left>
         <%= render 'users/user_profile' %>
-        <% if same_user?(@user.id) %>
+        <% if dev_logged_in? %>
+          <%= render 'developers/dev_side_menu' %>
+        <% end %>
+        <% if user_logged_in? %>
           <%= render 'users/user_side_menu' %>
         <% end %>
 

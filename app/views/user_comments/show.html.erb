@@ -60,6 +60,12 @@
             <%= render 'developers/dev_profile' %>
           </div>
         </div>
+        <% if dev_logged_in? %>
+          <%= render 'developers/dev_side_menu' %>
+        <% end %>
+        <% if user_logged_in? %>
+          <%= render 'users/user_side_menu' %>
+        <% end %>
 
         <!-- i-mobile for PC client script
         <div class="sticky-ad-left  width-300 visible-md visible-lg">

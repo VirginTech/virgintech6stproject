@@ -19,20 +19,50 @@
 <!--========================
 ボディ
 ==========================-->
-<div class="container">        <!-- 全体を囲むコンテナ -->
+<div class="container-fluid">        <!-- 全体を囲むコンテナ -->
   <div class="row">
-    <div class="col-xs-12 col-sm-1"></div>
-    <div class="col-xs-12 col-sm-10">
-
-      <% if same_user? params[:id] %>
-        <h3><%= current_user.nickname %> のアカウント情報</h3>
-        <%= render 'user_edit_form' %>
-      <% else %>
-        <%= render 'shared/session_error' %>
-      <% end %>
-
+    
+    <!--========================
+    左サイド
+    ==========================-->
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      <aside class=user-mypage-left>
+        <%= render 'users/user_profile' %>
+        <%= render 'users/user_side_menu' %>
+      </aside>
     </div>
-    <div class="col-xs-12 col-sm-1"></div>
+    <!--========================
+    中央（メイン）
+    ==========================-->
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="user-mypage-center page-center">
+        <% if same_user? params[:id] %>
+          <%= render 'user_edit_form' %>
+        <% else %>
+          <%= render 'shared/session_error' %>
+        <% end %>
+      </div>
+    </div>
+    <!--========================
+    右サイド
+    ==========================-->
+    <div class="col-xs-12 col-md-3 hidden-xs hidden-sm">
+      <div class="dev-mypage-right">
+
+        <!-- i-mobile for PC client script -->
+        <div class="sticky-ad-right">
+        	<script type="text/javascript">
+        		imobile_pid = "31967"; 
+        		imobile_asid = "753155"; 
+        		imobile_width = 160; 
+        		imobile_height = 600;
+        	</script>
+        	<script type="text/javascript" src="http://spdeliver.i-mobile.co.jp/script/ads.js?20101001"></script>
+      	</div>
+
+      </div>
+    </div>
+
   </div>
 </div>        <!-- 全体を囲むコンテナ -->
 <!--=========================

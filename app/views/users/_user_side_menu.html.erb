@@ -2,7 +2,15 @@
   <div class="panel-heading">
     <h2 class="panel-title">ユーザーメニュー</h2>
   </div>
-  <div class="panel-body" style="height:320px;">
-
+  <div class="panel-body">
+    <%= link_to 'お知らせ', notice_path, class:"btn btn-info glyphicon glyphicon-info-sign form-control" %>
+    <p></p>
+    <%= link_to "マイページ",user_path(current_user),class:"btn btn-info glyphicon glyphicon-user form-control" %>
+    <p></p>
+    <%= link_to "アカウント情報",edit_user_path(current_user), class:"btn btn-info glyphicon glyphicon-list-alt form-control" %>
+    <p></p>
+    <%= link_to "ログアウト",user_session_path(current_user), method: "delete", class:"btn btn-info glyphicon glyphicon-log-out form-control" %>
+    <p></p>
+    <%= link_to "退会","#user_delete",data: {toggle: "modal"}, class:"btn btn-info glyphicon glyphicon-off form-control" %>
   </div>
 </div>
