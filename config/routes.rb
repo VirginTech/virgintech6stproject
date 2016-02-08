@@ -60,6 +60,10 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create, :destroy]
   # お気に入りアプリ表示
   get 'user_favorite', to: 'users#user_favorite'
+  # コメントブックマーク
+  resources :bookmarks, only: [:create, :destroy]
+  # ブックマークコメント表示
+  get 'user_bookmark', to: 'users#user_bookmark'
   
   # フッターメニュー
   get 'about_site', to: 'docs#about_site'

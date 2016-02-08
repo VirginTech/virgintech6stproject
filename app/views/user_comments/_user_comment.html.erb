@@ -68,7 +68,14 @@
 
       <% if user_logged_in? %>
         <!--ブクマ-->
-        <a href="#" class="btn btn-sm btn-default glyphicon glyphicon-star-empty comment-btn">ブクマ</a>
+        <% if current_user.bookmarking?(comment) %>
+          <%#=link_to "解除", bookmark_path(comment), method: :delete,%>
+          <%=link_to "解除", bookmark_path(current_user.bookmarking_relationships.find_by(comment_id: comment.id)), method: :delete,
+                                  class: "btn btn-sm btn-default glyphicon glyphicon-star comment-btn" %>
+        <% else %>
+          <%=link_to "ブクマ", bookmarks_path(comment_id: comment.id), method: :post,
+                                  class: "btn btn-sm btn-default glyphicon glyphicon-star-empty comment-btn" %>
+        <% end %>
       <% end %>
   
       <!--返信-->

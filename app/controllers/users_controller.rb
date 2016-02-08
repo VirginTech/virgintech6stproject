@@ -1,7 +1,19 @@
 class UsersController < ApplicationController
   
   before_action :logged_in_user, only: [:edit, :update, :destroy]
-  before_action :is_are_you?, only: [:show, :user_timeline]
+  before_action :is_are_you?, only: [:show, :user_timeline, :user_favorite, :user_bookmark]
+  
+  def user_bookmark
+    @user = User.find(params[:id])
+    # コメントをブクマした日付(新しい順)で取得
+    comments_ids = Bookmark.where(user_id: @user.id).order(created_at: :desc).pluck(:comment_id)
+    comments_ = @user.bookmarking_comments.sort_by{|o| comments_ids.index(o.id)}
+    #配列をページング
+    @comments = Kaminari.paginate_array(comments_).page(params[:page]).per(10)
+    
+    @reply = current_user.comment_replies.build if user_logged_in?
+    getFollow()
+  end
   
   def user_favorite
     @user = User.find(params[:id])

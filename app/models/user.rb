@@ -82,6 +82,29 @@ class User < ActiveRecord::Base
   def favoriting?(other_product)
     favoriting_products.include?(other_product)
   end
+
+  #===========================
+  #ブックマーク(正引：ユーザー〜コメント)
+  #===========================
+  has_many :bookmarking_relationships, class_name:  "Bookmark",
+                                            foreign_key: "user_id",
+                                            dependent:   :destroy
+  has_many :bookmarking_comments, through: :bookmarking_relationships, source: :comment
+  
+  # コメントをブクマする
+  def bookmarking(other_comment)
+    bookmarking_relationships.create(comment_id: other_comment.id)
+  end
+
+  # ブックマークを解除する
+  def unbookmarking(other_comment)
+    bookmarking_relationships.find_by(comment_id: other_comment.id).destroy
+  end
+
+  # コメントをブックマークしてるかどうか？
+  def bookmarking?(other_comment)
+    bookmarking_comments.include?(other_comment)
+  end
   
   #=====================================================
   #OAuthの情報からユーザーを検索し、なければ新規レコード作成

@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203010901) do
+ActiveRecord::Schema.define(version: 20160208004937) do
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "comment_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "bookmarks", ["comment_id"], name: "index_bookmarks_on_comment_id", using: :btree
+  add_index "bookmarks", ["user_id", "comment_id"], name: "index_bookmarks_on_user_id_and_comment_id", unique: true, using: :btree
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
 
   create_table "comment_replies", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
