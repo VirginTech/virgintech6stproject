@@ -70,12 +70,25 @@
         <!--ブクマ-->
         <% if current_user.bookmarking?(comment) %>
           <%#=link_to "解除", bookmark_path(comment), method: :delete,%>
-          <%=link_to "解除", bookmark_path(current_user.bookmarking_relationships.find_by(comment_id: comment.id)), method: :delete,
-                                  class: "btn btn-sm btn-default glyphicon glyphicon-star comment-btn" %>
+          <%=link_to "解除(#{comment.bookmarked_users.count})", 
+                    bookmark_path(current_user.bookmarking_relationships.find_by(comment_id: comment.id)), 
+                    method: :delete,
+                    class: "btn btn-sm btn-default glyphicon glyphicon-star comment-btn" %>
         <% else %>
-          <%=link_to "ブクマ", bookmarks_path(comment_id: comment.id), method: :post,
-                                  class: "btn btn-sm btn-default glyphicon glyphicon-star-empty comment-btn" %>
+          <%=link_to "ブクマ(#{comment.bookmarked_users.count})", 
+                    bookmarks_path(comment_id: comment.id), 
+                    method: :post,
+                    class: "btn btn-sm btn-default glyphicon glyphicon-star-empty comment-btn" %>
         <% end %>
+      <% else %>
+        <!--ログインしてなければダミーを置く-->
+        <%=link_to "ブクマ(#{comment.bookmarked_users.count})",
+                                        "#alert-user-logged-in", 
+                                        data: {toggle: "modal",
+                                              title: "ユーザーログインして下さい",
+                                              text: "ブクマするにはユーザーログインが必要です。"
+                                              }, 
+                                        class: "btn btn-sm btn-default glyphicon glyphicon-star comment-btn" %>
       <% end %>
   
       <!--返信-->
@@ -115,3 +128,9 @@
 
 </div>
 
+<!--===================
+ ユーザーログインアラート
+===================-->
+<div class="modal fade" id="alert-user-logged-in">
+  <%= render 'shared/alert_ok_dialog' %>
+</div>
