@@ -39,9 +39,62 @@
       <div class="panel panel-info">
         <div class="panel-heading"><h2 class="panel-title">お問い合わせ</h2></div>
           <div class="panel-body">
-
+            
+            <%= form_tag controller:"docs", action:"contact_feedback" do %>
+              
+              <div class="well well-sm">
+                本サービスをご利用いただき誠にありがとうございます。<br class="hidden-xs">
+                お問い合わせに関する内容としましては、質問・バグ発見・要望・改善事項・叱咤激励など、
+                なんでもかまいません。<br class="hidden-xs">
+                みなさまの率直なご意見・ご感想をお待ちしております。
+              </div>
+              
+              <% if user_logged_in? %>
+                <span class="input-label">お名前</span>
+                <br />
+                <%=current_user.nickname %>
+                <%= hidden_field_tag :name, current_user.nickname %>
+              <% elsif dev_logged_in? %>
+                <span class="input-label">お名前</span>
+                <br />
+                <%=current_developer.name %>
+                <%= hidden_field_tag :name, current_developer.name %>
+              <% else %>
+                <%= hidden_field_tag :name, '閲覧ユーザー' %>
+              <% end %>
+              <p></p>
+              
+              <span class="input-label">メールアドレス</span>
+              <% if user_logged_in? && !current_user.provider? %>
+                <%= email_field_tag :email, current_user.email, class: "form-control", autofocus: true %>
+              <% elsif dev_logged_in? %>
+                <%= email_field_tag :email, current_developer.email, class: "form-control", autofocus: true %>
+              <% else %>
+                <%= email_field_tag :email, nil, class: "form-control", autofocus: true %>
+              <% end %>
+              <p></p>
+              
+              <span class="input-label">ご用件</span>
+              <%= text_field_tag :subject, nil, class: "form-control"%>
+              <p></p>
+              
+              <span class="input-label">内容本文</span>
+              <%= text_area_tag :text_body, nil, :size=>"70x4", class: 'form-control' %>
+              <p></p>
+              
+              <%= submit_tag "送信する", class: "btn btn-primary" %>
+            
+            <% end %>
 
           </div>
+          
+        <div class="panel-footer">
+          <span class="glyphicon glyphicon-exclamation-sign"></span>
+          お問い合わせに関しましては、すべての項目に入力していただく必要がございます。<br class="hidden-xs">
+          スタッフ一同、本サービスをより良くして行きたいと思っておりますので、
+          ご理解とご協力のほど、よろしくお願いいたします。
+        </div>
+          
         </div>
       </div>
     <div class="col-xs-12 col-sm-2"></div>

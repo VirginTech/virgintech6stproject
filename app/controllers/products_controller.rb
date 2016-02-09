@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
   def logged_in?
     unless dev_logged_in?
       dev_store_location
-      flash[:danger] = "デバロッパーログインが必要です。"
+      flash[:danger] = "デヴェロッパーログインが必要です。"
       return redirect_to root_path
     end
   end
@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
   def is_developer_app?
     unless dev_logged_in?
       dev_store_location
-      flash[:danger] = "ログインして下さい。"
+      flash[:danger] = "デヴェロッパーログインが必要です。"
       return redirect_to root_path
     end
     unless Product.find_by_id(params[:id])

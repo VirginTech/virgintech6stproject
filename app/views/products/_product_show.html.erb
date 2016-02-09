@@ -175,33 +175,35 @@
   <!--==================
   公式サイト等
   ====================-->
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2 class="panel-title">公式サイト等</h2>
+  <% if @product.official_site? || @product.twitter? || @product.facebook? || @product.etc_site? %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">公式サイト等</h2>
+      </div>
+      <div class="panel-body">
+        <span class="app-official-site">
+          <% if @product.official_site? %>
+            公式サイト:<br />
+            <p><%= link_to @product.official_site, @product.official_site %></p>
+          <% end %>
+          <% if @product.twitter? %>
+            公式Twitter:<br />
+            <p><%= link_to @product.twitter, @product.twitter %></p>
+          <% end %>
+          <% if @product.facebook? %>
+            公式Facebook:<br />
+            <p><%= link_to @product.facebook, @product.facebook %></p>
+          <% end %>
+          <% if @product.etc_site? %>
+            攻略サイト等:<br />
+            <p><%= link_to @product.etc_site, @product.etc_site %></p>
+          <% end %>
+        </span>
+        
+      </div>
     </div>
-    <div class="panel-body">
-      <span class="app-official-site">
-        <% if @product.official_site? %>
-          公式サイト:<br />
-          <p><%= link_to @product.official_site, @product.official_site %></p>
-        <% end %>
-        <% if @product.twitter? %>
-          公式Twitter:<br />
-          <p><%= link_to @product.twitter, @product.twitter %></p>
-        <% end %>
-        <% if @product.facebook? %>
-          公式Facebook:<br />
-          <p><%= link_to @product.facebook, @product.facebook %></p>
-        <% end %>
-        <% if @product.etc_site? %>
-          攻略サイト等:<br />
-          <p><%= link_to @product.etc_site, @product.etc_site %></p>
-        <% end %>
-      </span>
-      
-    </div>
-  </div>
-
+  <% end %>
+  
 </div>
 
 <!--==================================

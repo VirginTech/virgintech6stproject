@@ -15,17 +15,35 @@
             </td>
             <% if same_developer?(product.developer.id) %>
               <td width=50 valign=top align=right>
-                <%= link_to  dev_comment_path(product), class:"btn btn-warning btn-xs app-comment-btn" do %>
+                <%= link_to  dev_comment_path(product), 
+                                      data: {trigger: "hover",
+                                      placement: "top",
+                                      title: "開発者コメント投稿",
+                                      content: "リリース情報やアップデート情報、イベント告知などにご活用ください。" },
+                                      class:"btn btn-warning btn-xs app-comment-btn" do %>
                   <span class="glyphicon glyphicon-comment"></span>
                 <% end %>
-                <%= link_to "編集", edit_product_path(product), class:"btn btn-primary btn-xs app-edit-btn" %>
+                
+                <%= link_to "編集", edit_product_path(product), 
+                                      data: {trigger: "hover",
+                                      placement: "top",
+                                      title: "アプリ情報編集",
+                                      content: "投稿したアプリの内容を編集します。" },
+                                      class:"btn btn-primary btn-xs app-edit-btn" %>
+                
                 <%= link_to "削除", product_path(product), method: "delete", 
-                  data: {confirm: "アプリを削除するとそれに関わる全てのデータが削除されます。<br class='hidden-xs'>
-                  削除されたデータは元に戻す事はできません。<br class='hidden-xs'>",
-                  "commit" => "削除する",
-                  "cancel" => "キャンセル"},
-                  title: "本当に削除しますか？",
-                  class:"btn btn-danger btn-xs app-delete-btn" %>
+                                      data: {trigger: "hover",
+                                      placement: "top",
+                                      title: "アプリ削除",
+                                      content: "投稿したアプリを削除します。" ,
+                                    
+                                      confirm: "アプリを削除するとそれに関わる全てのデータが削除されます。<br class='hidden-xs'>
+                                      削除されたデータは元に戻す事はできません。<br class='hidden-xs'>
+                                      本当に削除しますか？",
+                                      "commit" => "削除する",
+                                      "cancel" => "キャンセル"},
+                                      title: "アプリ削除",
+                                      class:"btn btn-danger btn-xs app-delete-btn" %>
               </td>
             <% end %>
           </tr>
