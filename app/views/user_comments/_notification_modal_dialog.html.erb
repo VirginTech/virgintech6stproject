@@ -1,0 +1,64 @@
+<%= form_tag controller:"docs", action:"notification" do %>
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+        </button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-alert"></span>
+          <span>通報する (コメントNo: <%= comment.id %>)</span>
+        </h4>
+      </div>
+
+      <div class="modal-body">
+        
+        <!--コメント-->
+        <%= hidden_field_tag :comment_id, comment.id %>
+        <%= hidden_field_tag :comment_body, comment.comment %>
+        
+        <% if user_logged_in? %>
+          <span class="input-label">お名前</span>
+          <br />
+          <%=current_user.nickname %>
+          <%= hidden_field_tag :name, current_user.nickname %>
+        <% elsif dev_logged_in? %>
+          <span class="input-label">お名前</span>
+          <br />
+          <%=current_developer.name %>
+          <%= hidden_field_tag :name, current_developer.name %>
+        <% else %>
+          <%= hidden_field_tag :name, '閲覧ユーザー' %>
+        <% end %>
+        <p></p>
+        
+        <% if user_logged_in? && !current_user.provider? %>
+          <span class="input-label">メールアドレス</span>
+          <br />
+          <%= current_user.email %>
+          <%= hidden_field_tag :email, current_user.email %>
+        <% elsif dev_logged_in? %>
+          <span class="input-label">メールアドレス</span>
+          <br />
+          <%= current_developer.email %>
+          <%= hidden_field_tag :email, current_developer.email %>
+        <% else %>
+          <%= hidden_field_tag :email, '閲覧ユーザー' %>
+        <% end %>
+        <p></p>
+
+        <span class="input-label">内容</span>
+        <%= text_area_tag :text_body, nil, :size=>"70x4", class: 'form-control' %>
+        <p></p>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal">キャンセル</button>
+        <%= submit_tag "送信する", class: "btn btn-primary" %>
+      </div>
+
+    </div>
+  </div>
+
+<% end %>

@@ -78,6 +78,8 @@ Rails.application.routes.draw do
   # お問い合わせ
   post 'contact_feedback', to: 'docs#contact_feedback'
 
+  # 通知
+  post 'notification', to: 'docs#notification'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

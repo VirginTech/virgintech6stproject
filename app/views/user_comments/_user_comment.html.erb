@@ -95,7 +95,7 @@
       <a href=<%="#comment-reply-#{comment.id}" %> data-toggle="collapse" class="btn btn-sm btn-default glyphicon glyphicon-edit comment-btn">返信</a>
 
       <!--通報-->
-      <a href="#" class="btn btn-sm btn-default glyphicon glyphicon-bullhorn comment-btn">通報</a>
+      <a href=<%="#notification-modal-#{comment.id}" %> data-toggle="modal" class="btn btn-sm btn-default glyphicon glyphicon-bullhorn comment-btn">通報</a>
       
       <!--コメント削除-->
       <% if same_user?(comment.user.id) %>
@@ -129,8 +129,9 @@
 </div>
 
 <!--===================
- ユーザーログインアラート
+ 通報用モーダルダイアログ
 ===================-->
-<div class="modal fade" id="alert-user-logged-in">
-  <%= render 'shared/alert_ok_dialog' %>
+<div class="modal fade" id=<%="notification-modal-#{comment.id}" %> >
+  <%= render 'user_comments/notification_modal_dialog',comment: comment %>
 </div>
+
