@@ -33,11 +33,15 @@
         <% end %>
         <p></p>
         
-        <% if user_logged_in? && !current_user.provider? %>
-          <span class="input-label">メールアドレス</span>
-          <br />
-          <%= current_user.email %>
-          <%= hidden_field_tag :email, current_user.email %>
+        <% if user_logged_in? %>
+          <% if current_user.provider? %>
+            <%= hidden_field_tag :email, 'SNSユーザー' %>
+          <% else %>
+            <span class="input-label">メールアドレス</span>
+            <br />
+            <%= current_user.email %>
+            <%= hidden_field_tag :email, current_user.email %>
+          <% end %>
         <% elsif dev_logged_in? %>
           <span class="input-label">メールアドレス</span>
           <br />
