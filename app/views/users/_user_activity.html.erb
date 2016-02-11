@@ -1,0 +1,44 @@
+<div class="activity-list">
+    
+  <% if activity[0]==0 %>
+    <% if Product.find_by_id(activity[2]) %>
+      <div class="well">
+        <%= User.find(activity[1]).nickname %>さんが<%=Product.find(activity[2]).appname %>にコメントしました。
+        <%= time_ago_in_words(activity[3]) %>前
+      </div>
+    <% end %>
+    
+  <% elsif activity[0]==1 %>
+    <% if UserComment.find_by_id(activity[2]) %>
+      <div class="well">
+        <%= User.find(activity[1]).nickname %>さんが<%=UserComment.find(activity[2]).user.nickname %>さんに返信しました。
+        <%= time_ago_in_words(activity[3]) %>前
+      </div>
+    <% end %>
+    
+  <% elsif activity[0]==2 %>
+    <% if User.find_by_id(activity[2]) %>
+      <div class="well">
+        <%= User.find(activity[1]).nickname %>さんが<%=User.find(activity[2]).nickname %>さんをフォローしました。
+        <%= time_ago_in_words(activity[3]) %>前
+      </div>
+    <% end %>
+    
+  <% elsif activity[0]==3 %>
+    <% if Product.find_by_id(activity[2]) %>
+      <div class="well">
+        <%= User.find(activity[1]).nickname %>さんが<%=Product.find(activity[2]).appname %>をお気に入りしました。
+        <%= time_ago_in_words(activity[3]) %>前
+      </div>
+    <% end %>
+    
+  <% elsif activity[0]==4 %>
+    <% if UserComment.find_by_id(activity[2]) %>
+      <div class="well">
+        <%= User.find(activity[1]).nickname %>さんが<%=UserComment.find(activity[2]).user.nickname %>さんのコメントをブクマしました。
+        <%= time_ago_in_words(activity[3]) %>前
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

@@ -3,6 +3,32 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :is_are_you?, only: [:show, :user_timeline, :user_favorite, :user_bookmark]
   
+  def user_activity
+    @user = User.find(params[:id])
+    
+    activity=Array.new
+    @user.user_comments.each do |value|
+      activity.push [0,value.user_id,value.product_id,value.created_at]
+    end
+    @user.comment_replies.each do |value|
+      activity.push [1,value.user_id,value.user_comment_id,value.created_at]
+    end
+    @user.following_relationships.each do |value|
+      activity.push [2,value.follower_id,value.followed_id,value.created_at]
+    end
+    @user.favoriting_relationships.each do |value|
+      activity.push [3,value.user_id,value.product_id,value.created_at]
+    end
+    @user.bookmarking_relationships.each do |value|
+      activity.push [4,value.user_id,value.comment_id,value.created_at]
+    end
+    
+    #@activity=activity.sort { |a,b| b[3] <=> a[3] } # sort_byの方が早いらしい
+    @activitys=activity.sort_by(&:last).reverse
+    
+    getFollow()
+  end
+  
   def user_bookmark
     @user = User.find(params[:id])
     # コメントをブクマした日付(新しい順)で取得

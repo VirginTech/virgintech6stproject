@@ -64,6 +64,8 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:create, :destroy]
   # ブックマークコメント表示
   get 'user_bookmark', to: 'users#user_bookmark'
+  # アクティビティ表示
+  get 'user_activity', to: 'users#user_activity'
   
   # フッターメニュー
   get 'about_site', to: 'docs#about_site'

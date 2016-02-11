@@ -16,7 +16,7 @@
         <%= link_to user_bookmark_path(id: @user.id), class:"btn btn-default" do %>
           <span class="glyphicon glyphicon-book">ブックマーク</span>
         <% end %>
-        <%= link_to "#", class:"btn btn-default" do %>
+        <%= link_to user_activity_path(id: @user.id), class:"btn btn-default" do %>
           <span class="glyphicon glyphicon-comment">アクティビティ</span>
         <% end %>
       </div>

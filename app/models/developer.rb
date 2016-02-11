@@ -1,7 +1,7 @@
 class Developer < ActiveRecord::Base
   
-  has_many :regist_dev_tokens
-  has_many :pass_dev_tokens
+  has_many :regist_dev_tokens, :dependent => :delete_all
+  has_many :pass_dev_tokens, :dependent => :delete_all
   has_many :products, :dependent => :destroy
   has_many :dev_comments, :dependent => :delete_all
   

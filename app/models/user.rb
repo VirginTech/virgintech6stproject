@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   
-  has_many :regist_user_tokens
-  has_many :pass_user_tokens
-  has_many :user_comments, :dependent => :delete_all
+  has_many :regist_user_tokens, :dependent => :delete_all
+  has_many :pass_user_tokens, :dependent => :delete_all
+  has_many :user_comments, :dependent => :destroy
   has_many :comment_replies, :dependent => :delete_all
   
   #============================
