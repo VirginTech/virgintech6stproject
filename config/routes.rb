@@ -82,7 +82,10 @@ Rails.application.routes.draw do
 
   # 通知
   post 'notification', to: 'docs#notification'
-
+  
+  #エラーページ
+  get '*path', to: 'errors#render_404'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
