@@ -1,31 +1,37 @@
 class UsersController < ApplicationController
   
   before_action :logged_in_user, only: [:edit, :update, :destroy]
-  before_action :is_are_you?, only: [:show, :user_timeline, :user_favorite, :user_bookmark]
+  before_action :is_are_you?, only: [:show, :user_timeline, :user_favorite, :user_bookmark, :user_activity]
   
   def user_activity
     @user = User.find(params[:id])
     
     activity=Array.new
+    #コメント
     @user.user_comments.each do |value|
-      activity.push [0,value.user_id,value.product_id,value.created_at]
+      activity.push [0,value.id,value.product_id,value.created_at]
     end
+    #リプライ
     @user.comment_replies.each do |value|
-      activity.push [1,value.user_id,value.user_comment_id,value.created_at]
+      activity.push [1,value.id,value.user_comment_id,value.created_at]
     end
+    #フォロー
     @user.following_relationships.each do |value|
-      activity.push [2,value.follower_id,value.followed_id,value.created_at]
+      activity.push [2,value.id,value.followed_id,value.created_at]
     end
+    #お気に入り
     @user.favoriting_relationships.each do |value|
-      activity.push [3,value.user_id,value.product_id,value.created_at]
+      activity.push [3,value.id,value.product_id,value.created_at]
     end
+    #ブクマ
     @user.bookmarking_relationships.each do |value|
-      activity.push [4,value.user_id,value.comment_id,value.created_at]
+      activity.push [4,value.id,value.comment_id,value.created_at]
     end
-    
+    #日付けでソート
     #@activity=activity.sort { |a,b| b[3] <=> a[3] } # sort_byの方が早いらしい
-    @activitys=activity.sort_by(&:last).reverse
-    
+    activity_=activity.sort_by(&:last).reverse
+    #配列をページング
+    @activitys = Kaminari.paginate_array(activity_).page(params[:page]).per(10)
     getFollow()
   end
   

@@ -1,44 +1,175 @@
 <div class="activity-list">
-    
+  
+  <!--=========================
+  つぶやき
+  ============================-->
   <% if activity[0]==0 %>
-    <% if Product.find_by_id(activity[2]) %>
+    <% if product = Product.find_by_id(activity[2]) %>
       <div class="well">
-        <%= User.find(activity[1]).nickname %>さんが<%=Product.find(activity[2]).appname %>にコメントしました。
         <%= time_ago_in_words(activity[3]) %>前
+        <p></p>
+        <%= link_to user_path(@user) do %>
+          <% if @user.profile_img? %>
+            <%=image_tag @user.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%= @user.nickname %></span>
+        <% end %>
+        さんが
+        <%= link_to product_path(product) do %>
+          <%= image_tag product.img_icon.url, class:"app-icon" %>
+          <span class="profile-name"><%=product.appname %></span>
+        <% end %>
+        につぶやきました。
+        
+        <% if comment=UserComment.find_by_id(activity[1]) %>
+          <%= render partial: 'users/user_activity_comment', locals: { comment: comment } %>
+        <% end %>
+        
       </div>
     <% end %>
     
+  <!--=========================
+  リプライ
+  ============================-->
   <% elsif activity[0]==1 %>
-    <% if UserComment.find_by_id(activity[2]) %>
+    <% if comment=UserComment.find_by_id(activity[2]) %>
       <div class="well">
-        <%= User.find(activity[1]).nickname %>さんが<%=UserComment.find(activity[2]).user.nickname %>さんに返信しました。
         <%= time_ago_in_words(activity[3]) %>前
+        <p></p>
+        <%= link_to user_path(@user) do %>
+          <% if @user.profile_img? %>
+            <%=image_tag @user.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%= @user.nickname %></span>
+        <% end %>
+        さんが
+        <%= link_to user_path(comment.user) do %>
+          <% if comment.user.profile_img? %>
+            <%=image_tag comment.user.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%= comment.user.nickname %></span>
+        <% end %>
+        さんのつぶやきに返信しました。
+        
+        <% if reply=CommentReply.find_by_id(activity[1]) %>
+          <%= render partial: 'users/user_activity_reply', locals: { reply: reply } %>
+        <% end %>
+        
       </div>
     <% end %>
     
+  <!--=========================
+  フォロー
+  ============================-->
   <% elsif activity[0]==2 %>
-    <% if User.find_by_id(activity[2]) %>
+    <% if follower=User.find_by_id(activity[2]) %>
       <div class="well">
-        <%= User.find(activity[1]).nickname %>さんが<%=User.find(activity[2]).nickname %>さんをフォローしました。
         <%= time_ago_in_words(activity[3]) %>前
+        <p></p>
+        <%= link_to user_path(@user) do %>
+          <% if @user.profile_img? %>
+            <%=image_tag @user.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%= @user.nickname %></span>
+        <% end %>
+        さんが
+        <%= link_to user_path(follower) do %>
+          <% if follower.profile_img? %>
+            <%=image_tag follower.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%= follower.nickname %></span>
+        <% end %>
+        さんをフォローしました。
       </div>
     <% end %>
     
+  <!--=========================
+  お気に入り
+  ============================-->
   <% elsif activity[0]==3 %>
-    <% if Product.find_by_id(activity[2]) %>
+    <% if product=Product.find_by_id(activity[2]) %>
       <div class="well">
-        <%= User.find(activity[1]).nickname %>さんが<%=Product.find(activity[2]).appname %>をお気に入りしました。
         <%= time_ago_in_words(activity[3]) %>前
+        <p></p>
+        <%= link_to user_path(@user) do %>
+          <% if @user.profile_img? %>
+            <%=image_tag @user.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%= @user.nickname %></span>
+        <% end %>
+        さんが
+        <%= link_to product_path(product) do %>
+          <%= image_tag product.img_icon.url, class:"app-icon" %>
+          <span class="profile-name"><%=product.appname %></span>
+        <% end %>
+        をお気に入りしました。
       </div>
     <% end %>
     
+  <!--=========================
+  ブクマ
+  ============================-->
   <% elsif activity[0]==4 %>
-    <% if UserComment.find_by_id(activity[2]) %>
+    <% if comment=UserComment.find_by_id(activity[2]) %>
       <div class="well">
-        <%= User.find(activity[1]).nickname %>さんが<%=UserComment.find(activity[2]).user.nickname %>さんのコメントをブクマしました。
         <%= time_ago_in_words(activity[3]) %>前
+        <p></p>
+        <%= link_to user_path(@user) do %>
+          <% if @user.profile_img? %>
+            <%=image_tag @user.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%= @user.nickname %></span>
+        <% end %>
+        さんが
+        <%= link_to user_path(comment.user) do %>
+          <% if comment.user.profile_img? %>
+            <%=image_tag comment.user.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%= comment.user.nickname %></span>
+        <% end %>
+        さんのつぶやきをブクマしました。
+        
+        <% if comment=UserComment.find_by_id(activity[2]) %>
+          <%= render partial: 'users/user_activity_comment', locals: { comment: comment } %>
+        <% end %>
+        
       </div>
     <% end %>
   <% end %>
 
+</div>
+
+<!--=================
+  拡大イメージ（モーダルダイアログ）
+=====================-->
+<div class="modal fade" id="modal-img-dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">閉じる</span>
+        </button>
+        <h4 class="modal-title"><span id="modal-app-title"></span></h4>
+        <div id="modal-img-disp">
+          <img src="#" class="img-responsive">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

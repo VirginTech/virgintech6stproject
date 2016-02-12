@@ -1,0 +1,26 @@
+<div class="activity-comment-disp">
+  <div class="well">
+  
+    <!--コメント-->
+    <span class="activity-comment">
+      <%#= simple_format(h(comment.comment)) %>
+      <%= auto_link(simple_format(h(reply.reply_comment)), link = :urls, href_options = {:target => '_blank'})  %>
+    </span>
+    <p></p>
+    
+    <!--添付イメージ-->
+    <% if reply.image? %>
+      <%# binding.pry %>
+      <div class="activity-comment-img">
+        <%= link_to "#modal-img-dialog",data: {
+                                        toggle: "modal",
+                                        title: reply.user_comment.product.appname,
+                                        imgurl: reply.image.url
+                                        } do %>
+          <%= image_tag reply.image.url %>
+        <% end %>
+      </div>
+    <% end %>
+  
+  </div>
+</div>

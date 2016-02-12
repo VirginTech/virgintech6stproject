@@ -2,8 +2,8 @@
   <div class="panel-heading">
     <h2 class="panel-title"><%=@user.nickname %>さんの近況</h2>
   </div>
-  <div class="panel-body comment-body-bg">
-
+  <div class="panel-body activity-body-bg">
+    <%# binding.pry %>
     <% if !@activitys.present? %>
       <span class="result-empty">まだ何もございません。</span>
     <% else %>
@@ -11,7 +11,7 @@
         <% @activitys.each do |activity| %>
           <%= render partial: 'users/user_activity', locals: { activity: activity } %>
         <% end %>
-        <%#= paginate(@activity) %>
+        <%= paginate(@activitys) %>
       </div>
     <% end %>
 
