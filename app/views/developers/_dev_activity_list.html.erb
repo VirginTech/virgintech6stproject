@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2 class="panel-title"><%=@user.nickname %>さんの近況</h2>
+    <h2 class="panel-title"><%=@developer.name %>さんの近況</h2>
   </div>
   <div class="panel-body activity-body-bg">
     <%# binding.pry %>
@@ -9,7 +9,7 @@
     <% else %>
       <div id="user-activity">
         <% @activitys.each do |activity| %>
-          <%= render partial: 'users/user_activity', locals: { activity: activity } %>
+          <%= render partial: 'developers/dev_activity', locals: { activity: activity } %>
         <% end %>
         <%= paginate(@activitys) %>
       </div>

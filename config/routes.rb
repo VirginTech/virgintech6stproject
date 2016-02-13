@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   get 'user_bookmark', to: 'users#user_bookmark'
   # アクティビティ表示
   get 'user_activity', to: 'users#user_activity'
+  get 'dev_activity', to: 'developers#dev_activity'
   
   # フッターメニュー
   get 'about_site', to: 'docs#about_site'

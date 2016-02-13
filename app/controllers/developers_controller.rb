@@ -1,15 +1,29 @@
 class DevelopersController < ApplicationController
   
   before_action :logged_in_developer, only: [:edit, :update, :destroy]
-  before_action :is_are_you?, only: [:show]
+  before_action :is_are_you?, only: [:show, :dev_comment_show, :dev_activity]
+
+  def dev_activity
+    @developer = Developer.find(params[:id])
+    activity=Array.new
+    #プロダクト
+    @developer.products.each do |value|
+      activity.push [0, value.id, value.id, value.created_at]
+    end
+    #コメント
+    @developer.dev_comments.each do |value|
+      activity.push [1, value.id, value.product_id, value.created_at]
+    end
+    #日付けでソート
+    #@activity=activity.sort { |a,b| b[3] <=> a[3] } # sort_byの方が早いらしい
+    activity_=activity.sort_by(&:last).reverse
+    #配列をページング
+    @activitys = Kaminari.paginate_array(activity_).page(params[:page]).per(10)
+  end
   
   def dev_comment_show
-    if @developer = Developer.find_by_id(params[:dev_id])
-      @comments = @developer.dev_comments.order(created_at: :desc).page(params[:page]).per(10)
-    else
-      flash[:danger] = "セッションエラーが発生しました。存在しないIDです。"
-      return redirect_to root_path
-    end
+    @developer = Developer.find_by_id(params[:id])
+    @comments = @developer.dev_comments.order(created_at: :desc).page(params[:page]).per(10)
   end
   
   def new

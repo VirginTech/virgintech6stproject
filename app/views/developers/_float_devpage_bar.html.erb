@@ -5,10 +5,10 @@
         <%= link_to developer_path(@developer), class:"btn btn-default" do %>
           <span class="glyphicon glyphicon-book">登録アプリ</span>
         <% end %>
-        <%= link_to dev_comment_show_path(dev_id: @developer.id), class:"btn btn-default" do %>
+        <%= link_to dev_comment_show_path(id: @developer.id), class:"btn btn-default" do %>
           <span class="glyphicon glyphicon-comment">開発者コメ</span>
         <% end %>
-        <%= link_to "#", class:"btn btn-default" do %>
+        <%= link_to dev_activity_path(id: @developer.id), class:"btn btn-default" do %>
           <span class="glyphicon glyphicon-education">アクティビティ</span>
         <% end %>
       </div>

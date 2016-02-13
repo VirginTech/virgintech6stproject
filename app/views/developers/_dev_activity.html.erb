@@ -1,0 +1,59 @@
+<div class="activity-list">
+  
+  <!--=========================
+  プロダクト
+  ============================-->
+  <% if activity[0]==0 %>
+    <% if product = Product.find_by_id(activity[2]) %>
+      <div class="well">
+        <%= time_ago_in_words(activity[3]) %>前
+        <p></p>
+        <%= link_to developer_path(@developer) do %>
+          <% if @developer.profile_img? %>
+            <%=image_tag @developer.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%=@developer.name %></span>
+        <% end %>
+        さんが
+        <%= link_to product_path(product) do %>
+          <%= image_tag product.img_icon.url, class:"app-icon" %>
+          <span class="profile-name"><%=product.appname %></span>
+        <% end %>
+        を登録しました。
+      </div>
+    <% end %>
+
+  <!--=========================
+  コメント
+  ============================-->
+  <% elsif activity[0]==1 %>
+    <% if product = Product.find_by_id(activity[2]) %>
+      <div class="well">
+        <%= time_ago_in_words(activity[3]) %>前
+        <p></p>
+        <%= link_to developer_path(@developer) do %>
+          <% if @developer.profile_img? %>
+            <%=image_tag @developer.profile_img.url, class:"profile-icon" %>
+          <% else %>
+            <%= image_tag 'no_profile_img.png', class:"profile-icon" %>
+          <% end %>
+          <span class="profile-name"><%=@developer.name %></span>
+        <% end %>
+        さんが
+        <%= link_to product_path(product) do %>
+          <%= image_tag product.img_icon.url, class:"app-icon" %>
+          <span class="profile-name"><%=product.appname %></span>
+        <% end %>
+        にコメントしました。
+        
+        <% if comment=DevComment.find_by_id(activity[1]) %>
+          <%= render partial: 'developers/dev_activity_comment', locals: { comment: comment } %>
+        <% end %>
+        
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
