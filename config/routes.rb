@@ -80,9 +80,13 @@ Rails.application.routes.draw do
 
   # お問い合わせ
   post 'contact_feedback', to: 'docs#contact_feedback'
-
   # 通知
   post 'notification', to: 'docs#notification'
+  
+  #管理画面
+  get 'admin_top/:uuid', to: "administrators#admin_top"
+  resources :administrators, only: [:create, :destroy]
+  get 'admin_menu', to: "administrators#admin_menu"
   
   #エラーページ
   get '*path', to: 'errors#render_404'

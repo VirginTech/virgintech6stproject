@@ -113,7 +113,7 @@ class DevelopersController < ApplicationController
   #========================
   def regist_token
     # 有効期限の確認
-    token = RegistDevToken.find_by_uuid!(params[:uuid])
+    token = RegistDevToken.find_by_uuid(params[:uuid])
     # 有効期限を過ぎていないか確認
     if token && token.expired_at > Time.now
       # ２回目アクセスできないように更新

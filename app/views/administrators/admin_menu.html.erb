@@ -1,0 +1,31 @@
+<!--========================
+フラッシュメッセージ
+==========================-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!--========================
+ボディ
+==========================-->
+<div class="col-xs-12 col-sm-4 col-md-3"></div>
+<div class="col-xs-12 col-sm-4 col-md-6">
+  <div class="panel panel-info" style="margin-top:50px;">
+
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-envelope">管理者メニュー</h2>
+    </div>
+  
+    <div class="panel-body">
+      <%=link_to "ログアウト", administrator_path(Rails.application.secrets.admin_account_secret), method: "delete" %>
+    </div>
+  
+  </div>
+<div class="col-xs-12 col-sm-4 col-md-3"></div>
+
