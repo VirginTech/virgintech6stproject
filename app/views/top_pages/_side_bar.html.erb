@@ -8,7 +8,10 @@
         <% else %>
           <%= image_tag "no_appicon_img.png", class:"side-bar-icon" %>
         <% end %>
-        <span><%= key %></span>
+        <span>
+          <%= key %>
+          (<%=Product.where(category: value).count  %>)
+        </span>
       <% end %>
     <% end %>
   </div>

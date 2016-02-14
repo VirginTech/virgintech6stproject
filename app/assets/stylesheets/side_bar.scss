@@ -6,10 +6,10 @@
 ===========================================*/
 aside#category-nav{
   background-color: rgba(0,0,0,0.8);
-  width: 150px;
-  height: 500px;
+  width: 200px;
+  height: 800px;
   //top: 100px;
-  left: -150px;
+  left: -200px;
   position: absolute;
   z-index:1;
   .category{
@@ -63,7 +63,7 @@ aside#category-nav{
   aside#category-nav{
     width: 350px;
     left: -350px;
-    height: 800px;
+    height: 1300px;
     .category{
       margin-top: 70px;
     }
