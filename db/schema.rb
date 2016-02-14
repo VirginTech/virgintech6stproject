@@ -100,32 +100,39 @@ ActiveRecord::Schema.define(version: 20160208004937) do
   add_index "pass_user_tokens", ["user_id"], name: "index_pass_user_tokens_on_user_id", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.integer  "developer_id",      limit: 4
-    t.string   "appname",           limit: 255
-    t.text     "summary",           limit: 65535
-    t.text     "description",       limit: 65535
-    t.integer  "category",          limit: 4
-    t.integer  "price",             limit: 4
+    t.integer  "developer_id",       limit: 4
+    t.string   "appname",            limit: 255
+    t.text     "summary",            limit: 65535
+    t.text     "description",        limit: 65535
+    t.integer  "category",           limit: 4
+    t.integer  "price",              limit: 4
     t.boolean  "model_iphone"
     t.boolean  "model_android"
     t.boolean  "model_web"
-    t.string   "img_icon",          limit: 255
-    t.string   "img_screenshot_01", limit: 255
-    t.string   "img_screenshot_02", limit: 255
-    t.string   "img_screenshot_03", limit: 255
-    t.string   "img_screenshot_04", limit: 255
-    t.string   "img_screenshot_05", limit: 255
+    t.string   "img_icon",           limit: 255
+    t.string   "img_screenshot_01",  limit: 255
+    t.string   "img_screenshot_02",  limit: 255
+    t.string   "img_screenshot_03",  limit: 255
+    t.string   "img_screenshot_04",  limit: 255
+    t.string   "img_screenshot_05",  limit: 255
     t.date     "sale_date"
-    t.string   "store_iphone_url",  limit: 255
-    t.string   "store_android_url", limit: 255
-    t.string   "store_webgame_url", limit: 255
-    t.string   "official_site",     limit: 255
-    t.string   "twitter",           limit: 255
-    t.string   "facebook",          limit: 255
-    t.string   "etc_site",          limit: 255
-    t.string   "youtube_url",       limit: 255
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "store_iphone_url",   limit: 255
+    t.string   "store_android_url",  limit: 255
+    t.string   "store_webgame_url",  limit: 255
+    t.string   "official_site",      limit: 255
+    t.string   "twitter",            limit: 255
+    t.string   "facebook",           limit: 255
+    t.string   "etc_site",           limit: 255
+    t.string   "youtube_url",        limit: 255
+    t.text     "update_info",        limit: 65535
+    t.text     "operating_notes",    limit: 65535
+    t.text     "how_to_play",        limit: 65535
+    t.text     "features_cheats",    limit: 65535
+    t.text     "history_of_develop", limit: 65535
+    t.text     "word_to_user",       limit: 65535
+    t.text     "finally_something",  limit: 65535
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "products", ["developer_id", "created_at"], name: "index_products_on_developer_id_and_created_at", using: :btree

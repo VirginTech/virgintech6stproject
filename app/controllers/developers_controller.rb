@@ -168,7 +168,7 @@ class DevelopersController < ApplicationController
       flash[:success] = "#{email}あてにメールを送信しました。"
       redirect_to root_path
     else
-      flash[:danger] = "#{email}は存在しないメールアドレスです。"
+      flash[:danger] = "「#{email}」は存在しないメールアドレスです。"
       redirect_to root_path
     end
   end

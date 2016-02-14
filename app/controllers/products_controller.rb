@@ -140,7 +140,15 @@ class ProductsController < ApplicationController
                                     :twitter,
                                     :facebook,
                                     :etc_site,
-                                    :youtube_url
+                                    :youtube_url,
+                                    
+                                    :update_info,
+                                    :operating_notes,
+                                    :how_to_play,
+                                    :features_cheats,
+                                    :history_of_develop,
+                                    :word_to_user,
+                                    :finally_something
                                     )
   end
 

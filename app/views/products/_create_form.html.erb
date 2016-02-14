@@ -338,6 +338,153 @@
     </div>
   </div>
 
+  <!--==================
+  アップデート情報
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">アップデート情報</span> <span class="require2">＊オプション</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
+      <%= f.text_area :update_info, :size=>"70x3", class: 'form-control' %>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      オプション項目です。アップデート情報は開発者コメントを利用する方法もあります。
+    </div>
+  </div>
+
+  <!--==================
+  動作環境・注意事項
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">動作環境や注意事項</span> <span class="require2">＊オプション</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
+      <%= f.text_area :operating_notes, :size=>"70x3", class: 'form-control' %>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      オプション項目です。
+    </div>
+  </div>
+
+  <!--==================
+  基本的な遊び方
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">基本的な遊び方</span> <span class="require2">＊オプション</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
+      <%= f.text_area :how_to_play, :size=>"70x3", class: 'form-control' %>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      オプション項目です。
+    </div>
+  </div>
+
+  <!--==================
+  ゲームの特徴や攻略など
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">ゲームの特徴や攻略など</span> <span class="require2">＊オプション</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
+      <%= f.text_area :features_cheats, :size=>"70x3", class: 'form-control' %>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      オプション項目です。
+    </div>
+  </div>
+
+  <!--==================
+  開発の経緯など
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">開発の経緯など</span> <span class="require2">＊オプション</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
+      <%= f.text_area :history_of_develop, :size=>"70x3", class: 'form-control' %>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      オプション項目です。
+    </div>
+  </div>
+
+  <!--==================
+  ユーザーに一言
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">ユーザーに一言</span> <span class="require2">＊オプション</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
+      <%= f.text_area :word_to_user, :size=>"70x3", class: 'form-control' %>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      オプション項目です。
+    </div>
+  </div>
+
+  <!--==================
+  なにかありましたら
+  ====================-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title glyphicon glyphicon-pencil">
+        <span class="input-header">最後に何かありましたら</span> <span class="require2">＊オプション</span>
+      </h2>
+    </div>
+    <div class="panel-body">
+
+      <%= f.text_area :finally_something, :size=>"70x3", class: 'form-control' %>
+      <p></p>
+
+    </div>
+    <div class="panel-footer">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      オプション項目です。
+    </div>
+  </div>
+
 
   <%= f.submit "登録する", class: "btn btn-primary" %>
 

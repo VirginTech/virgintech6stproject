@@ -203,6 +203,104 @@
       </div>
     </div>
   <% end %>
+
+  <!--==================
+  アップデート情報
+  ====================-->
+  <% if @product.update_info? %>  
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">アップデート情報</h2>
+      </div>
+      <div class="panel-body">
+        <span class="app-description"><%= simple_format(@product.update_info) %></span>
+      </div>
+    </div>
+  <% end %>
+
+  <!--==================
+  動作環境・注意事項
+  ====================-->
+  <% if @product.operating_notes? %>  
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">動作環境や注意事項</h2>
+      </div>
+      <div class="panel-body">
+        <span class="app-description"><%= simple_format(@product.operating_notes) %></span>
+      </div>
+    </div>
+  <% end %>
+
+  <!--==================
+  基本的な遊び方
+  ====================-->
+  <% if @product.how_to_play? %>  
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">基本的な遊び方</h2>
+      </div>
+      <div class="panel-body">
+        <span class="app-description"><%= simple_format(@product.how_to_play) %></span>
+      </div>
+    </div>
+  <% end %>
+
+  <!--==================
+  ゲームの特徴や攻略など
+  ====================-->
+  <% if @product.features_cheats? %>  
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">ゲームの特徴や攻略など</h2>
+      </div>
+      <div class="panel-body">
+        <span class="app-description"><%= simple_format(@product.features_cheats) %></span>
+      </div>
+    </div>
+  <% end %>
+
+  <!--==================
+  開発の経緯など
+  ====================-->
+  <% if @product.history_of_develop? %>  
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">開発の経緯など</h2>
+      </div>
+      <div class="panel-body">
+        <span class="app-description"><%= simple_format(@product.history_of_develop) %></span>
+      </div>
+    </div>
+  <% end %>
+
+  <!--==================
+  ユーザーに一言
+  ====================-->
+  <% if @product.word_to_user? %>  
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">ユーザーに一言</h2>
+      </div>
+      <div class="panel-body">
+        <span class="app-description"><%= simple_format(@product.word_to_user) %></span>
+      </div>
+    </div>
+  <% end %>
+
+  <!--==================
+  なにかありましたら
+  ====================-->
+  <% if @product.finally_something? %>  
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">最後に一言</h2>
+      </div>
+      <div class="panel-body">
+        <span class="app-description"><%= simple_format(@product.finally_something) %></span>
+      </div>
+    </div>
+  <% end %>
   
 </div>
 

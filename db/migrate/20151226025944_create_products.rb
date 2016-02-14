@@ -25,6 +25,13 @@ class CreateProducts < ActiveRecord::Migration
       t.string :facebook
       t.string :etc_site
       t.string :youtube_url
+      t.text :update_info
+      t.text :operating_notes
+      t.text :how_to_play
+      t.text :features_cheats
+      t.text :history_of_develop
+      t.text :word_to_user
+      t.text :finally_something
 
       t.timestamps null: false
       
