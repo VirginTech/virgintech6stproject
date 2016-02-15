@@ -182,16 +182,17 @@ ActiveRecord::Schema.define(version: 20160208004937) do
   add_index "user_follows", ["follower_id"], name: "index_user_follows_on_follower_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "nickname",        limit: 255
-    t.string   "email",           limit: 255
-    t.string   "password_digest", limit: 255
-    t.string   "provider",        limit: 255
-    t.string   "uid",             limit: 255
-    t.string   "profile_img",     limit: 255
+    t.string   "nickname",          limit: 255
+    t.string   "email",             limit: 255
+    t.string   "password_digest",   limit: 255
+    t.string   "provider",          limit: 255
+    t.string   "uid",               limit: 255
+    t.string   "profile_img",       limit: 255
     t.boolean  "status"
-    t.text     "profile",         limit: 65535
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.text     "profile",           limit: 65535
+    t.boolean  "product_mail_info"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

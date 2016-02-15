@@ -23,6 +23,9 @@
       <p></p>
       <%= link_to '利用規約', terms_path %>、<%= link_to 'プライバシーポリシー', privacypolicy_path %>をご確認の上、「同意して新規登録」を押してください。
       <p></p>
+      <!--アプリおすすめメール-->
+      <%=f.hidden_field :product_mail_info, :value => true %>
+      
       <%= f.submit "同意して新規登録", class: "btn btn-primary" %>
     
     <% end %>

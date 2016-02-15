@@ -77,9 +77,16 @@
       <span class="input-label">プロフィール</span> <span class="option">＊オプション</span>
       <%= f.text_area :profile, :size=>"70x3", class: 'form-control' %>
       <p></p>
+      <!--アプリおすすめメール-->
+      <% if !@user.provider.present? %>
+        <span class="input-label">オススメ情報を受け取る</span>
+        <%= f.check_box :product_mail_info, :checked => @user.product_mail_info ,class: 'form-control'%>
+      <% end %>
+      <p></p>
+    
       <%= f.submit "変更する", class: "btn btn-primary" %>
     </div>
-
+    
     <div class="panel-footer">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
       オプション項目につきましては空白でもかまいません。

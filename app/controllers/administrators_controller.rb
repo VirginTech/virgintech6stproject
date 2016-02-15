@@ -15,8 +15,10 @@ class AdministratorsController < ApplicationController
     
     #binding.pry
     @user.each do |user|
-      if user.email?
-        AdminMailer.product_mail_info(user,products).deliver
+      if user.product_mail_info
+        if user.email?
+          AdminMailer.product_mail_info(user,products).deliver
+        end
       end
     end
     flash[:success] = "メールを一斉送信しました。"
