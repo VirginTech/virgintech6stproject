@@ -1,0 +1,90 @@
+<%=@user.nickname %>様
+<p></p>
+
+『ゲーム☆ニスト』をご利用いただき誠にありがとうございます！
+<p></p>
+
+★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★★☆★☆★☆★☆★☆</br>
+今週のオススメゲームアプリ！</br>
+★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★★☆★☆★☆★☆★☆
+<p></p>
+
+サービス運営から定期的におすすめゲームアプリを紹介させていただいております。
+<p></p>
+
+<table width=600px><td>
+  
+<% @products.each do |product| %>
+
+<table>
+  <td>
+    <% case Rails.env %>
+    <% when 'development'%>
+      <a href="http://ik1-301-10815.vs.sakura.ne.jp:3030/products/<%=product.id %>">
+    <% when 'production' %>
+      <a href="http://www.gamenist.com/products/<%=product.id %>">
+    <% end %>
+    <img src="<%=product.img_icon %>" style="width:70px;height:70px;border-radius: 20%;">
+    </a>
+  </td>
+  <td>
+    <% case Rails.env %>
+    <% when 'development'%>
+      <a href="http://ik1-301-10815.vs.sakura.ne.jp:3030/products/<%=product.id %>">
+    <% when 'production' %>
+      <a href="http://www.gamenist.com/products/<%=product.id %>">
+    <% end %>
+    <h3><%=product.appname %></h3>
+    </a>
+  </td>
+</table>
+
+<p></p>
+
+<center>
+  <table width=600px>
+    <td>
+      <%=product.summary %>
+    </td>
+  </table>
+</center>
+<p></p>
+
+<center>
+  <img src="<%=product.img_screenshot_01 %>" style="max-width:300px;max-height:300px;">
+</center>
+
+<p></p>
+<hr />
+<p></p>
+
+<% end %>
+
+</td></table>
+
+
+※このメールは送信専用アドレスにて送信しております。ご返信いただいてもお答えできませんのでご了承ください。</br>
+※本メールに質問のある方はお手数ですが、下記メールアドレスまでご連絡をお願いいたします。</br>
+※このメールの配信停止をご希望の場合は、アカウント編集画面より配信停止の設定をお願いいたします。</br>
+
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/</br>
+<p></p>
+ゲームのソーシャルレビュー＆コミュニケーションサービス</br>
+『ゲーム☆ニスト』</br>
+URL : http://www.gamenist.com</br>
+E-Mail : info@gamenist.com</br>
+<p></p>
+
+(運営元)</br>
+合同会社ヴァージンテック（VirginTech LLC.）</br>
+E-mail : info@virgintech.co.jp</br>
+Web Site : http://www.virgintech.co.jp</br>
+<p></p>
+
+Twitter : https://twitter.com/VirginTechLLC</br>
+Facebook : https://www.facebook.com/virgintech.co.jp</br>
+Google+ : https://plus.google.com/+VirgintechCoJpLLC</br>
+<p></p>
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/</br>
+<p></p>
+Copyright (C)2016 Gamenist All Rights Reserved.</br>

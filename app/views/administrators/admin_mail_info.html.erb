@@ -1,0 +1,36 @@
+<!--========================
+ボディ
+==========================-->
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <%=link_to "メニューへ", admin_menu_path %>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-6">
+  <div class="panel panel-info" style="margin-top:50px;">
+    <div class="panel-heading"><h2 class="panel-title">メール一斉送信（おすすめアプリ）</h2></div>
+      <div class="panel-body">
+        
+        <%= form_tag controller:"administrators", action:"product_mail_info" do %>
+          <span class="input-label">アプリNo:</span>
+          <%= text_field_tag :app_01, nil%>
+          <p></p>
+          <span class="input-label">アプリNo:</span>
+          <%= text_field_tag :app_02, nil%>
+          <p></p>
+          <span class="input-label">アプリNo:</span>
+          <%= text_field_tag :app_03, nil%>
+          <p></p>
+          <span class="input-label">アプリNo:</span>
+          <%= text_field_tag :app_04, nil%>
+          <p></p>
+          <span class="input-label">アプリNo:</span>
+          <%= text_field_tag :app_05, nil%>
+          <p></p>
+          <%= submit_tag "送信する", class: "btn btn-primary" %>
+          <p></p>
+        <% end %>
+  
+      </div>
+    </div>
+  </div>
+</div>
+</div>

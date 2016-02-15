@@ -87,6 +87,8 @@ Rails.application.routes.draw do
   get 'admin_top/:uuid', to: "administrators#admin_top"
   resources :administrators, only: [:create, :destroy]
   get 'admin_menu', to: "administrators#admin_menu"
+  get 'admin_mail_info', to: "administrators#admin_mail_info"
+  post 'product_mail_info', to: "administrators#product_mail_info"
   
   #エラーページ
   get '*path', to: 'errors#render_404'

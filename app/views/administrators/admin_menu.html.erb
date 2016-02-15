@@ -23,6 +23,8 @@
     </div>
   
     <div class="panel-body">
+      <%=link_to "メール一斉送信(おすすめアプリ)", admin_mail_info_path %>
+      <p></p>
       <%=link_to "ログアウト", administrator_path(Rails.application.secrets.admin_account_secret), method: "delete" %>
     </div>
   
