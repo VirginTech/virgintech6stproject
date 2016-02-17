@@ -1,7 +1,7 @@
 $(function () {
-  $('[data-toggle="popover"]').popover()
-})
+  $('[data-toggle="popover"]').popover();
+});
 
 $(function () {
-  $('[data-trigger="hover"]').popover()
-})
+  $('[data-trigger="hover"]').popover();
+});

@@ -4,10 +4,16 @@
 /*==========================================
  共通のスタイル
 ===========================================*/
+h2.panel-title{
+  word-break: break-all; //強制改行
+}
+
 aside.user-mypage-left{
   margin-top: 10px;
 }
 .user-profile{
+  word-break: break-all; //強制改行
+  
   .profile-icon{
     width: 50px;
     height: 50px;
@@ -21,7 +27,6 @@ aside.user-mypage-left{
     font-weight: bold;
     font-size: 15px;
     line-height: 0px;
-    word-break: break-all; //強制改行
     a:link { 
       color:#000; text-decoration:none 
     }

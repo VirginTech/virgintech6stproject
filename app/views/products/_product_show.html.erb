@@ -15,6 +15,9 @@
       <!--アプリアイコン-->
       <%= image_tag @product.img_icon.url, class:"app-icon" %>
   
+      <!--カテゴリ-->
+      <span class="label label-info"><%= category_list.key(@product.category) %></span>
+  
       <!--価格-->
       <% if @product.price==1 %>
         <span class="app-price label label-success">無料</span>
@@ -22,9 +25,6 @@
         <span class="app-price label label-danger">有料</span>
       <% end %>
 
-      <!--カテゴリ-->
-      <span class="label label-info"><%= category_list.key(@product.category) %></span>
-  
       <!--対応機種-->
       <% if @product.model_iphone %>
         <span class="label label-primary">iOS</span>
@@ -72,7 +72,9 @@
         <br />
 
       <% end %>
-
+      
+      <p style="clear:both;"></p>
+      
       <!--お気に入り登録ボタン-->
       <div class="favorite">
         <% if user_logged_in? %>

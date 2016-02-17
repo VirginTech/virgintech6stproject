@@ -24,6 +24,9 @@ module Virgintech6stproject
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     
+    # Ajaxでリクエスト送信するのに必要
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+    
     config.generators do |g|
       g.stylesheets false
       g.javascripts false

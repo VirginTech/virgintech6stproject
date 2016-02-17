@@ -8,6 +8,9 @@ aside.dev-mypage-left{
   margin-top: 10px;
 }
 .dev-profile{
+  //word-wrap: break-word;//強制改行
+  word-break: break-all; //強制改行
+  
   .profile-icon{
     width: 50px;
     height: 50px;
@@ -21,7 +24,6 @@ aside.dev-mypage-left{
     font-weight: bold;
     font-size: 15px;
     line-height: 0px;
-    word-break: break-all; //強制改行
     a:link { 
       color:#000; text-decoration:none 
     }

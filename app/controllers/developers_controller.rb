@@ -61,7 +61,7 @@ class DevelopersController < ApplicationController
     if tmp_developer && tmp_developer.status
       # ユーザ作成済み
       flash[:warning] = "入力されたメールアドレスは登録済みです。"
-      redirect_to root_path
+      redirect_to new_developer_path
    
     elsif tmp_developer
       # デベロッパーは既にあるが、本登録していない。一度デベロッパーのトークンを全て使えなくする

@@ -21,15 +21,15 @@
         <% end %>
       </span>
     
+      <!--カテゴリ-->
+      <span class="label label-info"><%= category_list.key(@product.category) %></span>
+      <!--<br class="hidden-xs">-->
       <!--価格-->
       <% if @product.price==1 %>
         <span class="app-price label label-success">無料</span>
       <% elsif @product.price==2 %>
         <span class="app-price label label-danger">有料</span>
       <% end %>
-      <!--カテゴリ-->
-      <span class="label label-info"><%= category_list.key(@product.category) %></span>
-      <br class="hidden-xs">
       <!--対応機種-->
       <% if @product.model_iphone %>
         <span class="label label-primary">iOS</span>

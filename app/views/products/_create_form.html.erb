@@ -1,3 +1,10 @@
+<!-- ローディングイメージ 
+<div id="loading">
+  <div id="sending-msg"><%#= '処理中です.......' %></div>
+</div>
+-->
+
+<%#= form_for(@product, :html => {class: 'ajax-load'}, remote: true) do |f| %>
 <%= form_for(@product) do |f| %>
 
   <!-- エラーメッセージ -->
@@ -485,8 +492,8 @@
     </div>
   </div>
 
-
   <%= f.submit "登録する", class: "btn btn-primary" %>
+  <%#= f.submit "登録する", class: "btn btn-primary", id: "loading-show" %>
 
 <% end %>
 

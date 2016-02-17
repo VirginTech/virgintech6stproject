@@ -1,0 +1,30 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* インジケータを背景に表示。サイズを100%にすることでモーダルになる。 */
+#loading {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  background-image: url('http://www.virgintech.co.jp/images/loader_128.gif');
+  background-position: center center;
+  background-repeat: no-repeat;
+  //background-attachment: fixed; # iOSで使えない
+  display: none;
+}
+/* 画像下の文字の表示 */
+#sending-msg {
+  text-align: center;
+  margin-top: 150px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+}

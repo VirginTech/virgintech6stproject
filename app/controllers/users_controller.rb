@@ -128,7 +128,7 @@ class UsersController < ApplicationController
     if tmp_user && tmp_user.status
       # ユーザ作成済み
       flash[:warning] = "入力されたメールアドレスは登録済みです。"
-      redirect_to root_path
+      redirect_to new_user_path
    
     elsif tmp_user
       # ユーザは既にあるが、本登録していない。一度ユーザーのトークンを全て使えなくする
