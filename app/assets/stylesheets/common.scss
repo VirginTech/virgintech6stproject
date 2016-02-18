@@ -1,0 +1,15 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*==========================================
+ 共通のスタイル
+===========================================*/
+h2.panel-title{
+  word-break: break-all; //強制改行
+}
+.alert{
+  word-break: break-all; //強制改行
+}
+.modal-title{
+  word-break: break-all; //強制改行
+}

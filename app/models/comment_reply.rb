@@ -12,6 +12,6 @@ class CommentReply < ActiveRecord::Base
   # バリデーション
   #=====================
   validates :user_id, presence: true
-  validates :reply_comment, presence: true, length: { maximum: 150 }
+  validates :reply_comment, presence: true, length: { maximum: 200 }
 
 end

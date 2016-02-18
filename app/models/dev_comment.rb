@@ -12,6 +12,6 @@ class DevComment < ActiveRecord::Base
   # バリデーション
   #=====================
   validates :developer_id, presence: true
-  validates :comment, presence: true, length: { maximum: 300 }
+  validates :comment, presence: true, length: { maximum: 500 }
 
 end

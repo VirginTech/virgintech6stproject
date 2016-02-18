@@ -5,9 +5,15 @@
   ====================-->
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2 class="panel-title" style="word-break: break-all;">
-        <%= @product.appname %>
-        <span class="glyphicon glyphicon-user favorite-count">(<%= @product.favorited_users.count %>人)</span>
+      <h2 class="panel-title">
+        <table width="100%" border=0>
+          <td>
+            <%= @product.appname %>
+          </td>
+          <td width="80px">
+            <span class="glyphicon glyphicon-user favorite-count">(<%= @product.favorited_users.count %>人)</span>
+          </td>
+        </table>
       </h2>
     </div>
     <div class="panel-body">
@@ -110,37 +116,31 @@
       <% else %>
         <div class="app-screen-horizontal">
       <% end %>
-
-        <%= link_to "#modal-img-dialog",data: {toggle: "modal",
-                                                title: @product.appname,
-                                                imgurl: @product.img_screenshot_01.url
-                                                } do %>
-          <%= image_tag @product.img_screenshot_01.url %>
+      
+        <% for i in 1..5 do %>
+          <% if i==1 %>
+            <% product_url=@product.img_screenshot_01.url %>
+          <% elsif i==2 %>
+            <% product_url=@product.img_screenshot_02.url %>
+          <% elsif i==3 %>
+            <% product_url=@product.img_screenshot_03.url %>
+          <% elsif i==4 %>
+            <% product_url=@product.img_screenshot_04.url %>
+          <% elsif i==5 %>
+            <% product_url=@product.img_screenshot_05.url %>
+          <% end %>
+          
+          <% if product_url %>
+            <%= link_to "#modal-img-dialog",data: {toggle: "modal",
+                                                    title: @product.appname,
+                                                    imgurl: product_url
+                                                    } do %>
+              <%= image_tag product_url %>
+            <% end %>
+          <% end %>
+          
         <% end %>
-        <%= link_to "#modal-img-dialog",data: {toggle: "modal",
-                                                title: @product.appname,
-                                                imgurl: @product.img_screenshot_02.url
-                                                } do %>
-          <%= image_tag @product.img_screenshot_02.url %>
-        <% end %>
-        <%= link_to "#modal-img-dialog",data: {toggle: "modal",
-                                                title: @product.appname,
-                                                imgurl: @product.img_screenshot_03.url
-                                                } do %>
-          <%= image_tag @product.img_screenshot_03.url %>
-        <% end %>
-        <%= link_to "#modal-img-dialog",data: {toggle: "modal",
-                                                title: @product.appname,
-                                                imgurl: @product.img_screenshot_04.url
-                                                } do %>
-          <%= image_tag @product.img_screenshot_04.url %>
-        <% end %>
-        <%= link_to "#modal-img-dialog",data: {toggle: "modal",
-                                                title: @product.appname,
-                                                imgurl: @product.img_screenshot_05.url
-                                                } do %>
-          <%= image_tag @product.img_screenshot_05.url %>
-        <% end %>
+      
       </div>
       
     </div>

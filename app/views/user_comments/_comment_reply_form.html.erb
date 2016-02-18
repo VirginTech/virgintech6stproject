@@ -6,6 +6,7 @@
     <span class="reply-label">返信を書く:</span>
     <%= f.hidden_field :user_comment_id, :value => comment.id %>
     <%= f.text_area :reply_comment, :size=>"50x3", class: 'form-control' %>
+    (200文字以内)
     <p></p>
     
     <%= f.file_field :image, id:"reply-file-#{comment.id}", style:"display:none;", onchange:"fileCommentImage(event,'reply-img-#{comment.id}')" %>
