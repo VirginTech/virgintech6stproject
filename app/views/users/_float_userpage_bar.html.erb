@@ -3,21 +3,21 @@
     <div class="btn-toolbar">
       <div class="btn-group btn-group-justified">
         <%= link_to user_path(@user), class:"btn btn-default" do %>
-          <span class="glyphicon glyphicon-book">つぶやき一覧</span>
+          <span class="glyphicon glyphicon-user floatbar-btn">つぶやき一覧</span>
         <% end %>
         <%= link_to user_timeline_path(id: @user.id), class:"btn btn-default" do %>
-          <span class="glyphicon glyphicon-comment">タイムライン</span>
+          <span class="glyphicon glyphicon-comment floatbar-btn">タイムライン</span>
         <% end %>
         <%= link_to user_favorite_path(id: @user.id), class:"btn btn-default" do %>
-          <span class="glyphicon glyphicon-education">お気に入り</span>
+          <span class="glyphicon glyphicon-education floatbar-btn">お気に入り</span>
         <% end %>
       </div>
       <div class="btn-group btn-group-justified">
         <%= link_to user_bookmark_path(id: @user.id), class:"btn btn-default" do %>
-          <span class="glyphicon glyphicon-book">ブックマーク</span>
+          <span class="glyphicon glyphicon-book floatbar-btn">ブックマーク</span>
         <% end %>
         <%= link_to user_activity_path(id: @user.id), class:"btn btn-default" do %>
-          <span class="glyphicon glyphicon-comment">アクティビティ</span>
+          <span class="glyphicon glyphicon-link floatbar-btn">アクティビティ</span>
         <% end %>
       </div>
     </div>

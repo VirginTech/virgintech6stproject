@@ -4,8 +4,8 @@ $(function(){
   var $window=$(window);
   var $aside=$('aside#category-nav');
   //フッター
-  var $footer=$('footer');
-  var footerOffsetTop=$footer.offset().top;
+  //var $footer=$('footer');
+  //var footerOffsetTop=$footer.offset().top;
 
   var $asideButton=$('.side-button').on('click',function(event){
   
@@ -23,9 +23,9 @@ $(function(){
         
         //フッター位置変更
         //footerOffsetTop=$footer.offset().top;
-        if($aside.offset().top+$aside.height() > $footer.offset().top){
-          $footer.css('top',$aside.offset().top + $aside.height() + 50);
-        }
+        //if($aside.offset().top+$aside.height() > $footer.offset().top){
+        //  $footer.css('top',$aside.offset().top + $aside.height() + 50);
+        //}
         
       }else{
         $aside.stop(true).animate({

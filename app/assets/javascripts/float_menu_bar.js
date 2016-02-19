@@ -8,7 +8,7 @@ $(function(){
 
     $window.on('scroll',$.throttle(1000/15,function()
     {
-      if($window.scrollTop()>headerOffsetTop){
+      if($window.scrollTop()+10>headerOffsetTop){
         $header.addClass('sticky');
       }else {
         $header.removeClass('sticky');
