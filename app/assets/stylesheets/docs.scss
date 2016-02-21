@@ -20,10 +20,6 @@ div.txtTemp1 strong{
 div.txtTemp1 span{
   color: #666;
 }
-div.txtTemp2 span{
-  color: #666;
-  font-size: 15px;
-}
 
 .fL {
   float : left; display: block;
@@ -104,4 +100,12 @@ div.txtTemp2 span{
   font-size: 15px;
   margin-left: 20px;
   color: #808080;
+}
+//==============================
+//一般
+//==============================
+div.txtTemp2 span{
+  color: #666;
+  font-size: 15px;
+  line-height: 25px;
 }
