@@ -7,14 +7,14 @@
     <% if !@products.present? %>
       <span class="result-empty">まだ何もございません。</span>  
     <% else %>
-      <table border=0>
+      <table border=0 width="100%">
         <% @products.each do |product| %>
           <tr>
             <td>
               <%= render partial: 'products/product', locals: { product: product } %>
             </td>
             <% if same_developer?(product.developer.id) %>
-              <td width=50 valign=top align=right>
+              <td width="50px" valign=top align=right>
                 <%= link_to  dev_comment_path(product), 
                                       data: {trigger: "hover",
                                       placement: "top",
