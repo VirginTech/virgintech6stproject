@@ -54,18 +54,8 @@
     リプライ表示
     ===================-->
     <%# if comment.comment_replies.present? %>
-      <% comment.comment_replies.order(created_at: :desc).each.with_index(1) do |reply, index| %>
+      <% comment.comment_replies.order(created_at: :desc).each do |reply| %>
         <%= render partial: 'user_comments/comment_reply', locals: { reply: reply, comment: comment } %>
-        <% if index>=3 %>
-          <% if comment.comment_replies.count>index %>
-            <center>
-              <%= link_to comment_reply_path(comment) do %>
-                  すべての返信を見る(<%= comment.comment_replies.count %>件)
-              <% end %>
-            </center>
-          <% end %>
-          <% break %>
-        <% end %>
       <% end %>
     <%# end %>
     

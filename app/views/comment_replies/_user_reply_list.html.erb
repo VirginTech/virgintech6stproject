@@ -1,0 +1,13 @@
+<!--================
+コメント詳細リスト
+====================-->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title"><%=@comment.user.nickname %>さんのつぶやき詳細</h2>
+  </div>
+  <div class="panel-body comment-body-bg">
+
+    <%= render partial: 'comment_replies/reply_all', locals: { comment: @comment } %>
+
+  </div>
+</div>

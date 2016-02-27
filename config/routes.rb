@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   get 'user_comment_all', to: 'top_pages#user_comment_all'
   
   # コメントリプライ
-  resources :comment_replies, only: [:create, :destroy]
+  resources :comment_replies, only: [:show, :create, :destroy]
 
   # デヴェロッパーコメント
   resources :dev_comments, only: [:show, :create, :destroy, :edit, :update]
