@@ -170,7 +170,10 @@
       <h2 class="panel-title">アプリ詳細</h2>
     </div>
     <div class="panel-body">
-      <span class="app-description"><%= simple_format(@product.description) %></span>
+      <span class="app-description">
+        <%#= simple_format(@product.description) %>
+        <%= auto_link(simple_format(h(@product.description)), link = :urls, href_options = {:target => '_blank'})  %>
+      </span>
     </div>
   </div>
 
@@ -215,7 +218,10 @@
         <h2 class="panel-title">アップデート情報</h2>
       </div>
       <div class="panel-body">
-        <span class="app-description"><%= simple_format(@product.update_info) %></span>
+        <span class="app-description">
+          <%#= simple_format(@product.update_info) %>
+          <%= auto_link(simple_format(h(@product.update_info)), link = :urls, href_options = {:target => '_blank'})  %>
+        </span>
       </div>
     </div>
   <% end %>
@@ -229,7 +235,10 @@
         <h2 class="panel-title">動作環境や注意事項</h2>
       </div>
       <div class="panel-body">
-        <span class="app-description"><%= simple_format(@product.operating_notes) %></span>
+        <span class="app-description">
+          <%#= simple_format(@product.operating_notes) %>
+          <%= auto_link(simple_format(h(@product.operating_notes)), link = :urls, href_options = {:target => '_blank'})  %>
+        </span>
       </div>
     </div>
   <% end %>
@@ -243,7 +252,10 @@
         <h2 class="panel-title">基本的な遊び方</h2>
       </div>
       <div class="panel-body">
-        <span class="app-description"><%= simple_format(@product.how_to_play) %></span>
+        <span class="app-description">
+          <%#= simple_format(@product.how_to_play) %>
+          <%= auto_link(simple_format(h(@product.how_to_play)), link = :urls, href_options = {:target => '_blank'})  %>
+        </span>
       </div>
     </div>
   <% end %>
@@ -257,7 +269,10 @@
         <h2 class="panel-title">ゲームの特徴や攻略など</h2>
       </div>
       <div class="panel-body">
-        <span class="app-description"><%= simple_format(@product.features_cheats) %></span>
+        <span class="app-description">
+          <%#= simple_format(@product.features_cheats) %>
+          <%= auto_link(simple_format(h(@product.features_cheats)), link = :urls, href_options = {:target => '_blank'})  %>
+        </span>
       </div>
     </div>
   <% end %>
@@ -271,7 +286,10 @@
         <h2 class="panel-title">開発の経緯など</h2>
       </div>
       <div class="panel-body">
-        <span class="app-description"><%= simple_format(@product.history_of_develop) %></span>
+        <span class="app-description">
+          <%#= simple_format(@product.history_of_develop) %>
+          <%= auto_link(simple_format(h(@product.history_of_develop)), link = :urls, href_options = {:target => '_blank'})  %>
+        </span>
       </div>
     </div>
   <% end %>
@@ -285,7 +303,10 @@
         <h2 class="panel-title">ユーザーに一言</h2>
       </div>
       <div class="panel-body">
-        <span class="app-description"><%= simple_format(@product.word_to_user) %></span>
+        <span class="app-description">
+          <%#= simple_format(@product.word_to_user) %>
+          <%= auto_link(simple_format(h(@product.word_to_user)), link = :urls, href_options = {:target => '_blank'})  %>
+        </span>
       </div>
     </div>
   <% end %>
@@ -299,7 +320,10 @@
         <h2 class="panel-title">最後に一言</h2>
       </div>
       <div class="panel-body">
-        <span class="app-description"><%= simple_format(@product.finally_something) %></span>
+        <span class="app-description">
+          <%#= simple_format(@product.finally_something) %>
+          <%= auto_link(simple_format(h(@product.finally_something)), link = :urls, href_options = {:target => '_blank'})  %>
+        </span>
       </div>
     </div>
   <% end %>
