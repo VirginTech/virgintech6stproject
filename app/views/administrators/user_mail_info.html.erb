@@ -1,0 +1,23 @@
+<!--========================
+ボディ
+==========================-->
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <%=link_to "メニューへ", admin_menu_path %>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-6">
+  <div class="panel panel-info" style="margin-top:50px;">
+    <div class="panel-heading"><h2 class="panel-title">ユーザー通知メール</h2></div>
+    <div class="panel-body">
+      
+      <%= form_tag controller:"administrators", action:"user_mail_info_send" do %>
+        
+        <%= text_area_tag :mail_body, nil, :size=>"70x10", class: 'form-control' %>
+        <p></p>
+        <%= submit_tag "送信する", class: "btn btn-primary" %>
+        <p></p>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

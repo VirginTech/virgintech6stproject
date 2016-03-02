@@ -22,11 +22,11 @@
       <h2 class="panel-title glyphicon glyphicon-envelope">統計情報</h2>
     </div>
     <div class="panel-body">
-      ユーザー数: <%=User.count %><br />
-      デヴェロッパー数: <%=Developer.count %><br />
-      アプリ数: <%=Product.count %><br />
-      ユーザーコメント数: <%=UserComment.count %><br />
-      デヴェロッパーコメント数: <%=DevComment.count %><br />
+      ユーザー数: <%=User.count %><p></p>
+      デヴェロッパー数: <%=Developer.count %><p></p>
+      アプリ数: <%=Product.count %><p></p>
+      ユーザーコメント数: <%=UserComment.count %><p></p>
+      デヴェロッパーコメント数: <%=DevComment.count %><p></p>
     </div>
   </div>
   
@@ -35,7 +35,11 @@
       <h2 class="panel-title glyphicon glyphicon-envelope">管理者メニュー</h2>
     </div>
     <div class="panel-body">
-      <%=link_to "メール一斉送信(おすすめアプリ)", admin_mail_info_path %>
+      <%=link_to "ユーザー通知 - メール送信", user_mail_info_path %>
+      <p></p>
+      <%=link_to "デベロッパー通知 - メール送信", dev_mail_info_path %>
+      <p></p>
+      <%=link_to "おすすめアプリ - メール送信", product_mail_info_path %>
       <p></p>
       <%=link_to "ログアウト", administrator_path(Rails.application.secrets.admin_account_secret), method: "delete" %>
     </div>

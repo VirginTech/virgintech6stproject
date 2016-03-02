@@ -1,9 +1,51 @@
 class AdministratorsController < ApplicationController
   
-  before_action :logged_in_admin, only: [:admin_menu, :admin_mail_info]
-  
+  before_action :logged_in_admin, only: [:admin_menu, :product_mail_info, :dev_mail_info, :user_mail_info]
+
+  #=========================
+  # ユーザー通知
+  #=========================
+  def user_mail_info
+  end
+
+  def user_mail_info_send
+    users=User.all
+    mail_body=params[:mail_body]
+    users.each do |user|
+      if user.email?
+        AdminMailer.user_mail_info(user,mail_body).deliver
+      end
+    end
+    flash[:success] = "ユーザー通知メールを一斉送信しました。"
+    redirect_to admin_menu_path
+  end
+
+  #=========================
+  # デベロッパー通知
+  #=========================
+  def dev_mail_info
+  end
+
+  def dev_mail_info_send
+    developers=Developer.all
+    mail_body=params[:mail_body]
+    developers.each do |developer|
+      if developer.email?
+        AdminMailer.dev_mail_info(developer,mail_body).deliver
+      end
+    end
+    flash[:success] = "デベロッパー通知メールを一斉送信しました。"
+    redirect_to admin_menu_path
+  end
+
+  #=========================
+  # おすすめアプリ通知
+  #=========================
   def product_mail_info
-    @user=User.all
+  end
+  
+  def product_mail_info_send
+    users=User.all
 
     products=Array.new
     product=nil;
@@ -14,18 +56,21 @@ class AdministratorsController < ApplicationController
     products.push product if product=Product.find_by_id(params[:app_05])
     
     #binding.pry
-    @user.each do |user|
+    users.each do |user|
       if user.product_mail_info
         if user.email?
           AdminMailer.product_mail_info(user,products).deliver
         end
       end
     end
-    flash[:success] = "メールを一斉送信しました。"
+    flash[:success] = "おすすめメールを一斉送信しました。"
     redirect_to admin_menu_path
   end
   
-  def admin_mail_info
+  #=========================
+  # 管理画面トップメニュー
+  #=========================
+  def admin_menu
   end
   
   def admin_top
@@ -34,9 +79,6 @@ class AdministratorsController < ApplicationController
       flash[:danger] ="URLが適切ではありません。"
       redirect_to root_path
     end
-  end
-  
-  def admin_menu
   end
   
   def create
