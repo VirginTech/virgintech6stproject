@@ -48,17 +48,17 @@
       <% if @product.sale_date <= Date.today %> <!--リリースされていれば-->
         <!--ストアURL-->
         <% if @product.model_web %>
-          <%= link_to @product.store_webgame_url do %>
+          <%= link_to @product.store_webgame_url, target:"_blank" do %>
             <%= image_tag 'gamesite.png', class:"app-store" %>
           <% end %>
         <% end %>
         <% if @product.model_android %>
-          <%= link_to @product.store_android_url do %>
+          <%= link_to @product.store_android_url, target:"_blank" do %>
             <%= image_tag 'googleplay.png', class:"app-store" %>
           <% end %>
         <% end %>
         <% if @product.model_iphone %>
-          <%= link_to @product.store_iphone_url do %>
+          <%= link_to @product.store_iphone_url, target:"_blank" do %>
             <%= image_tag 'appstore.png', class:"app-store" %>
           <% end %>
         <% end %>
