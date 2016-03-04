@@ -1,0 +1,47 @@
+<!--========================
+ボディ
+==========================-->
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <%=link_to "メニューへ", admin_menu_path %>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-6">
+
+  <div class="panel panel-info" style="margin-top:50px;">
+    <div class="panel-heading"><h2 class="panel-title">お知らせ - 編集</h2></div>
+    <div class="panel-body">
+      
+      <%= form_for(@admin_notice, :url => {:controller => :administrators, :action => :admin_notice_update}) do |f| %>
+        <%= f.hidden_field :notice_id, :value => @admin_notice.id %>
+        <%= f.date_select :release_date,{
+          use_month_numbers: true, # jan, febとかじゃなくて数字で月を表現
+          start_year: (Time.now.year-5), # 何年から表示させるか
+          end_year: (Time.now.year+2), # 何年まで表示させるか
+          default: Date.new(Time.now.year, Time.now.month, Time.now.day) } #, 最初に表示されている年月日
+          # class: 'form-control'
+        %>
+        <p></p>
+        <%= f.text_field :subject, class: 'form-control' %>
+        <p></p>
+        <%= f.text_area :notice_body, :size=>"70x10", class: 'form-control' %>
+        <p></p>
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+  
+  <div class="panel panel-info" style="margin-top:50px;">
+    <div class="panel-heading"><h2 class="panel-title">お知らせ - 一覧</h2></div>
+    <div class="panel-body">
+      
+      <% @notices.each do |notice| %>
+        <%=link_to admin_notice_edit_path(notice_id: notice.id) do %>
+          <%=notice.subject %>
+        <% end %>
+        <p></p>
+      <% end %>
+      
+    </div>  
+  </div>
+  
+</div>

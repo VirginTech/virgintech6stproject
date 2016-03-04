@@ -1,7 +1,43 @@
 class AdministratorsController < ApplicationController
   
-  before_action :logged_in_admin, only: [:admin_menu, :product_mail_info, :dev_mail_info, :user_mail_info]
-
+  before_action :logged_in_admin, only: [:admin_menu, :product_mail_info, :dev_mail_info, 
+                                      :user_mail_info, :admin_notice_new, :admin_notice_edit]
+  
+  #=========================
+  # お知らせ
+  #=========================
+  def admin_notice_new
+    @notices=AdminNotice.all.order(created_at: :desc)
+    @admin_notice=AdminNotice.new
+  end
+  
+  def admin_notice_save
+    @admin_notice=AdminNotice.new(notice_params)
+    if @admin_notice.save
+      flash[:success] = "お知らせを登録しました"
+      redirect_to admin_menu_path
+    else
+      flash[:danger] = "お知らせを登録に失敗しました"
+      redirect_to admin_menu_path
+    end
+  end
+  
+  def admin_notice_edit
+    @notices=AdminNotice.all.order(created_at: :desc)
+    @admin_notice=AdminNotice.find(params[:notice_id])
+  end
+  
+  def admin_notice_update
+    @admin_notice=AdminNotice.find(params[:admin_notice][:notice_id])
+    if @admin_notice.update(notice_params)
+      flash[:success] = "お知らせを編集しました"
+      redirect_to admin_menu_path
+    else
+      flash[:danger] = "お知らせを編集に失敗しました"
+      redirect_to admin_menu_path
+    end
+  end
+  
   #=========================
   # ユーザー通知
   #=========================
@@ -107,6 +143,10 @@ class AdministratorsController < ApplicationController
       flash[:danger] = "管理者ではありません。"
       return redirect_to root_path
     end
+  end
+  
+  def notice_params
+    params.require(:admin_notice).permit(:release_date, :subject, :notice_body)
   end
   
 end

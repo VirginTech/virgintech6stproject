@@ -36,106 +36,28 @@
     
     <div class="col-xs-12 col-sm-8 col-md-6">
       
-      <% if Date.today>=Date.new(2016,4,1) %>
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h2 class="panel-title">
-              お知らせ - 2016/04/01: 本日オープン！
-            </h2>
-          </div>
-          <div class="panel-body">
-            <div class="txtTempSet txtTemp2 clearfix">
-              <div class="fL">
-                <span>
-                　合同会社ヴァージンテックは、本日４月１日から『ゲームニスト』をオープンいたしました。
-                <p></p>
-                「ゲームニスト」はゲームアプリ専門のソーシャルレビュー＆コミュニケーションサービスです。
-                ゲームデベロッパーの皆さんはご自身が作ったゲームアプリを登録して多くの人に見てもらい、 
-                それを見てダウンロードしたユーザーはゲームプレイした感想などをつぶやき形式で投稿する事が
-                できます。
-                <p></p>
-                　運営スタッフ一同、たくさんのゲームアプリとつぶやきをお待ちしております！
-                </span>
+      <% @notices.each do |notice| %>
+        <% if Date.today>=notice.release_date %>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h2 class="panel-title">
+                <%=notice.subject %>
+              </h2>
+            </div>
+            <div class="panel-body">
+              <div class="txtTempSet txtTemp2 clearfix">
+                <div class="fL">
+                  <span>
+                    <%#=simple_format(h(notice.notice_body)) %>
+                    <%= auto_link(simple_format(notice.notice_body), link = :urls, href_options = {:target => '_blank'})  %>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
-      <% if Date.today>=Date.new(2016,3,10) %>
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h2 class="panel-title">
-              お知らせ - 2016/03/10: 本日からプレオープン開始！
-            </h2>
-          </div>
-          <div class="panel-body">
-            <div class="txtTempSet txtTemp2 clearfix">
-              <div class="fL">
-                <span>
-                　平素から格別の御愛顧誠にありがとうございます。
-                <p></p>
-                　本日予定通り、3月１0日から３月３１日までの間、『ゲームニスト』のプレオープンを開始いたしました。
-                <p></p>
-                　新規ユーザー様におかれましては、当サービスにおける、全機能のご利用が可能となっておりますので、
-                この機会にぜひお試しください！
-                <p></p>
-                　ご利用に関しまして不明な点などありましたら、こちら「<i><%= link_to 'お問い合わせ', contact_path %></i>」よりお気軽にご連絡ください。
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h2 class="panel-title">
-            お知らせ - 2016/03/03:【デベロッパー各位様】プレオープン予定につきまして
-          </h2>
-        </div>
-        <div class="panel-body">
-          <div class="txtTempSet txtTemp2 clearfix">
-            <div class="fL">
-              <span>
-              　４月１日のオープンに先立ちまして、３月１０日よりプレオープンを開始いたします。
-              プレオープンの目的は、リリースバージョンにおける最終確認及び最終調整でございます。
-              これに伴いまして、若干名のユーザー様からのアクティビティがございますことを、
-              あらかじめご了承ください。
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h2 class="panel-title">
-            お知らせ - 2016/02/22: デベロッパー向け先行リリース開始！
-          </h2>
-        </div>
-        <div class="panel-body">
-          <div class="txtTempSet txtTemp2 clearfix">
-            <div class="fL">
-              <span>
-              　合同会社ヴァージンテックは、ゲームのソーシャルレビュー＆コミュニケーションサービス
-              『ゲームニスト』を、４月１日よりオープンいたします。
-              これに先立ちまして、本日２月２２日よりデベロッパー向け先行リリースを開始いたしました。
-              <p></p>
-              　アプリ登録は無料です。多数のゲームデベロッパー皆様方のご参加をお待ちしております！
-              <p></p>
-              　なお、４月の本格オープンからは宣伝やプロモーションにも力を入れていく予定でございますので、
-              微力ながらもゲームアプリの認知度向上及びダウンロード促進に貢献させていただきたいと
-              思っております。
-              <p></p>
-              　まだまだ稚拙で未熟なサービスではありますが、今後、より良いサービスに発展させて行く予定で
-              ございますので、ゲームデベロッパー皆様方のアプリ登録を心よりお待ちしております。
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
     </div>
 
     <div class="col-xs-12 col-sm-2 col-md-3"></div>

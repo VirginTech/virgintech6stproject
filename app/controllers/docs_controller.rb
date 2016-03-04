@@ -55,6 +55,7 @@ class DocsController < ApplicationController
   end
   
   def notice
+    @notices=AdminNotice.all.order(created_at: :desc)
   end
   
 end

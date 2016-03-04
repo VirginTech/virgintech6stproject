@@ -83,16 +83,28 @@ Rails.application.routes.draw do
   # 通知
   post 'notification', to: 'docs#notification'
   
+  #===============
   #管理画面
+  #===============
+  #ログイン画面
   get 'admin_top/:uuid', to: "administrators#admin_top"
   resources :administrators, only: [:create, :destroy]
+  #メニュー
   get 'admin_menu', to: "administrators#admin_menu"
+  #おすすめアプリ
   get 'product_mail_info', to: "administrators#product_mail_info"
   post 'product_mail_info', to: "administrators#product_mail_info_send"
+  #デベロッパーメール通知
   get 'dev_mail_info', to: "administrators#dev_mail_info"
   post 'dev_mail_info_send', to: "administrators#dev_mail_info_send"
+  #ユーザーメール通知
   get 'user_mail_info', to: "administrators#user_mail_info"
   post 'user_mail_info_send', to: "administrators#user_mail_info_send"
+  #お知らせ
+  get 'admin_notice_new', to: "administrators#admin_notice_new"
+  post 'admin_notice_save', to: "administrators#admin_notice_save"
+  get 'admin_notice_edit', to: "administrators#admin_notice_edit"
+  patch 'admin_notice_update', to: "administrators#admin_notice_update"
   
   #エラーページ
   get '*path', to: 'errors#render_404'
