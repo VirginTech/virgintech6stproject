@@ -40,21 +40,73 @@
         <div class="panel panel-info">
           <div class="panel-heading">
             <h2 class="panel-title">
-              お知らせ - 2016/04/01: 本日オープンしました！
+              お知らせ - 2016/04/01: 本日オープン！
             </h2>
           </div>
           <div class="panel-body">
             <div class="txtTempSet txtTemp2 clearfix">
               <div class="fL">
                 <span>
-                　本日４月１日、ゲームアプリのソーシャルレビュー＆コミュニケーションサービス
-                『ゲーム☆ニスト』が全面オープンしました！！
+                　合同会社ヴァージンテックは、本日４月１日から『ゲームニスト』をオープンいたしました。
+                <p></p>
+                「ゲームニスト」はゲームアプリ専門のソーシャルレビュー＆コミュニケーションサービスです。
+                ゲームデベロッパーの皆さんはご自身が作ったゲームアプリを登録して多くの人に見てもらい、 
+                それを見てダウンロードしたユーザーはゲームプレイした感想などをつぶやき形式で投稿する事が
+                できます。
+                <p></p>
+                　運営スタッフ一同、たくさんのゲームアプリとつぶやきをお待ちしております！
                 </span>
               </div>
             </div>
           </div>
         </div>
       <% end %>
+
+      <% if Date.today>=Date.new(2016,3,10) %>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h2 class="panel-title">
+              お知らせ - 2016/03/10: 本日からプレオープン開始！
+            </h2>
+          </div>
+          <div class="panel-body">
+            <div class="txtTempSet txtTemp2 clearfix">
+              <div class="fL">
+                <span>
+                　平素から格別の御愛顧誠にありがとうございます。
+                <p></p>
+                　本日予定通り、3月１0日から３月３１日までの間、『ゲームニスト』のプレオープンを開始いたしました。
+                <p></p>
+                　新規ユーザー様におかれましては、当サービスにおける、全機能のご利用が可能となっておりますので、
+                この機会にぜひお試しください！
+                <p></p>
+                　ご利用に関しまして不明な点などありましたら、こちら「<i><%= link_to 'お問い合わせ', contact_path %></i>」よりお気軽にご連絡ください。
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            お知らせ - 2016/03/03:【デベロッパー各位様】プレオープン予定につきまして
+          </h2>
+        </div>
+        <div class="panel-body">
+          <div class="txtTempSet txtTemp2 clearfix">
+            <div class="fL">
+              <span>
+              　４月１日のオープンに先立ちまして、３月１０日よりプレオープンを開始いたします。
+              プレオープンの目的は、リリースバージョンにおける最終確認及び最終調整でございます。
+              これに伴いまして、若干名のユーザー様からのアクティビティがございますことを、
+              あらかじめご了承ください。
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="panel panel-info">
         <div class="panel-heading">
