@@ -1,7 +1,44 @@
 class AdministratorsController < ApplicationController
   
   before_action :logged_in_admin, only: [:admin_menu, :product_mail_info, :dev_mail_info, 
-                                      :user_mail_info, :admin_notice_new, :admin_notice_edit]
+                                      :user_mail_info, :admin_notice_new, :admin_notice_edit,
+                                      :admin_user_login, :admin_dev_login]
+  
+  #=========================
+  # デベロッパーログイン
+  #=========================
+  def admin_dev_login
+  end
+  
+  def admin_dev_create
+    @developer = Developer.find_by(name: params[:dev_session][:name])
+    if @developer
+      session[:developer_id] = @developer.id
+      flash[:success] = "デベロッパー「#{@developer.name}」のログインに成功しました。"
+      redirect_to root_path
+    else
+      flash[:danger] = "デベロッパーログインに失敗しました。"
+      redirect_to admin_menu_path
+    end
+  end
+
+  #=========================
+  # ユーザーログイン
+  #=========================
+  def admin_user_login
+  end
+  
+  def admin_user_create
+    @user = User.find_by(nickname: params[:user_session][:nickname])
+    if @user
+      session[:user_id] = @user.id
+      flash[:success] = "ユーザー「#{@user.nickname}」のログインに成功しました。"
+      redirect_to root_path
+    else
+      flash[:danger] = "ユーザーログインに失敗しました。"
+      redirect_to admin_menu_path
+    end
+  end
   
   #=========================
   # お知らせ
@@ -111,7 +148,11 @@ class AdministratorsController < ApplicationController
   
   def admin_top
     uuid=params[:uuid]
-    unless uuid==Rails.application.secrets.admin_page_uuid
+    if uuid==Rails.application.secrets.admin_page_uuid
+      if session[:admin_id]
+        redirect_to admin_menu_path
+      end
+    else
       flash[:danger] ="URLが適切ではありません。"
       redirect_to root_path
     end
@@ -131,7 +172,7 @@ class AdministratorsController < ApplicationController
   
   def destroy
     session[:admin_id] = nil
-    flash[:danger] = "ログアウトしました。"
+    flash[:danger] = "管理者ログアウトしました。"
     redirect_to root_path
   end
   

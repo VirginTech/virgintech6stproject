@@ -105,6 +105,12 @@ Rails.application.routes.draw do
   post 'admin_notice_save', to: "administrators#admin_notice_save"
   get 'admin_notice_edit', to: "administrators#admin_notice_edit"
   patch 'admin_notice_update', to: "administrators#admin_notice_update"
+  #ユーザーログイン
+  get 'admin_user_login', to: "administrators#admin_user_login"
+  post 'admin_user_create', to: "administrators#admin_user_create"
+  #デベロッパーログイン
+  get 'admin_dev_login', to: "administrators#admin_dev_login"
+  post 'admin_dev_create', to: "administrators#admin_dev_create"
   
   #エラーページ
   get '*path', to: 'errors#render_404'

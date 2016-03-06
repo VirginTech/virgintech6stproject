@@ -1,0 +1,23 @@
+<!--========================
+ボディ
+==========================-->
+<div class="col-xs-12 col-sm-4 col-md-3">
+  <%=link_to "メニューへ", admin_menu_path %>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-6">
+
+  <div class="panel panel-info" style="margin-top:50px;">
+    <div class="panel-heading"><h2 class="panel-title">デベロッパー - ログイン</h2></div>
+    <div class="panel-body">
+
+      <%= form_for(:dev_session, :url => {:controller => :administrators, :action => :admin_dev_create}) do |f| %>
+        <%= f.label :name,"デベロッパーネーム" %>
+        <%= f.text_field :name, class: 'form-control', autofocus: true %>
+        <p></p>
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+  
+</div>

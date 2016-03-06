@@ -35,6 +35,10 @@
       <h2 class="panel-title glyphicon glyphicon-envelope">管理者メニュー</h2>
     </div>
     <div class="panel-body">
+      <%=link_to "デベロッパーログイン", admin_dev_login_path %>
+      <p></p>
+      <%=link_to "ユーザーログイン", admin_user_login_path %>
+      <p></p>
       <%=link_to "お知らせ", admin_notice_new_path %>
       <p></p>
       <%=link_to "ユーザー通知 - メール送信", user_mail_info_path %>
