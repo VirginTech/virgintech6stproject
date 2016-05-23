@@ -11,6 +11,20 @@
   }
 }
 /*==========================================
+ SNSシェアボタン
+===========================================*/
+.sns-share-btn{
+  .twitter,.facebook,.google-plus,.pocket,.hatena{
+    display: inline-block;
+    vertical-align: top;
+  }
+  .facebook {
+    width: 69px;
+    overflow: hidden;
+  }
+}
+
+/*==========================================
  共通のスタイル
 ===========================================*/
 aside.product-show-left{
